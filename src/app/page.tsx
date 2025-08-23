@@ -1,103 +1,203 @@
-import Image from "next/image";
+// src/app/page.tsx
+import Image from "next/image"
+import Link from "next/link"
+import { SITE } from "@/data/site.config"
 
-export default function Home() {
+type TileProps = {
+  title: string
+  subtitle?: string
+  href: string
+  imgSrc?: string
+  imgAlt?: string
+}
+
+function ProductTile({ title, subtitle, href, imgSrc, imgAlt }: TileProps) {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <Link
+      href={href}
+      className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:shadow-md"
+    >
+      <div className="relative aspect-[16/9] w-full bg-zinc-100">
+        {/* Platzhalterbild – kann später durch echtes Bild ersetzt werden */}
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+          src={imgSrc || "/placeholder.svg"}
+          alt={imgAlt || title}
+          fill
+          className="object-cover transition group-hover:scale-105"
+          sizes="(min-width: 1024px) 25vw, 50vw"
+          priority={false}
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </div>
+      <div className="p-5">
+        <h3 className="text-lg font-semibold text-zinc-900">{title}</h3>
+        {subtitle && (
+          <p className="mt-1 text-sm text-zinc-600">{subtitle}</p>
+        )}
+        <div className="mt-3 inline-flex items-center text-sm font-medium text-green-600">
+          Mehr erfahren
+          <svg
+            className="ml-1 h-4 w-4 transition group-hover:translate-x-0.5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <path d="M12.293 4.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 11-1.414-1.414L14.586 10H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" />
+          </svg>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </div>
+    </Link>
+  )
+}
+
+export default function HomePage() {
+  return (
+    <>
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-zinc-50">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-14 md:grid-cols-2 md:py-20">
+          <div className="flex flex-col justify-center">
+            <span className="mb-3 inline-flex items-center rounded-full border border-green-200 bg-green-50 px-3 py-1 text-xs font-medium text-green-700">
+              Beratung · Aufmaß · Montage · Service
+            </span>
+            <h1 className="text-3xl font-bold leading-tight text-zinc-900 md:text-5xl">
+              Fenster, Haustüren, Sonnenschutz & Garagentore
+            </h1>
+            <p className="mt-4 text-zinc-600 md:text-lg">
+              {SITE.brand} – Ihr Fachpartner für{" "}
+              <strong>Schüco</strong> Fenster (Aluminium & Kunststoff),{" "}
+              <strong>Inotherm</strong> Haustüren,{" "}
+              <strong>ROMA</strong> Rollladen & Raffstoren sowie{" "}
+              <strong>WIŚNIOWSKI</strong> Sektionaltore. Effizient, sicher, ästhetisch.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700"
+              >
+                Angebot anfordern
+              </Link>
+              <a
+                href={`tel:${SITE.phone}`}
+                className="inline-flex items-center rounded-xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-100"
+              >
+                Jetzt anrufen
+              </a>
+            </div>
+            <p className="mt-3 text-sm text-zinc-500">
+              {SITE.address.city} · {SITE.serviceArea}
+            </p>
+          </div>
+
+          <div className="relative">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 shadow-sm">
+              <Image
+                src="/placeholder.svg"
+                alt="Modernes Fenster & Haustür – Visual"
+                fill
+                className="object-cover"
+                priority
+                sizes="(min-width: 1024px) 40vw, 90vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PRODUKT-KACHELN */}
+      <section className="mx-auto max-w-7xl px-4 py-12 md:py-16">
+        <div className="mb-6 flex items-end justify-between">
+          <h2 className="text-2xl font-bold text-zinc-900 md:text-3xl">
+            Unsere Produkte
+          </h2>
+          <Link
+            href="/produkte"
+            className="text-sm font-medium text-green-600 hover:underline"
+          >
+            Alle Produkte
+          </Link>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <ProductTile
+            title="Schüco Fenster – Aluminium"
+            subtitle="Stabilität, schmale Ansichten, Top-Wärmedämmung"
+            href="/produkte/fenster/aluminium"
+            imgAlt="Schüco Aluminium-Fenster"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <ProductTile
+            title="Schüco Fenster – Kunststoff"
+            subtitle="82 mm, 7-Kammer, starke Dämmung & Preis-Leistung"
+            href="/produkte/fenster/kunststoff"
+            imgAlt="Schüco Kunststoff-Fenster"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <ProductTile
+            title="Inotherm Haustüren"
+            subtitle="Aluminium-Design, Sicherheit & INOSMART"
+            href="/produkte/haustueren"
+            imgAlt="Inotherm Haustür"
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+          <ProductTile
+            title="ROMA Rollladen & Raffstoren"
+            subtitle="Sicht- & Sonnenschutz, Smart-Home ready"
+            href="/produkte/sonnenschutz"
+            imgAlt="ROMA Rollladen und Raffstoren"
+          />
+        </div>
+      </section>
+
+      {/* WARUM WIR */}
+      <section className="border-y border-zinc-200 bg-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-12 md:grid-cols-3 md:py-16">
+          <div className="rounded-2xl bg-zinc-50 p-6">
+            <h3 className="text-lg font-semibold text-zinc-900">Fachpartner</h3>
+            <p className="mt-2 text-sm text-zinc-600">
+              Herstellerkompetenz: Schüco, Inotherm, ROMA & WIŚNIOWSKI – Beratung auf Augenhöhe.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-zinc-50 p-6">
+            <h3 className="text-lg font-semibold text-zinc-900">Montage nach Stand der Technik</h3>
+            <p className="mt-2 text-sm text-zinc-600">
+              Sorgfältiger Bauanschluss (z. B. RAL-Richtlinien), Dichtigkeit, Funktionssicherheit.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-zinc-50 p-6">
+            <h3 className="text-lg font-semibold text-zinc-900">Energie & Sicherheit</h3>
+            <p className="mt-2 text-sm text-zinc-600">
+              Wärmedämmung, Schallschutz, RC-Sicherheitsoptionen & Smart-Home-Nachrüstung.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA-BANNER */}
+      <section className="bg-gradient-to-b from-zinc-50 to-white">
+        <div className="mx-auto max-w-7xl px-4 py-12 md:py-16">
+          <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm md:flex-row md:items-center md:p-8">
+            <div>
+              <h3 className="text-xl font-semibold text-zinc-900">
+                Starten wir Ihr Projekt
+              </h3>
+              <p className="mt-1 text-sm text-zinc-600">
+                Kostenlose Erstberatung · Schnelles Angebot · Termine nach Absprache
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700"
+              >
+                Termin anfragen
+              </Link>
+              <a
+                href={`tel:${SITE.phone}`}
+                className="inline-flex items-center rounded-xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-100"
+              >
+                Telefon {SITE.phone}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  )
 }

@@ -1,0 +1,169 @@
+// src/app/produkte/sonnenschutz/page.tsx
+import Link from "next/link"
+import Image from "next/image"
+
+type Tile = {
+  title: string
+  href: string
+  imgAlt: string
+  imgSrc: string
+  desc: string
+}
+
+const tiles: Tile[] = [
+  {
+    title: "Rollladen",
+    href: "/produkte/sonnenschutz/rollladen",
+    imgAlt: "ROMA Rollladen",
+    imgSrc: "/placeholder.svg", // später ersetzen: /images/sonnenschutz-rollladen.jpg
+    desc: "Wärmeschutz, Sicherheit, Verdunkelung & Smart-Home.",
+  },
+  {
+    title: "Raffstoren",
+    href: "/produkte/sonnenschutz/raffstoren",
+    imgAlt: "ROMA Raffstoren",
+    imgSrc: "/placeholder.svg", // später ersetzen: /images/sonnenschutz-raffstoren.jpg
+    desc: "Tageslichtlenkung, Sichtschutz & moderne Fassadenoptik.",
+  },
+  {
+    title: "Textilscreens",
+    href: "/produkte/sonnenschutz/textilscreens",
+    imgAlt: "ROMA Textilscreens",
+    imgSrc: "/placeholder.svg", // später ersetzen: /images/sonnenschutz-textilscreens.jpg
+    desc: "Effektiver Hitzeschutz mit transparenten Stoffen.",
+  },
+]
+
+export default function SonnenschutzOverviewPage() {
+  return (
+    <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
+      {/* Breadcrumb */}
+      <nav className="mb-6 text-sm text-zinc-500" aria-label="Breadcrumb">
+        <ol className="flex items-center gap-2">
+          <li><Link href="/" className="hover:underline">Start</Link></li>
+          <li aria-hidden> / </li>
+          <li><Link href="/produkte" className="hover:underline">Produkte</Link></li>
+          <li aria-hidden> / </li>
+          <li className="text-zinc-700">Sonnenschutz</li>
+        </ol>
+      </nav>
+
+      {/* Hero */}
+      <header className="mb-10 grid gap-6 md:grid-cols-2">
+        <div>
+          <h1 className="text-3xl font-bold text-brand md:text-4xl">
+            Sonnenschutz von ROMA
+          </h1>
+          <p className="mt-4 text-zinc-600">
+            Außenliegender Sonnenschutz steigert Komfort, Effizienz und Wert Ihrer
+            Immobilie. Wählen Sie zwischen Rollladen, Raffstoren und Textilscreens –
+            jeweils in vielfältigen Designs, mit smarter Steuerung und optimaler
+            Integration in Neubau oder Sanierung.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              href="/kontakt"
+              className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            >
+              Beratung anfragen
+            </Link>
+            <Link
+              href="/produkte/sonnenschutz/rollladen"
+              className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+            >
+              Zu Rollladen
+            </Link>
+          </div>
+        </div>
+        <div className="relative h-64 w-full overflow-hidden rounded-2xl border border-zinc-200 bg-brand-light md:h-auto">
+          <Image
+            src="/placeholder.svg" // später ersetzen: /images/sonnenschutz-hero.jpg
+            alt="Moderner außenliegender Sonnenschutz an der Fassade"
+            fill
+            className="object-cover"
+            priority={false}
+          />
+        </div>
+      </header>
+
+      {/* Drei große Bereiche */}
+      <section className="mb-12">
+        <div className="grid gap-6 md:grid-cols-3">
+          {tiles.map((t) => (
+            <Link
+              key={t.title}
+              href={t.href}
+              className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:shadow-md"
+            >
+              <div className="relative aspect-[16/10] w-full bg-brand-light">
+                <Image
+                  src={t.imgSrc}
+                  alt={t.imgAlt}
+                  fill
+                  className="object-cover transition group-hover:scale-105"
+                  sizes="(min-width: 1024px) 33vw, 90vw"
+                />
+              </div>
+              <div className="p-5">
+                <h2 className="text-lg font-semibold text-brand">{t.title}</h2>
+                <p className="mt-1 text-sm text-zinc-700">{t.desc}</p>
+                <span className="mt-3 inline-flex items-center text-sm font-semibold text-brand">
+                  Mehr erfahren
+                  <svg className="ml-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path d="M12.293 4.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 11-1.414-1.414L14.586 10H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/>
+                  </svg>
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Kurzinfo/Teaser-Bereich darunter */}
+      <section className="rounded-2xl border border-zinc-200 bg-white p-8">
+        <h2 className="text-xl font-semibold text-brand">Warum außenliegender Sonnenschutz?</h2>
+        <div className="mt-3 grid gap-4 text-sm text-zinc-700 md:grid-cols-3">
+          <div className="rounded-lg bg-brand-light p-4">
+            <div className="font-semibold text-brand">Energieeffizienz</div>
+            <p className="mt-1">
+              Reduziert Heiz- und Kühlbedarf – messbar bessere Dämmwerte und Raumklima.
+            </p>
+          </div>
+          <div className="rounded-lg bg-brand-light p-4">
+            <div className="font-semibold text-brand">Komfort & Steuerung</div>
+            <p className="mt-1">
+              Manuell, Funk, App oder Automatik per Sonnen-/Windsensor – jederzeit optimale Bedingungen.
+            </p>
+          </div>
+          <div className="rounded-lg bg-brand-light p-4">
+            <div className="font-semibold text-brand">Design-Integration</div>
+            <p className="mt-1">
+              Kastenformen, Farben und Lamellenvarianten passend zur Architektur – dezent bis markant.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link
+            href="/produkte/sonnenschutz/rollladen"
+            className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+          >
+            Rollladen ansehen
+          </Link>
+          <Link
+            href="/produkte/sonnenschutz/raffstoren"
+            className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+          >
+            Raffstoren ansehen
+          </Link>
+          <Link
+            href="/produkte/sonnenschutz/textilscreens"
+            className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+          >
+            Textilscreens ansehen
+          </Link>
+        </div>
+      </section>
+    </div>
+  )
+}
