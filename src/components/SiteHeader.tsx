@@ -105,9 +105,9 @@ export function SiteHeader() {
           <Image
             src="/branding/logo-light.svg"
             alt={`${SITE.brand} – Logo`}
-            width={140}
-            height={28}
-            className="h-7 w-auto md:h-8"
+            width={280}
+            height={56}
+            className="h-14 w-auto md:h-16"
             priority
           />
         </Link>
