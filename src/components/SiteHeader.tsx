@@ -1,25 +1,26 @@
 // src/components/SiteHeader.tsx
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 import { SITE } from "@/data/site.config"
 
 type Item = { label: string; href: string; desc?: string }
-type Group = { title: string; items: Item[] }
+type Group = { title: string; overview: string; items: Item[] }
 
 const PRODUCTS: Group[] = [
   {
     title: "Fenster",
+    overview: "/produkte/fenster",
     items: [
-      { label: "Übersicht", href: "/produkte/fenster" },
       { label: "Aluminium", href: "/produkte/fenster/aluminium" },
       { label: "Kunststoff", href: "/produkte/fenster/kunststoff" },
       { label: "LivIng 82 AS", href: "/produkte/fenster/kunststoff/living-82-as" },
       { label: "LivIng 82 MD", href: "/produkte/fenster/kunststoff/living-82-md" },
       { label: "Beschlag & Sicherheit", href: "/produkte/fenster/beschlag-sicherheit" },
-      { label: "Verglasung (Übersicht)", href: "/produkte/fenster/verglasung" },
+      { label: "Verglasung – Übersicht", href: "/produkte/fenster/verglasung" },
       { label: "– Wärmeschutz", href: "/produkte/fenster/verglasung/waermeschutz" },
       { label: "– Schallschutz", href: "/produkte/fenster/verglasung/schallschutz" },
       { label: "– Sicherheitsglas", href: "/produkte/fenster/verglasung/sicherheitsglas" },
@@ -27,12 +28,12 @@ const PRODUCTS: Group[] = [
   },
   {
     title: "Sonnenschutz",
+    overview: "/produkte/sonnenschutz",
     items: [
-      { label: "Übersicht", href: "/produkte/sonnenschutz" },
-      { label: "Rollladen (Übersicht)", href: "/produkte/sonnenschutz/rollladen" },
+      { label: "Rollladen – Übersicht", href: "/produkte/sonnenschutz/rollladen" },
       { label: "– Aufsatzrollladen", href: "/produkte/sonnenschutz/rollladen/aufsatz" },
       { label: "– Vorbaurollladen", href: "/produkte/sonnenschutz/rollladen/vorbau" },
-      { label: "Raffstoren (Übersicht)", href: "/produkte/sonnenschutz/raffstoren" },
+      { label: "Raffstoren – Übersicht", href: "/produkte/sonnenschutz/raffstoren" },
       { label: "– Lamellen-Details", href: "/produkte/sonnenschutz/raffstoren/lamellen" },
       { label: "– Aufsatzraffstoren", href: "/produkte/sonnenschutz/raffstoren/aufsatz" },
       { label: "– Vorbauraffstoren", href: "/produkte/sonnenschutz/raffstoren/vorbau" },
@@ -40,8 +41,8 @@ const PRODUCTS: Group[] = [
   },
   {
     title: "Haustüren",
+    overview: "/produkte/haustueren",
     items: [
-      { label: "Übersicht", href: "/produkte/haustueren" },
       { label: "InoSmart", href: "/produkte/haustueren/inosmart" },
       { label: "Griffe", href: "/produkte/haustueren/griffe" },
       { label: "Sicherheit & Schlösser", href: "/produkte/haustueren/sicherheit-und-schliessung" },
@@ -50,11 +51,14 @@ const PRODUCTS: Group[] = [
   },
   {
     title: "Garagentore",
-    items: [{ label: "Sektionaltore", href: "/produkte/garagentore/sektionaltore" }],
+    overview: "/produkte/garagentore/sektionaltore",
+    items: [
+      { label: "Sektionaltore", href: "/produkte/garagentore/sektionaltore" },
+    ],
   },
 ]
 
-// nur die notwendigen Top-Links
+// Top-Links
 const TOP_NAV = [
   { label: "Einzugsgebiet", href: "/einzugsgebiet" },
   { label: "Kontakt", href: "/kontakt" },
@@ -73,7 +77,12 @@ export function SiteHeader() {
   const btnRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    function onKey(e: KeyboardEvent) { if (e.key === "Escape") setProductsOpen(false) }
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setProductsOpen(false)
+        setMobileOpen(false)
+      }
+    }
     function onClick(e: MouseEvent) {
       if (!panelRef.current) return
       if (productsOpen && !panelRef.current.contains(e.target as Node) && !btnRef.current?.contains(e.target as Node)) {
@@ -89,13 +98,23 @@ export function SiteHeader() {
   }, [productsOpen])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-brand/20 bg-brand text-white backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
-        {/* Brand */}
-        <Link href="/" className="text-lg font-bold tracking-tight">{SITE.brand}</Link>
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-primary text-primary-foreground">
+      <div className="container flex h-16 items-center justify-between">
+        {/* Brand / Logo */}
+        <Link href="/" aria-label={SITE.brand} className="flex items-center">
+          <Image
+            src="/branding/logo-light.svg"
+            alt={`${SITE.brand} – Logo`}
+            width={140}
+            height={28}
+            className="h-7 w-auto md:h-8"
+            priority
+          />
+        </Link>
 
-        {/* Desktop */}
-        <nav className="hidden items-center gap-1 md:flex">
+        {/* Desktop-Navigation */}
+        <nav className="hidden items-center gap-2 md:flex" aria-label="Hauptnavigation">
+          {/* Produkte (Mega-Menü) */}
           <div
             className="relative"
             onMouseEnter={() => setProductsOpen(true)}
@@ -106,31 +125,47 @@ export function SiteHeader() {
               aria-expanded={productsOpen}
               aria-haspopup="true"
               onClick={() => setProductsOpen(v => !v)}
-              className="rounded-md px-3 py-2 text-sm font-medium hover:text-brand-light"
+              className={[
+                "px-3 py-2 text-sm font-medium",
+                productsOpen ? "underline underline-offset-4" : "hover:text-primary-light",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              ].join(" ")}
             >
               Produkte
             </button>
 
-            {/* Mega Panel – poliert */}
+            {/* Mega-Panel */}
             <div
               ref={panelRef}
               className={[
-                "pointer-events-auto absolute left-1/2 top-full z-50 w-[92vw] -translate-x-1/2 md:w-auto",
-                productsOpen ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-1",
+                "absolute left-1/2 top-full z-50 w-[92vw] -translate-x-1/2 md:w-[960px]",
+                productsOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none",
                 "transition-all duration-150 ease-out",
               ].join(" ")}
             >
-              <div className="mx-auto max-w-6xl rounded-b-2xl border border-zinc-200 bg-gradient-to-b from-white to-zinc-50 text-zinc-800 shadow-2xl ring-1 ring-black/5">
+              <div className="mx-auto border border-border bg-background text-foreground shadow">
                 <div className="grid grid-cols-1 gap-6 p-6 md:grid-cols-[1fr_1fr_1fr_260px]">
                   {PRODUCTS.map((group) => (
-                    <div key={group.title} className="px-1">
-                      <div className="text-[11px] font-semibold uppercase tracking-wider text-brand/80">{group.title}</div>
+                    <div key={group.title}>
+                      {/* Titel = Link zur Übersicht */}
+                      <Link
+                        href={group.overview}
+                        className="text-[11px] font-semibold uppercase tracking-wider hover:text-primary"
+                        onClick={() => setProductsOpen(false)}
+                      >
+                        {group.title}
+                      </Link>
+
                       <ul className="mt-3 space-y-0.5">
                         {group.items.map((it) => (
                           <li key={it.href}>
                             <Link
                               href={it.href}
-                              className="block rounded-md px-2 py-2 text-sm text-zinc-800 hover:bg-brand-light/60 hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand"
+                              className={[
+                                "block px-2 py-2 text-sm",
+                                isActive(pathname, it.href) ? "underline underline-offset-4" : "hover:bg-muted hover:text-primary",
+                                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                              ].join(" ")}
                               onClick={() => setProductsOpen(false)}
                             >
                               {it.label}
@@ -142,20 +177,20 @@ export function SiteHeader() {
                   ))}
 
                   {/* CTA-Spalte */}
-                  <div className="rounded-xl border border-zinc-200 bg-white/80 p-4 shadow-sm backdrop-blur">
-                    <div className="text-sm font-semibold text-brand">Schnellzugriff</div>
-                    <p className="mt-1 text-xs text-zinc-700">Produkte im Überblick oder direkt Kontakt aufnehmen.</p>
+                  <div className="border border-border bg-background p-4">
+                    <div className="text-sm font-semibold text-primary">Schnellzugriff</div>
+                    <p className="mt-1 text-xs opacity-80">Produkte im Überblick oder direkt Kontakt aufnehmen.</p>
                     <div className="mt-3 flex flex-col gap-2">
                       <Link
                         href="/produkte"
-                        className="rounded-lg border border-brand px-3 py-2 text-sm font-semibold text-brand hover:bg-white"
+                        className="border border-primary px-3 py-2 text-sm font-semibold text-primary hover:bg-primary-light hover:text-primary-foreground"
                         onClick={() => setProductsOpen(false)}
                       >
                         Produkte – Übersicht
                       </Link>
                       <Link
                         href="/kontakt"
-                        className="rounded-lg bg-brand px-3 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+                        className="bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary-dark"
                         onClick={() => setProductsOpen(false)}
                       >
                         Kontakt / Angebot
@@ -172,8 +207,9 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               className={[
-                "rounded-md px-3 py-2 text-sm font-medium",
-                isActive(pathname, item.href) ? "underline decoration-brand-light" : "hover:text-brand-light",
+                "px-3 py-2 text-sm font-medium",
+                isActive(pathname, item.href) ? "underline underline-offset-4" : "hover:text-primary-light",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
               ].join(" ")}
             >
               {item.label}
@@ -183,7 +219,10 @@ export function SiteHeader() {
 
         {/* Desktop-CTA */}
         <div className="hidden md:block">
-          <a href={`tel:${SITE.phone}`} className="rounded-xl bg-brand-accent px-4 py-2 text-sm font-semibold text-white hover:opacity-90">
+          <a
+            href={`tel:${SITE.phone}`}
+            className="bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
             Anrufen
           </a>
         </div>
@@ -192,7 +231,7 @@ export function SiteHeader() {
         <button
           aria-label="Menü öffnen"
           onClick={() => setMobileOpen(v => !v)}
-          className="inline-flex items-center rounded-md border border-white/30 px-3 py-2 text-sm md:hidden"
+          className="inline-flex items-center border border-primary-foreground/40 px-3 py-2 text-sm md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           Menü
         </button>
@@ -200,23 +239,32 @@ export function SiteHeader() {
 
       {/* Mobile-Menü */}
       {mobileOpen && (
-        <div className="border-t border-brand/20 bg-white text-zinc-800 md:hidden">
-          <nav className="mx-auto max-w-7xl px-4 py-3">
+        <div className="border-t border-border bg-background text-foreground md:hidden">
+          <nav className="container py-3" aria-label="Mobile Navigation">
             <details open className="group">
-              <summary className="cursor-pointer list-none rounded-md px-2 py-2 text-sm font-semibold text-brand">
+              <summary className="cursor-pointer list-none px-2 py-2 text-sm font-semibold text-primary">
                 Produkte
               </summary>
+
               <div className="mt-2 space-y-4">
                 {PRODUCTS.map((g) => (
                   <div key={g.title}>
-                    <div className="px-2 text-xs font-semibold uppercase tracking-wide text-zinc-500">{g.title}</div>
-                    <ul className="mt-2">
+                    {/* Titel = Übersicht */}
+                    <Link
+                      href={g.overview}
+                      onClick={() => setMobileOpen(false)}
+                      className="block px-2 py-2 text-sm font-semibold hover:text-primary"
+                    >
+                      {g.title}
+                    </Link>
+
+                    <ul className="mt-1">
                       {g.items.map((it) => (
                         <li key={it.href}>
                           <Link
                             href={it.href}
                             onClick={() => setMobileOpen(false)}
-                            className="block rounded-md px-2 py-2 text-sm hover:bg-brand-light hover:text-brand"
+                            className="block px-2 py-2 text-sm hover:bg-muted hover:text-primary"
                           >
                             {it.label}
                           </Link>
@@ -229,10 +277,30 @@ export function SiteHeader() {
             </details>
 
             <ul className="mt-4 space-y-1">
-              <li><Link href="/einzugsgebiet" onClick={() => setMobileOpen(false)} className="block rounded-md px-2 py-2 text-sm font-medium hover:bg-brand-light hover:text-brand">Einzugsgebiet</Link></li>
-              <li><Link href="/kontakt" onClick={() => setMobileOpen(false)} className="block rounded-md px-2 py-2 text-sm font-medium hover:bg-brand-light hover:text-brand">Kontakt</Link></li>
+              <li>
+                <Link
+                  href="/einzugsgebiet"
+                  onClick={() => setMobileOpen(false)}
+                  className="block px-2 py-2 text-sm font-medium hover:bg-muted hover:text-primary"
+                >
+                  Einzugsgebiet
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/kontakt"
+                  onClick={() => setMobileOpen(false)}
+                  className="block px-2 py-2 text-sm font-medium hover:bg-muted hover:text-primary"
+                >
+                  Kontakt
+                </Link>
+              </li>
               <li className="pt-2">
-                <a href={`tel:${SITE.phone}`} onClick={() => setMobileOpen(false)} className="block rounded-xl bg-brand px-3 py-2 text-center text-sm font-semibold text-white">
+                <a
+                  href={`tel:${SITE.phone}`}
+                  onClick={() => setMobileOpen(false)}
+                  className="block bg-accent px-3 py-2 text-center text-sm font-semibold text-accent-foreground"
+                >
                   Anrufen
                 </a>
               </li>

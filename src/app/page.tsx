@@ -3,6 +3,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { SITE } from "@/data/site.config"
 
+/** Optional: Revalidation für SSG/ISR (SEO & Performance) */
+export const revalidate = 3600
+
 type TileProps = {
   title: string
   subtitle?: string
@@ -13,86 +16,117 @@ type TileProps = {
 
 function ProductTile({ title, subtitle, href, imgSrc, imgAlt }: TileProps) {
   return (
-    <Link
-      href={href}
-      className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:shadow-md"
-    >
-      <div className="relative aspect-[16/9] w-full bg-zinc-100">
-        {/* Platzhalterbild – kann später durch echtes Bild ersetzt werden */}
-        <Image
-          src={imgSrc || "/placeholder.svg"}
-          alt={imgAlt || title}
-          fill
-          className="object-cover transition group-hover:scale-105"
-          sizes="(min-width: 1024px) 25vw, 50vw"
-          priority={false}
-        />
-      </div>
-      <div className="p-5">
-        <h3 className="text-lg font-semibold text-zinc-900">{title}</h3>
-        {subtitle && (
-          <p className="mt-1 text-sm text-zinc-600">{subtitle}</p>
-        )}
-        <div className="mt-3 inline-flex items-center text-sm font-medium text-green-600">
-          Mehr erfahren
-          <svg
-            className="ml-1 h-4 w-4 transition group-hover:translate-x-0.5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M12.293 4.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 11-1.414-1.414L14.586 10H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" />
-          </svg>
+    <li>
+      <Link
+        href={href}
+        className="group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        <div className="relative aspect-[16/9] w-full bg-muted">
+          <Image
+            src={imgSrc || "/placeholder.svg"}
+            alt={imgAlt || title}
+            fill
+            className="object-cover transition group-hover:scale-105"
+            sizes="(min-width: 1024px) 25vw, 50vw"
+            priority={false}
+          />
         </div>
-      </div>
-    </Link>
+        <div className="p-5">
+          <h3 className="text-lg font-semibold">{title}</h3>
+          {subtitle && <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>}
+          <div className="mt-3 inline-flex items-center text-sm font-medium text-primary">
+            Mehr erfahren
+            <svg
+              className="ml-1 h-4 w-4 transition group-hover:translate-x-0.5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M12.293 4.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 11-1.414-1.414L14.586 10H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" />
+            </svg>
+          </div>
+        </div>
+      </Link>
+    </li>
   )
 }
 
 export default function HomePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: SITE.brand,
+    image: `${SITE.seo.siteUrl}/hero/fenster-haustuer.webp`,
+    telephone: SITE.phone,
+    email: SITE.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: SITE.address.street,
+      postalCode: SITE.address.zip,
+      addressLocality: SITE.address.city,
+      addressCountry: "DE",
+    },
+    areaServed: SITE.serviceArea,
+    url: SITE.seo.siteUrl,
+  }
+
   return (
     <>
+      {/* JSON-LD für Local SEO */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
       {/* HERO */}
-      <section className="relative overflow-hidden bg-zinc-50">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 py-14 md:grid-cols-2 md:py-20">
+      <section className="relative overflow-hidden bg-background">
+        <div className="container grid grid-cols-1 gap-8 py-14 md:grid-cols-2 md:py-20">
           <div className="flex flex-col justify-center">
-            <span className="mb-3 inline-flex items-center rounded-full border border-green-200 bg-green-50 px-3 py-1 text-xs font-medium text-green-700">
+            <span className="mb-3 inline-flex items-center border border-primary px-3 py-1 text-xs font-medium text-primary">
               Beratung · Aufmaß · Montage · Service
             </span>
-            <h1 className="text-3xl font-bold leading-tight text-zinc-900 md:text-5xl">
+
+            <h1 className="text-3xl font-bold leading-tight md:text-5xl">
               Fenster, Haustüren, Sonnenschutz & Garagentore
             </h1>
-            <p className="mt-4 text-zinc-600 md:text-lg">
-              {SITE.brand} – Ihr Fachpartner für{" "}
-              <strong>Schüco</strong> Fenster (Aluminium & Kunststoff),{" "}
-              <strong>Inotherm</strong> Haustüren,{" "}
-              <strong>ROMA</strong> Rollladen & Raffstoren sowie{" "}
-              <strong>WIŚNIOWSKI</strong> Sektionaltore. Effizient, sicher, ästhetisch.
+
+            <p className="mt-4 text-muted-foreground md:text-lg">
+              {SITE.brand} – Ihr Fachpartner in {SITE.address.city} (Raum {SITE.serviceArea}) für{" "}
+              <strong>Schüco</strong> Fenster (Aluminium & Kunststoff), <strong>Inotherm</strong> Haustüren,{" "}
+              <strong>ROMA</strong> Rollladen & Raffstoren sowie <strong>WIŚNIOWSKI</strong> Sektionaltore.
+              Effizient, sicher, ästhetisch.
             </p>
+
+            {/* NAP/Adresse auf der Startseite (Local-SEO-Signal) */}
+            <address className="mt-3 not-italic text-sm text-muted-foreground">
+              {SITE.brand}, {SITE.address.street}, {SITE.address.zip} {SITE.address.city} · Tel.{" "}
+              <a className="text-primary hover:text-primary-light" href={`tel:${SITE.phone}`}>
+                {SITE.phone}
+              </a>
+            </address>
+
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href="/kontakt"
-                className="inline-flex items-center rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700"
+                className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 Angebot anfordern
               </Link>
               <a
                 href={`tel:${SITE.phone}`}
-                className="inline-flex items-center rounded-xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-100"
+                className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 Jetzt anrufen
               </a>
             </div>
-            <p className="mt-3 text-sm text-zinc-500">
+
+            <p className="mt-3 text-sm text-muted-foreground">
               {SITE.address.city} · {SITE.serviceArea}
             </p>
           </div>
 
           <div className="relative">
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 shadow-sm">
+            <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted">
               <Image
-                src="/placeholder.svg"
-                alt="Modernes Fenster & Haustür – Visual"
+                src="/hero/fenster-haustuer.webp"
+                alt="Modernes Fenster & Haustür – Referenzprojekt"
                 fill
                 className="object-cover"
                 priority
@@ -104,65 +138,94 @@ export default function HomePage() {
       </section>
 
       {/* PRODUKT-KACHELN */}
-      <section className="mx-auto max-w-7xl px-4 py-12 md:py-16">
+      <section className="container py-12 md:py-16">
         <div className="mb-6 flex items-end justify-between">
-          <h2 className="text-2xl font-bold text-zinc-900 md:text-3xl">
-            Unsere Produkte
-          </h2>
+          <h2 className="text-2xl font-bold md:text-3xl">Unsere Produkte</h2>
           <Link
             href="/produkte"
-            className="text-sm font-medium text-green-600 hover:underline"
+            className="text-sm font-medium text-primary hover:text-primary-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Alle Produkte
           </Link>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" role="list">
           <ProductTile
             title="Schüco Fenster – Aluminium"
             subtitle="Stabilität, schmale Ansichten, Top-Wärmedämmung"
             href="/produkte/fenster/aluminium"
+            imgSrc="/produkte/fenster-aluminium.webp"
             imgAlt="Schüco Aluminium-Fenster"
           />
           <ProductTile
             title="Schüco Fenster – Kunststoff"
             subtitle="82 mm, 7-Kammer, starke Dämmung & Preis-Leistung"
             href="/produkte/fenster/kunststoff"
+            imgSrc="/produkte/fenster-kunststoff.webp"
             imgAlt="Schüco Kunststoff-Fenster"
           />
           <ProductTile
             title="Inotherm Haustüren"
             subtitle="Aluminium-Design, Sicherheit & INOSMART"
             href="/produkte/haustueren"
+            imgSrc="/produkte/haustuer-inotherm-dueren.webp"
             imgAlt="Inotherm Haustür"
           />
           <ProductTile
             title="ROMA Rollladen & Raffstoren"
             subtitle="Sicht- & Sonnenschutz, Smart-Home ready"
             href="/produkte/sonnenschutz"
+            imgSrc="/produkte/sonnenschutz-roma-koeln.webp"
             imgAlt="ROMA Rollladen und Raffstoren"
           />
+        </ul>
+
+        {/* Weiterführende Inhalte: interne Verlinkung verstärken */}
+        <div className="mt-10 border-t border-border pt-6">
+          <div className="text-sm text-muted-foreground">Das könnte Sie auch interessieren</div>
+          <ul className="mt-3 flex flex-wrap gap-3 text-sm">
+            <li>
+              <Link href="/produkte/fenster" className="text-primary hover:text-primary-light">
+                Fenster – Übersicht
+              </Link>
+            </li>
+            <li>
+              <Link href="/produkte/sonnenschutz/rollladen" className="text-primary hover:text-primary-light">
+                Rollladen – Übersicht
+              </Link>
+            </li>
+            <li>
+              <Link href="/einzugsgebiet" className="text-primary hover:text-primary-light">
+                Unser Einzugsgebiet
+              </Link>
+            </li>
+            <li>
+              <Link href="/kontakt" className="text-primary hover:text-primary-light">
+                Kontakt & Angebot
+              </Link>
+            </li>
+          </ul>
         </div>
       </section>
 
       {/* WARUM WIR */}
-      <section className="border-y border-zinc-200 bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-12 md:grid-cols-3 md:py-16">
-          <div className="rounded-2xl bg-zinc-50 p-6">
-            <h3 className="text-lg font-semibold text-zinc-900">Fachpartner</h3>
-            <p className="mt-2 text-sm text-zinc-600">
+      <section className="border-y border-border bg-background">
+        <div className="container grid grid-cols-1 gap-6 py-12 md:grid-cols-3 md:py-16">
+          <div className="bg-muted p-6">
+            <h3 className="text-lg font-semibold">Fachpartner</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
               Herstellerkompetenz: Schüco, Inotherm, ROMA & WIŚNIOWSKI – Beratung auf Augenhöhe.
             </p>
           </div>
-          <div className="rounded-2xl bg-zinc-50 p-6">
-            <h3 className="text-lg font-semibold text-zinc-900">Montage nach Stand der Technik</h3>
-            <p className="mt-2 text-sm text-zinc-600">
+          <div className="bg-muted p-6">
+            <h3 className="text-lg font-semibold">Montage nach Stand der Technik</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
               Sorgfältiger Bauanschluss (z. B. RAL-Richtlinien), Dichtigkeit, Funktionssicherheit.
             </p>
           </div>
-          <div className="rounded-2xl bg-zinc-50 p-6">
-            <h3 className="text-lg font-semibold text-zinc-900">Energie & Sicherheit</h3>
-            <p className="mt-2 text-sm text-zinc-600">
+          <div className="bg-muted p-6">
+            <h3 className="text-lg font-semibold">Energie & Sicherheit</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
               Wärmedämmung, Schallschutz, RC-Sicherheitsoptionen & Smart-Home-Nachrüstung.
             </p>
           </div>
@@ -170,27 +233,25 @@ export default function HomePage() {
       </section>
 
       {/* CTA-BANNER */}
-      <section className="bg-gradient-to-b from-zinc-50 to-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 md:py-16">
-          <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm md:flex-row md:items-center md:p-8">
+      <section className="bg-background">
+        <div className="container py-12 md:py-16">
+          <div className="flex flex-col items-start justify-between gap-6 border border-border bg-background p-6 md:flex-row md:items-center md:p-8">
             <div>
-              <h3 className="text-xl font-semibold text-zinc-900">
-                Starten wir Ihr Projekt
-              </h3>
-              <p className="mt-1 text-sm text-zinc-600">
+              <h3 className="text-xl font-semibold">Starten wir Ihr Projekt</h3>
+              <p className="mt-1 text-sm text-muted-foreground">
                 Kostenlose Erstberatung · Schnelles Angebot · Termine nach Absprache
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/kontakt"
-                className="inline-flex items-center rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700"
+                className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 Termin anfragen
               </Link>
               <a
                 href={`tel:${SITE.phone}`}
-                className="inline-flex items-center rounded-xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-100"
+                className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 Telefon {SITE.phone}
               </a>

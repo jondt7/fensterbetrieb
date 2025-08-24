@@ -7,10 +7,8 @@
 
 /* 
   Tailwind v4 Design Tokens
-  - Wir führen eigene Brand-Farben ein (brand, brand-dark, brand-light, brand-accent)
-  - UND mappen Primary/Secondary/Accent der UI auf diese Markenfarben.
-  - Dadurch funktionieren sowohl Utilities wie bg-brand, text-brand-accent
-    als auch bestehende Klassen, die --primary/--secondary/--accent nutzen.
+  - Brand-Farben + Mapping auf Primary/Secondary/Accent.
+  - Alle Radius-Tokens auf 0 gesetzt => überall eckig.
 */
 @theme inline {
   /* === Brand-Utilities (direkt nutzbar als bg-brand, text-brand-dark, …) === */
@@ -19,7 +17,21 @@
   --color-brand-light: var(--brand-light);
   --color-brand-accent: var(--brand-accent);
 
-  /* === Bestehende Shadcn/UI- und App-Tokens bleiben erhalten === */
+  /* === UI-Tokens für Tailwind-Klassen (bg-primary, bg-primary-dark, …) === */
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* === Restliche App-/UI-Tokens === */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -41,44 +53,40 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* === Alle Radien global auf 0 (kantig) === */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
 }
 
 /* 
-  Root: Hier definieren wir die eigentlichen Markenwerte (HEX).
-  Zusätzlich mappen wir Primary/Secondary/Accent der UI auf diese Markenwerte.
+  Root: Markenwerte (HEX) + Mapping auf UI-Tokens.
+  - --primary-dark wurde ergänzt (Fix für Footer).
+  - --radius = 0rem (kantig).
 */
 :root {
-  /* Baseline */
-  --radius: 0.625rem;
+  color-scheme: light;
 
-  /* === Brandwerte (Ihre HEX-Codes) === */
+  /* Baseline: kantig */
+  --radius: 0rem;
+
+  /* === Brandwerte === */
   --brand: #132830;        /* Primär (dunkles Blaugrün) */
-  --brand-dark: #1c3339;   /* Sekundär/Hover */
+  --brand-dark: #0f1d21;   /* Sehr dunkle Variante (für Header/Footers) */
   --brand-light: #f0e7dc;  /* Heller Hintergrund */
   --brand-accent: #593031; /* Akzent (Rotbraun) */
 
-  /* === Hintergrund/Schrift (neutral gehalten) === */
+  /* === Hintergrund/Schrift (neutral) === */
   --background: oklch(1 0 0);                  /* Weiß */
   --foreground: oklch(0.141 0.005 285.823);    /* sehr dunkles Grau */
 
-  /* === Karten/Popover (neutral) === */
+  /* === Karten/Popover === */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
@@ -86,26 +94,25 @@
 
   /* === Primär/Secondary/Accent auf Marke gemappt === */
   --primary: var(--brand);
-  --primary-foreground: oklch(0.985 0 0);      /* nahezu Weiß für Kontrast */
+  --primary-dark: var(--brand-dark);           /* <<< wichtig für bg-primary-dark */
+  --primary-foreground: oklch(0.985 0 0);      /* sehr hell für Kontrast */
 
-  /* Secondary als helle Markenfläche + passende Schriftfarbe */
   --secondary: var(--brand-light);
   --secondary-foreground: var(--brand);
 
-  /* Muted/Accent angeglichen */
   --muted: var(--brand-light);
   --muted-foreground: oklch(0.552 0.016 285.938);
 
   --accent: var(--brand-accent);
   --accent-foreground: oklch(0.985 0 0);
 
-  /* Rest wie gehabt */
+  /* === Basisfarben/Status === */
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.92 0.004 286.32);
   --input: oklch(0.92 0.004 286.32);
   --ring: oklch(0.705 0.015 286.067);
 
-  /* Beispielwerte Charts/SIDEBAR bleiben unverändert (oder später anpassen) */
+  /* Beispielwerte Charts/SIDEBAR */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -122,8 +129,10 @@
   --sidebar-ring: oklch(0.705 0.015 286.067);
 }
 
-/* Dark Mode: Markenwerte bleiben gleich; Kontraste werden invertiert */
+/* Dark Mode */
 .dark {
+  color-scheme: dark;
+
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.985 0 0);
 
@@ -132,11 +141,11 @@
   --popover: oklch(0.21 0.006 285.885);
   --popover-foreground: oklch(0.985 0 0);
 
-  /* Primärfarbe bleibt Ihre Marke; Foreground hell */
   --primary: var(--brand);
+  --primary-dark: var(--brand-dark);
   --primary-foreground: oklch(0.985 0 0);
 
-  /* Secondary im Dark Mode etwas dunkler, Foreground hell */
+  /* Secondary im Dark Mode etwas dunkler */
   --secondary: oklch(0.274 0.006 286.033);
   --secondary-foreground: oklch(0.985 0 0);
 
@@ -174,5 +183,33 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Kantige Ecken erzwingen für typische UI-Elemente,
+     falls einzelne Komponenten eigene Radien mitbringen */
+  button, input, select, textarea, .card, .chip, .badge, .navbar, .footer, .popover, .sheet {
+    border-radius: 0 !important;
+  }
+
+  /* Neutrale Link-Styles: erben die Textfarbe; Hover = Akzent */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--brand-accent);
   }
 }
+
+/* Praktische Utilities (optional) */
+.container { max-width: 1200px; margin-inline: auto; padding-inline: 1rem; }
+.section { padding-block: 3rem; }
+
+/* Button-Utilities (falls du noch keine Komponente nutzt) */
+.btn { padding: .5rem 1rem; font-weight: 600; border: 1px solid transparent; transition: background-color .2s, color .2s, border-color .2s; }
+.btn--primary { background: var(--primary); color: var(--primary-foreground); }
+.btn--primary:hover { background: var(--primary-dark); }
+.btn--secondary { background: transparent; color: var(--primary); border-color: var(--primary); }
+.btn--secondary:hover { background: var(--brand-accent); color: #fff; border-color: var(--brand-accent); }

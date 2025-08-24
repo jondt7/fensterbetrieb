@@ -13,175 +13,193 @@ type TileProps = {
 }
 
 function Tile({ title, subtitle, href, imgAlt, imgSrc, external }: TileProps) {
-  const Wrapper = external ? "a" : Link
+  const Wrapper: any = external ? "a" : Link
   const wrapperProps = external
     ? { href, target: "_blank", rel: "noopener noreferrer" }
     : { href }
 
   return (
-    <Wrapper
-      {...(wrapperProps as any)}
-      className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:shadow-md"
-    >
-      <div className="relative aspect-[16/9] w-full bg-brand-light">
-        <Image
-          src={imgSrc || "/placeholder.svg"}
-          alt={imgAlt || title}
-          fill
-          className="object-cover transition group-hover:scale-105"
-          sizes="(min-width: 1024px) 33vw, 90vw"
-          priority={false}
-        />
-      </div>
-      <div className="p-5">
-        <h3 className="text-lg font-semibold text-brand">{title}</h3>
-        {subtitle && <p className="mt-1 text-sm text-zinc-700">{subtitle}</p>}
-        <div className="mt-3 inline-flex items-center text-sm font-medium text-brand">
-          {external ? "Öffnen" : "Mehr erfahren"}
-          <svg
-            className="ml-1 h-4 w-4 transition group-hover:translate-x-0.5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            aria-hidden="true"
-          >
-            <path d="M12.293 4.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 11-1.414-1.414L14.586 10H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" />
-          </svg>
+    <li>
+      <Wrapper
+        {...wrapperProps}
+        className="group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        <div className="relative aspect-[16/9] w-full bg-muted">
+          <Image
+            src={imgSrc || "/placeholder.svg"}
+            alt={imgAlt || title}
+            fill
+            className="object-cover transition group-hover:scale-105"
+            sizes="(min-width: 1024px) 33vw, 90vw"
+            priority={false}
+          />
         </div>
-      </div>
-    </Wrapper>
+        <div className="p-5">
+          <h3 className="text-lg font-semibold">{title}</h3>
+          {subtitle && <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>}
+          <div className="mt-3 inline-flex items-center text-sm font-medium text-primary">
+            {external ? "Öffnen" : "Mehr erfahren"}
+            <svg
+              className="ml-1 h-4 w-4 transition group-hover:translate-x-0.5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M12.293 4.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 11-1.414-1.414L14.586 10H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" />
+            </svg>
+          </div>
+        </div>
+      </Wrapper>
+    </li>
   )
 }
 
 export default function HaustuerenOverviewPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
+    <div className="container py-10 md:py-14">
       {/* Breadcrumb */}
-      <nav className="mb-6 text-sm text-zinc-500" aria-label="Breadcrumb">
+      <nav className="mb-6 text-sm text-muted-foreground" aria-label="Breadcrumb">
         <ol className="flex items-center gap-2">
-          <li><Link href="/" className="hover:underline">Start</Link></li>
+          <li><Link href="/" className="hover:text-primary">Start</Link></li>
           <li aria-hidden="true">/</li>
-          <li><Link href="/produkte" className="hover:underline">Produkte</Link></li>
+          <li><Link href="/produkte" className="hover:text-primary">Produkte</Link></li>
           <li aria-hidden="true">/</li>
-          <li className="text-zinc-700">Haustüren</li>
+          <li className="text-foreground">Haustüren</li>
         </ol>
       </nav>
 
       {/* Hero */}
       <header className="mb-10 grid gap-6 md:grid-cols-2">
         <div>
-          <h1 className="text-3xl font-bold text-brand md:text-4xl">
-            Inotherm Haustüren (Aluminium)
+          <h1 className="text-3xl font-bold md:text-4xl">
+            Inotherm Haustüren in {SITE.address.city} – Aluminium-Haustür vom Fachbetrieb
           </h1>
-          <p className="mt-4 text-zinc-600">
-            Erstklassige Aluminium-Haustüren – individuell konfigurierbar, ausgezeichnet gedämmt
-            und mit starker Sicherheitsausstattung. Wählen Sie Modell, Oberfläche, Griff, Glas
-            und Smart-Zutritt, passend zu Architektur und Anspruch.
+          <p className="mt-4 text-muted-foreground">
+            Ihre <strong>Inotherm Haustür in Düren</strong> – individuell konfigurierbar, hervorragend gedämmt und mit starker
+            Sicherheitsausstattung. Wir beraten zu Modell, Oberfläche, Griffen, Verglasung und Smart-Zutritt (InoSmart) –
+            optimal abgestimmt auf Architektur und Anspruch im Raum {SITE.serviceArea}.
           </p>
+
+          {/* NAP / Lokalsignal */}
+          <address className="mt-3 not-italic text-sm text-muted-foreground">
+            {SITE.brand}, {SITE.address.street}, {SITE.address.zip} {SITE.address.city} · Tel.{" "}
+            <a className="text-primary hover:text-primary-light" href={`tel:${SITE.phone}`}>{SITE.phone}</a>
+          </address>
+
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/kontakt"
-              className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark"
+              className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Angebot anfordern
             </Link>
             <a
               href={`tel:${SITE.phone}`}
-              className="inline-flex items-center rounded-xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-100"
+              className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Jetzt anrufen
             </a>
           </div>
-          <p className="mt-3 text-sm text-zinc-500">
-            {SITE.address.city} · {SITE.serviceArea}
-          </p>
         </div>
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-zinc-200 bg-brand-light shadow-sm">
+
+        {/* Hero-Bild */}
+        <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted">
           <Image
-            src="/placeholder.svg"
-            alt="Inotherm Aluminium-Haustür"
+            src="/produkte/haustueren-hero.webp"
+            alt="Inotherm Aluminium-Haustür – Referenzprojekt in Düren"
             fill
+            priority
+            sizes="(min-width: 1280px) 40vw, (min-width: 768px) 50vw, 90vw"
             className="object-cover"
-            priority={false}
           />
         </div>
       </header>
 
       {/* 3 große Einstiegs-Kacheln: Konfigurator / Katalog / Modelllinie */}
       <section className="mb-12">
-        <div className="grid gap-6 md:grid-cols-3">
+        <ul className="grid gap-6 md:grid-cols-3" role="list">
           <Tile
-            title="Haustür-Konfigurator"
+            title="Haustür-Konfigurator (Inotherm)"
             subtitle="Modell wählen, Farben/Glas/Griff & Smart-Zutritt – Ergebnis teilen."
             href="https://doordesigner.inotherm-tuer.de/configurator/"
-            imgAlt="Inotherm Haustür-Konfigurator"
+            imgAlt="Inotherm Haustür-Konfigurator für Kunden in Düren"
+            imgSrc="/produkte/haustueren-konfigurator.webp"
             external
           />
           <Tile
             title="Katalog ansehen"
             subtitle="Über 400 Türmodelle & Varianten. Inspiration & Technik kompakt."
             href="https://www.inotherm-tuer.de/haustuer-katalog/"
-            imgAlt="Inspiration & Modelle"
+            imgAlt="Inotherm Haustüren Katalog – Modelle & Inspiration"
+            imgSrc="/produkte/haustueren-katalog.webp"
             external
           />
           <Tile
             title="Modelllinie EXCLUSIV"
             subtitle="Premium-Design, starke Dämmung, hochwertige Konstruktion."
             href="https://www.inotherm-tuer.de/haustueren/exclusiv/"
-            imgAlt="EXCLUSIV Modellwelt"
+            imgAlt="Inotherm EXCLUSIV Haustüren – Premium-Design"
+            imgSrc="/produkte/haustueren-exclusiv.webp"
             external
           />
-        </div>
+        </ul>
       </section>
 
       {/* Themen-Kacheln (interne Seiten) */}
-      <section className="grid gap-6 md:grid-cols-2">
-        <Tile
-          title="InoSmart – Zugang per Finger, Code & App"
-          subtitle="Komfort, Steuerung & Protokolle: das integrierte Smart-System."
-          href="/produkte/haustueren/inosmart"
-          imgAlt="InoSmart System"
-        />
-        <Tile
-          title="Griffe & Designvarianten"
-          subtitle="Stangen-, Bügel-, flächenbündige & beleuchtete Griffe."
-          href="/produkte/haustueren/griffe"
-          imgAlt="Inotherm Griffe"
-        />
-        <Tile
-          title="Sicherheit & Schlösser"
-          subtitle="Verriegelungen, Sicherheitsstufen, RC-Optionen."
-          href="/produkte/haustueren/sicherheit-und-schliessung"
-          imgAlt="Sicherheitsausstattung"
-        />
-        <Tile
-          title="Verglasung & Lichteinfall (optional)"
-          subtitle="Wärmeschutz-, Sicherheits- und Designgläser."
-          href="/produkte/haustueren/verglasung"
-          imgAlt="Verglasung"
-        />
+      <section>
+        <ul className="grid gap-6 md:grid-cols-2" role="list">
+          <Tile
+            title="InoSmart – Zugang per Finger, Code & App"
+            subtitle="Komfort, Steuerung & Protokolle: das integrierte Smart-System."
+            href="/produkte/haustueren/inosmart"
+            imgAlt="InoSmart Zutrittssystem an Inotherm Haustür in Düren"
+            imgSrc="/produkte/haustueren-inosmart.webp"
+          />
+          <Tile
+            title="Griffe & Designvarianten"
+            subtitle="Stangen-, Bügel-, flächenbündige & beleuchtete Griffe."
+            href="/produkte/haustueren/griffe"
+            imgAlt="Griffvarianten für Inotherm Haustüren – Stange, Bügel, bündig"
+            imgSrc="/produkte/haustueren-griffe.webp"
+          />
+          <Tile
+            title="Sicherheit & Schlösser"
+            subtitle="Verriegelungen, Sicherheitsstufen, RC-Optionen."
+            href="/produkte/haustueren/sicherheit-und-schliessung"
+            imgAlt="Sicherheitsverriegelung und Schloss – Inotherm Haustür"
+            imgSrc="/produkte/haustueren-sicherheit.webp"
+          />
+          <Tile
+            title="Verglasung & Lichteinfall"
+            subtitle="Wärmeschutz-, Sicherheits- und Designgläser."
+            href="/produkte/haustueren/verglasung"
+            imgAlt="Verglasungsvarianten für Inotherm Haustüren – satiniert & klar"
+            imgSrc="/produkte/haustueren-verglasung.webp"
+          />
+        </ul>
       </section>
 
       {/* Info-Blöcke: Bauarten / Design / Technik */}
       <section className="mt-12 grid gap-6 md:grid-cols-3">
-        <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-brand">Bauarten & Elemente</h2>
-          <ul className="mt-3 list-inside list-disc text-sm text-zinc-700">
-            <li>Ein- und zweiflügelige Türen</li>
+        <div className="border border-border bg-background p-6">
+          <h2 className="text-lg font-semibold">Bauarten & Elemente</h2>
+          <ul className="mt-3 list-inside list-disc text-sm text-muted-foreground">
+            <li>Ein- und zweiflügelige Haustüren</li>
             <li>Seitenteile & Oberlichter kombinierbar</li>
             <li>Barrierearme Schwellenlösungen</li>
           </ul>
         </div>
-        <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-brand">Design & Oberflächen</h2>
-          <ul className="mt-3 list-inside list-disc text-sm text-zinc-700">
+        <div className="border border-border bg-background p-6">
+          <h2 className="text-lg font-semibold">Design & Oberflächen</h2>
+          <ul className="mt-3 list-inside list-disc text-sm text-muted-foreground">
             <li>RAL, Feinstruktur, Holzdekore</li>
             <li>Applikationen, Nutungen, LED-Details</li>
             <li>Verglasungen: klar, satiniert, Ornament</li>
           </ul>
         </div>
-        <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-brand">Dämmung & Sicherheit</h2>
-          <ul className="mt-3 list-inside list-disc text-sm text-zinc-700">
+        <div className="border border-border bg-background p-6">
+          <h2 className="text-lg font-semibold">Dämmung & Sicherheit</h2>
+          <ul className="mt-3 list-inside list-disc text-sm text-muted-foreground">
             <li>Starke Türblätter & Dämmfüllungen</li>
             <li>Mehrpunktverriegelungen, RC-Optionen</li>
             <li>InoSmart mit Motorschloss & App</li>
@@ -190,21 +208,21 @@ export default function HaustuerenOverviewPage() {
       </section>
 
       {/* Abschluss-CTA */}
-      <section className="mt-12 rounded-2xl border border-brand bg-white p-8 shadow-sm">
-        <h2 className="text-xl font-semibold text-brand">Ihre neue Haustür – maßgeschneidert</h2>
-        <p className="mt-2 text-sm text-zinc-600">
-          Wir beraten zu Modellwahl, Sicherheit, Smart-Funktionen und Montage – inkl. Aufmaß und Angebot.
+      <section className="mt-12 border border-border bg-background p-8">
+        <h2 className="text-xl font-semibold">Ihre Inotherm Haustür in {SITE.address.city}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Wir beraten zu Modellwahl, Sicherheit, Smart-Funktionen und Montage – inkl. Aufmaß und Angebot für Düren & Umgebung.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/kontakt"
-            className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark"
+            className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark"
           >
             Termin anfragen
           </Link>
           <a
             href={`tel:${SITE.phone}`}
-            className="inline-flex items-center rounded-xl border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-800 transition hover:bg-zinc-100"
+            className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground"
           >
             Telefon {SITE.phone}
           </a>
