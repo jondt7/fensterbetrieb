@@ -38,17 +38,17 @@ export type Address = {
   }
   
   export const SITE: SiteConfig = {
-    brand: "Ihr Fensterbetrieb",
-    phone: "+49 000 0000000",
-    email: "info@beispiel.de",
+    brand: "Meylen",
+    phone: "+49 173 5490084",
+    email: "info@meylen.de",
     address: {
-      street: "Beispielstraße 1",
-      zip: "12345",
-      city: "Musterstadt",
+      street: "Rurstraße 57",
+      zip: "52349",
+      city: "Düren",
       country: "DE",
     },
     openingHours: ["Mo–Fr 08:00–17:00"],
-    serviceArea: "Musterstadt + 40 km Umkreis",
+    serviceArea: "Düren + 100 km Umkreis",
     socials: {
       google: "https://maps.google.com/?cid=...", // optional
       instagram: "",
@@ -56,7 +56,7 @@ export type Address = {
       youtube: "",
     },
     seo: {
-      siteUrl: "https://www.ihre-domain.de",
+      siteUrl: "https://www.meylen.de",
       defaultTitle:
         "Fenster, Haustüren, Sonnenschutz & Garagentore",
       defaultDescription:
@@ -67,10 +67,10 @@ export type Address = {
       base: "zinc",
     },
     legal: {
-      companyLegalName: "Ihr Fensterbetrieb Muster GmbH",
-      representative: "Max Mustermann",
+      companyLegalName: "Meylen Fenster & Türen",
+      representative: "John Neufeldt",
       registerInfo: "HRB 00000, Amtsgericht Musterstadt",
-      vatId: "DE000000000",
+      vatId: "DE453260541",
     },
   } as const
   
