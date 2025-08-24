@@ -1,6 +1,6 @@
 // src/app/layout.tsx
 import "./globals.css"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import Link from "next/link"
 import { SITE } from "@/data/site.config"
 import { Inter } from "next/font/google"
@@ -41,11 +41,13 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
+}
 
-  // (optional, aber sinnvoll für Mobile-UI-Farbe)
+// Next.js 15: themeColor gehört in den viewport-Export
+export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#132830" },
-    { media: "(prefers-color-scheme: dark)", color: "#132830" },
+    { media: "(prefers-color-scheme: light)", color: "#132830" }, // --brand
+    { media: "(prefers-color-scheme: dark)",  color: "#1c3339"  }, // --brand-dark
   ],
 }
 

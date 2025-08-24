@@ -20,8 +20,8 @@ export default function CityPage({ params }: Params) {
     serviceType: "Fenster, Haustüren & Sonnenschutz – Beratung, Aufmaß, Montage",
     provider: {
       "@type": "HomeAndConstructionBusiness",
-      name: SITE.name,
-      url: SITE.url,
+      name: SITE.brand,             // ← korrigiert
+      url: SITE.seo.siteUrl,        // ← korrigiert
       telephone: SITE.phone,
       email: SITE.email,
     },
@@ -39,9 +39,9 @@ export default function CityPage({ params }: Params) {
       <nav className="mb-6 text-sm text-zinc-500" aria-label="Breadcrumb">
         <ol className="flex items-center gap-2">
           <li><Link href="/" className="hover:underline">Start</Link></li>
-          <li aria-hidden>/</li>
+          <li aria-hidden="true">/</li>
           <li><Link href="/einzugsgebiet" className="hover:underline">Einzugsgebiet</Link></li>
-          <li aria-hidden>/</li>
+          <li aria-hidden="true">/</li>
           <li className="text-zinc-700">{city.name}</li>
         </ol>
       </nav>
@@ -55,10 +55,16 @@ export default function CityPage({ params }: Params) {
           {city.intro}
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/kontakt" className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">
+          <Link
+            href="/kontakt"
+            className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
+          >
             Beratung anfragen
           </Link>
-          <a href={`tel:${SITE.phone}`} className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">
+          <a
+            href={`tel:${SITE.phone}`}
+            className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light"
+          >
             Telefon {SITE.phone}
           </a>
         </div>
@@ -68,18 +74,39 @@ export default function CityPage({ params }: Params) {
       <section className="mb-12 grid gap-6 md:grid-cols-3">
         <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-brand">Fenster</h2>
-          <p className="mt-2 text-sm text-zinc-700">Schüco Aluminium & Kunststoff (LivIng 82 AS/MD), Beschlag & Verglasung.</p>
-          <Link href="/produkte/fenster" className="mt-3 inline-block text-sm font-semibold text-brand hover:underline">Mehr zu Fenstern</Link>
+          <p className="mt-2 text-sm text-zinc-700">
+            Schüco Aluminium & Kunststoff (LivIng 82 AS/MD), Beschlag & Verglasung.
+          </p>
+          <Link
+            href="/produkte/fenster"
+            className="mt-3 inline-block text-sm font-semibold text-brand hover:underline"
+          >
+            Mehr zu Fenstern
+          </Link>
         </div>
         <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-brand">Sonnenschutz</h2>
-          <p className="mt-2 text-sm text-zinc-700">ROMA Rollladen & Raffstoren (CDL/C/Z) und Steuerung, Textilscreens optional.</p>
-          <Link href="/produkte/sonnenschutz" className="mt-3 inline-block text-sm font-semibold text-brand hover:underline">Mehr zu Sonnenschutz</Link>
+          <p className="mt-2 text-sm text-zinc-700">
+            ROMA Rollladen & Raffstoren (CDL/C/Z) und Steuerung, Textilscreens optional.
+          </p>
+          <Link
+            href="/produkte/sonnenschutz"
+            className="mt-3 inline-block text-sm font-semibold text-brand hover:underline"
+          >
+            Mehr zu Sonnenschutz
+          </Link>
         </div>
         <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
           <h2 className="text-lg font-semibold text-brand">Haustüren</h2>
-          <p className="mt-2 text-sm text-zinc-700">Inotherm Aluminium: InoSmart, Sicherheitsstufen, Griff-Designs.</p>
-          <Link href="/produkte/haustueren" className="mt-3 inline-block text-sm font-semibold text-brand hover:underline">Mehr zu Haustüren</Link>
+          <p className="mt-2 text-sm text-zinc-700">
+            Inotherm Aluminium: InoSmart, Sicherheitsstufen, Griff-Designs.
+          </p>
+          <Link
+            href="/produkte/haustueren"
+            className="mt-3 inline-block text-sm font-semibold text-brand hover:underline"
+          >
+            Mehr zu Haustüren
+          </Link>
         </div>
       </section>
 
@@ -96,10 +123,22 @@ export default function CityPage({ params }: Params) {
       {/* Abschluss-CTA */}
       <section className="rounded-2xl border border-brand bg-white p-8">
         <h2 className="text-lg font-semibold text-brand">Termin in {city.name} vereinbaren</h2>
-        <p className="mt-2 text-sm text-zinc-600">Wir kommen zu Ihnen, nehmen Maße und erstellen ein verbindliches Angebot.</p>
+        <p className="mt-2 text-sm text-zinc-600">
+          Wir kommen zu Ihnen, nehmen Maße und erstellen ein verbindliches Angebot.
+        </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/kontakt" className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">Beratung anfragen</Link>
-          <Link href="/produkte" className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Produkte ansehen</Link>
+          <Link
+            href="/kontakt"
+            className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
+          >
+            Beratung anfragen
+          </Link>
+          <Link
+            href="/produkte"
+            className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light"
+          >
+            Produkte ansehen
+          </Link>
         </div>
       </section>
     </div>

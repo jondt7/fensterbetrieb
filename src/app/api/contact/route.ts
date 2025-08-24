@@ -1,6 +1,6 @@
 // src/app/api/contact/route.ts
 import nodemailer from "nodemailer"
-import type Mail from "nodemailer/lib/mailer"
+import type { Attachment } from "nodemailer/lib/mailer"
 
 export const runtime = "nodejs"
 
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
 
     // Attachment (optional)
     const file = formData.get("file") as File | null
-    const attachments: Mail.Attachment[] = []
+    const attachments: Attachment[] = []
     if (file && file.size > 0) {
       // einfache Größenbremse (z. B. 8 MB)
       const MAX = 8 * 1024 * 1024
