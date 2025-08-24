@@ -52,14 +52,13 @@ const PRODUCTS: Group[] = [
   {
     title: "Garagentore",
     overview: "/produkte/garagentore/sektionaltore",
-    items: [
-      { label: "Sektionaltore", href: "/produkte/garagentore/sektionaltore" },
-    ],
+    items: [{ label: "Sektionaltore", href: "/produkte/garagentore/sektionaltore" }],
   },
 ]
 
-// Top-Links
-const TOP_NAV = [
+// Top-Links (inkl. „Leistungen“)
+const TOP_NAV: Item[] = [
+  { label: "Leistungen", href: "/leistungen" },
   { label: "Einzugsgebiet", href: "/einzugsgebiet" },
   { label: "Kontakt", href: "/kontakt" },
 ]
@@ -76,6 +75,13 @@ export function SiteHeader() {
   const panelRef = useRef<HTMLDivElement>(null)
   const btnRef = useRef<HTMLButtonElement>(null)
 
+  // Bei Routenwechsel Menüs schließen
+  useEffect(() => {
+    setProductsOpen(false)
+    setMobileOpen(false)
+  }, [pathname])
+
+  // ESC & Outside-Click fürs Mega-Menü
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") {
@@ -85,7 +91,11 @@ export function SiteHeader() {
     }
     function onClick(e: MouseEvent) {
       if (!panelRef.current) return
-      if (productsOpen && !panelRef.current.contains(e.target as Node) && !btnRef.current?.contains(e.target as Node)) {
+      if (
+        productsOpen &&
+        !panelRef.current.contains(e.target as Node) &&
+        !btnRef.current?.contains(e.target as Node)
+      ) {
         setProductsOpen(false)
       }
     }
@@ -97,17 +107,27 @@ export function SiteHeader() {
     }
   }, [productsOpen])
 
+  // Body-Scroll sperren, wenn Mobile-Menü offen
+  useEffect(() => {
+    const original = document.documentElement.style.overflow
+    if (mobileOpen) document.documentElement.style.overflow = "hidden"
+    else document.documentElement.style.overflow = original
+    return () => {
+      document.documentElement.style.overflow = original
+    }
+  }, [mobileOpen])
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-primary text-primary-foreground">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 md:h-20 items-center justify-between">
         {/* Brand / Logo */}
         <Link href="/" aria-label={SITE.brand} className="flex items-center">
           <Image
             src="/branding/logo-light.svg"
             alt={`${SITE.brand} – Logo`}
-            width={280}
-            height={56}
-            className="h-14 w-auto md:h-16"
+            width={400}
+            height={80}
+            className="w-[180px] md:w-[220px] lg:w-[260px] h-auto"
             priority
           />
         </Link>
@@ -124,7 +144,7 @@ export function SiteHeader() {
               ref={btnRef}
               aria-expanded={productsOpen}
               aria-haspopup="true"
-              onClick={() => setProductsOpen(v => !v)}
+              onClick={() => setProductsOpen((v) => !v)}
               className={[
                 "px-3 py-2 text-sm font-medium",
                 productsOpen ? "underline underline-offset-4" : "hover:text-primary-light",
@@ -139,7 +159,9 @@ export function SiteHeader() {
               ref={panelRef}
               className={[
                 "absolute left-1/2 top-full z-50 w-[92vw] -translate-x-1/2 md:w-[960px]",
-                productsOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none",
+                productsOpen
+                  ? "opacity-100 translate-y-0 pointer-events-auto"
+                  : "opacity-0 -translate-y-1 pointer-events-none",
                 "transition-all duration-150 ease-out",
               ].join(" ")}
             >
@@ -147,11 +169,9 @@ export function SiteHeader() {
                 <div className="grid grid-cols-1 gap-6 p-6 md:grid-cols-[1fr_1fr_1fr_260px]">
                   {PRODUCTS.map((group) => (
                     <div key={group.title}>
-                      {/* Titel = Link zur Übersicht */}
                       <Link
                         href={group.overview}
                         className="text-[11px] font-semibold uppercase tracking-wider hover:text-primary"
-                        onClick={() => setProductsOpen(false)}
                       >
                         {group.title}
                       </Link>
@@ -163,10 +183,11 @@ export function SiteHeader() {
                               href={it.href}
                               className={[
                                 "block px-2 py-2 text-sm",
-                                isActive(pathname, it.href) ? "underline underline-offset-4" : "hover:bg-muted hover:text-primary",
+                                isActive(pathname, it.href)
+                                  ? "underline underline-offset-4"
+                                  : "hover:bg-muted hover:text-primary",
                                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                               ].join(" ")}
-                              onClick={() => setProductsOpen(false)}
                             >
                               {it.label}
                             </Link>
@@ -179,19 +200,19 @@ export function SiteHeader() {
                   {/* CTA-Spalte */}
                   <div className="border border-border bg-background p-4">
                     <div className="text-sm font-semibold text-primary">Schnellzugriff</div>
-                    <p className="mt-1 text-xs opacity-80">Produkte im Überblick oder direkt Kontakt aufnehmen.</p>
+                    <p className="mt-1 text-xs opacity-80">
+                      Produkte im Überblick oder direkt Kontakt aufnehmen.
+                    </p>
                     <div className="mt-3 flex flex-col gap-2">
                       <Link
                         href="/produkte"
                         className="border border-primary px-3 py-2 text-sm font-semibold text-primary hover:bg-primary-light hover:text-primary-foreground"
-                        onClick={() => setProductsOpen(false)}
                       >
                         Produkte – Übersicht
                       </Link>
                       <Link
                         href="/kontakt"
                         className="bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary-dark"
-                        onClick={() => setProductsOpen(false)}
                       >
                         Kontakt / Angebot
                       </Link>
@@ -202,6 +223,7 @@ export function SiteHeader() {
             </div>
           </div>
 
+          {/* Weitere Punkte (inkl. Leistungen) */}
           {TOP_NAV.map((item) => (
             <Link
               key={item.href}
@@ -230,17 +252,25 @@ export function SiteHeader() {
         {/* Mobile Toggle */}
         <button
           aria-label="Menü öffnen"
-          onClick={() => setMobileOpen(v => !v)}
+          aria-controls="mobile-menu"
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((v) => !v)}
           className="inline-flex items-center border border-primary-foreground/40 px-3 py-2 text-sm md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           Menü
         </button>
       </div>
 
-      {/* Mobile-Menü */}
+      {/* Mobile-Menü: fixed Overlay, scrollbar */}
       {mobileOpen && (
-        <div className="border-t border-border bg-background text-foreground md:hidden">
+        <div
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-border bg-background text-foreground md:hidden"
+        >
           <nav className="container py-3" aria-label="Mobile Navigation">
+            {/* Produkte */}
             <details open className="group">
               <summary className="cursor-pointer list-none px-2 py-2 text-sm font-semibold text-primary">
                 Produkte
@@ -249,7 +279,6 @@ export function SiteHeader() {
               <div className="mt-2 space-y-4">
                 {PRODUCTS.map((g) => (
                   <div key={g.title}>
-                    {/* Titel = Übersicht */}
                     <Link
                       href={g.overview}
                       onClick={() => setMobileOpen(false)}
@@ -276,7 +305,17 @@ export function SiteHeader() {
               </div>
             </details>
 
+            {/* Weitere Links */}
             <ul className="mt-4 space-y-1">
+              <li>
+                <Link
+                  href="/leistungen"
+                  onClick={() => setMobileOpen(false)}
+                  className="block px-2 py-2 text-sm font-medium hover:bg-muted hover:text-primary"
+                >
+                  Leistungen
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/einzugsgebiet"
@@ -305,6 +344,16 @@ export function SiteHeader() {
                 </a>
               </li>
             </ul>
+
+            {/* Schließen */}
+            <div className="mt-4">
+              <button
+                onClick={() => setMobileOpen(false)}
+                className="w-full border border-border px-3 py-2 text-sm"
+              >
+                Menü schließen
+              </button>
+            </div>
           </nav>
         </div>
       )}
