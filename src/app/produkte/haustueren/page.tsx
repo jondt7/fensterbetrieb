@@ -13,43 +13,53 @@ type TileProps = {
 }
 
 function Tile({ title, subtitle, href, imgAlt, imgSrc, external }: TileProps) {
-  const Wrapper: any = external ? "a" : Link
-  const wrapperProps = external
-    ? { href, target: "_blank", rel: "noopener noreferrer" }
-    : { href }
+  const className =
+    "group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+
+  const media = (
+    <div className="relative aspect-[16/9] w-full bg-muted">
+      <Image
+        src={imgSrc || "/placeholder.svg"}
+        alt={imgAlt || title}
+        fill
+        className="object-cover transition group-hover:scale-105"
+        sizes="(min-width: 1024px) 33vw, 90vw"
+        priority={false}
+      />
+    </div>
+  )
+
+  const body = (
+    <div className="p-5">
+      <h3 className="text-lg font-semibold">{title}</h3>
+      {subtitle && <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>}
+      <div className="mt-3 inline-flex items-center text-sm font-medium text-primary">
+        {external ? "Öffnen" : "Mehr erfahren"}
+        <svg
+          className="ml-1 h-4 w-4 transition group-hover:translate-x-0.5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M12.293 4.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 11-1.414-1.414L14.586 10H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" />
+        </svg>
+      </div>
+    </div>
+  )
 
   return (
     <li>
-      <Wrapper
-        {...wrapperProps}
-        className="group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-      >
-        <div className="relative aspect-[16/9] w-full bg-muted">
-          <Image
-            src={imgSrc || "/placeholder.svg"}
-            alt={imgAlt || title}
-            fill
-            className="object-cover transition group-hover:scale-105"
-            sizes="(min-width: 1024px) 33vw, 90vw"
-            priority={false}
-          />
-        </div>
-        <div className="p-5">
-          <h3 className="text-lg font-semibold">{title}</h3>
-          {subtitle && <p className="mt-1 text-sm text-muted-foreground">{subtitle}</p>}
-          <div className="mt-3 inline-flex items-center text-sm font-medium text-primary">
-            {external ? "Öffnen" : "Mehr erfahren"}
-            <svg
-              className="ml-1 h-4 w-4 transition group-hover:translate-x-0.5"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M12.293 4.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 11-1.414-1.414L14.586 10H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" />
-            </svg>
-          </div>
-        </div>
-      </Wrapper>
+      {external ? (
+        <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+          {media}
+          {body}
+        </a>
+      ) : (
+        <Link href={href} className={className}>
+          {media}
+          {body}
+        </Link>
+      )}
     </li>
   )
 }
@@ -179,7 +189,7 @@ export default function HaustuerenOverviewPage() {
         </ul>
       </section>
 
-      {/* Info-Blöcke: Bauarten / Design / Technik */}
+      {/* Info-Blöcke */}
       <section className="mt-12 grid gap-6 md:grid-cols-3">
         <div className="border border-border bg-background p-6">
           <h2 className="text-lg font-semibold">Bauarten & Elemente</h2>

@@ -1,5 +1,6 @@
 // src/app/api/contact/route.ts
 import nodemailer from "nodemailer"
+import type Mail from "nodemailer/lib/mailer"
 
 export const runtime = "nodejs"
 
@@ -11,7 +12,6 @@ type ContactPayload = {
   email: string
   address?: string
   message?: string
-  honeypot?: string
 }
 
 function getTransporter() {
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
 
     // Attachment (optional)
     const file = formData.get("file") as File | null
-    let attachments: any[] = []
+    const attachments: Mail.Attachment[] = []
     if (file && file.size > 0) {
       // einfache Größenbremse (z. B. 8 MB)
       const MAX = 8 * 1024 * 1024
@@ -74,6 +74,8 @@ export async function POST(req: Request) {
     const to = process.env.CONTACT_TO || "info@meyen.de"
     const from = process.env.CONTACT_FROM || "Website Anfrage <no-reply@meyen.de>"
 
+    const safeMessage = (payload.message || "").replace(/\n/g, "<br/>")
+
     const html = `
       <h2>Neue Kontaktanfrage</h2>
       <p><strong>Thema:</strong> ${payload.topic}</p>
@@ -82,7 +84,7 @@ export async function POST(req: Request) {
       <p><strong>Telefon:</strong> ${payload.phone}</p>
       <p><strong>E-Mail:</strong> ${payload.email}</p>
       <p><strong>Adresse/PLZ:</strong> ${payload.address || "-"}</p>
-      <p><strong>Nachricht:</strong><br/>${(payload.message || "").replace(/\n/g, "<br/>")}</p>
+      <p><strong>Nachricht:</strong><br/>${safeMessage}</p>
     `.trim()
 
     const text =
@@ -99,7 +101,7 @@ export async function POST(req: Request) {
     await transporter.sendMail({
       from,
       to,
-      replyTo: payload.email, // direkt auf Kundenmail antworten
+      replyTo: payload.email,
       subject: `Kontakt (${payload.topic} · ${payload.requestType}) – ${payload.name}`,
       text,
       html,
@@ -107,7 +109,7 @@ export async function POST(req: Request) {
     })
 
     return new Response(JSON.stringify({ ok: true }), { status: 200 })
-  } catch (err) {
+  } catch (err: unknown) {
     console.error(err)
     return new Response(JSON.stringify({ ok: false, error: "Server error" }), { status: 500 })
   }
