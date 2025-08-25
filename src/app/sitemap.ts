@@ -112,7 +112,7 @@ function score(item: UrlItem): UrlItem {
 
 // Export: Google-konforme Sitemap
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = process.env.SITE_URL || "https://www.meilen.de"
+  const base = process.env.SITE_URL || "https://www.meylen.de"
 
   const [staticPages, appPages, contentPages, cmsPages] = await Promise.all([
     Promise.resolve(getStaticPages()),
