@@ -179,7 +179,7 @@ export default function LeistungenPage() {
             </div>
             <figure className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 border">
               <img
-                src="/images/leistungen/cta.jpg"
+                src="/images/leistungen/cta.webp"
                 alt="Symbolbild: Montage- bzw. Serviceeinsatz"
                 loading="lazy"
                 decoding="async"
