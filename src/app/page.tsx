@@ -84,13 +84,13 @@ export default function HomePage() {
             </span>
 
             <h1 className="text-3xl font-bold leading-tight md:text-5xl">
-              Fenster, Haustüren, Sonnenschutz & Garagentore
+              Fenster, Haustüren & Sonnenschutz 
             </h1>
 
             <p className="mt-4 text-muted-foreground md:text-lg">
               {SITE.brand} – Ihr Fachpartner in {SITE.address.city} (Raum {SITE.serviceArea}) für{" "}
-              <strong>Schüco</strong> Fenster (Aluminium & Kunststoff), <strong>Inotherm</strong> Haustüren,{" "}
-              <strong>ROMA</strong> Rollladen & Raffstoren sowie <strong>WIŚNIOWSKI</strong> Sektionaltore.
+              <strong>Schüco</strong> Fenster (Aluminium & Kunststoff), <strong>Inotherm</strong> Haustüren,{" "} 
+              sowie <strong>ROMA</strong> Rollladen & Raffstoren. 
               Effizient, sicher, ästhetisch.
             </p>
 
@@ -118,7 +118,7 @@ export default function HomePage() {
             </div>
 
             <p className="mt-3 text-sm text-muted-foreground">
-              {SITE.address.city} · {SITE.serviceArea}
+               {SITE.serviceArea}
             </p>
           </div>
 
@@ -165,8 +165,8 @@ export default function HomePage() {
             imgAlt="Schüco Kunststoff-Fenster"
           />
           <ProductTile
-            title="Inotherm Haustüren"
-            subtitle="Aluminium-Design, Sicherheit & INOSMART"
+            title="Inotherm Haustüren - Schüco Profile"
+            subtitle="Aluminium-Design, Sicherheit & INOSMART (Fingerprint)"
             href="/produkte/haustueren"
             imgSrc="/produkte/haustuer-inotherm-dueren.webp"
             imgAlt="Inotherm Haustür"
@@ -214,7 +214,7 @@ export default function HomePage() {
           <div className="bg-muted p-6">
             <h3 className="text-lg font-semibold">Fachpartner</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Herstellerkompetenz: Schüco, Inotherm, ROMA & WIŚNIOWSKI – Beratung auf Augenhöhe.
+              Herstellerkompetenz: Schüco, Inotherm & ROMA  – Beratung auf Augenhöhe.
             </p>
           </div>
           <div className="bg-muted p-6">

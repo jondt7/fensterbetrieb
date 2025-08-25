@@ -63,8 +63,8 @@ export default function ProductsPage() {
       <header className="mb-8">
         <h1 className="text-3xl font-bold md:text-4xl">Produkte</h1>
         <p className="mt-3 max-w-3xl text-muted-foreground">
-          Fenster und Haustüren von <strong>Schüco</strong> &amp; <strong>Inotherm</strong>, Sonnenschutz von <strong>ROMA</strong> sowie
-          Sektionaltore von <strong>WIŚNIOWSKI</strong> – fachgerecht geplant und montiert.
+          Fenster von <strong>Schüco</strong> &amp; Haustüren von <strong>Inotherm</strong> sowie Sonnenschutz von <strong>ROMA</strong> 
+          – fachgerecht geplant und montiert.
         </p>
       </header>
 
@@ -150,30 +150,6 @@ export default function ProductsPage() {
             href="/produkte/sonnenschutz/raffstoren"
             imgAlt="ROMA Raffstoren – Außenjalousien"
             imgSrc="/produkte/sonnenschutz-roma-koeln.webp"
-          />
-        </ul>
-      </section>
-
-      {/* Garagentore */}
-      <section>
-        <div className="mb-4 flex items-end justify-between">
-          <h2 className="text-xl font-semibold">
-            <Link href="/produkte/garagentore/sektionaltore" className="hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-              Garagentore (WIŚNIOWSKI)
-            </Link>
-          </h2>
-          <Link href="/produkte/garagentore/sektionaltore" className="text-sm font-medium text-primary hover:text-primary-light">
-            Übersicht
-          </Link>
-        </div>
-
-        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" role="list">
-          <ProductTile
-            title="Sektionaltore"
-            subtitle="Dämmung, Sicherheit, Smart-Home optional"
-            href="/produkte/garagentore/sektionaltore"
-            imgAlt="WIŚNIOWSKI Sektionaltor"
-            imgSrc="/placeholder.svg"   // später durch echtes Torbild ersetzen
           />
         </ul>
       </section>
