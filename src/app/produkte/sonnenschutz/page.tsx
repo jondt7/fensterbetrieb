@@ -14,22 +14,22 @@ const tiles: Tile[] = [
   {
     title: "Rollladen",
     href: "/produkte/sonnenschutz/rollladen",
-    imgAlt: "ROMA Rollladen",
-    imgSrc: "/placeholder.svg", // später ersetzen: /images/sonnenschutz-rollladen.jpg
+    imgAlt: "ROMA Rollladen – Waermeschutz, Sicherheit und Verdunkelung",
+    imgSrc: "/produkte/roma/roma-rollladen-fassade-wohnhaus.webp",
     desc: "Wärmeschutz, Sicherheit, Verdunkelung & Smart-Home.",
   },
   {
     title: "Raffstoren",
     href: "/produkte/sonnenschutz/raffstoren",
-    imgAlt: "ROMA Raffstoren",
-    imgSrc: "/placeholder.svg", // später ersetzen: /images/sonnenschutz-raffstoren.jpg
+    imgAlt: "ROMA Raffstoren – Tageslichtlenkung und Sichtschutz an der Fassade",
+    imgSrc: "/produkte/roma/roma-raffstoren-architektur-fassade.webp",
     desc: "Tageslichtlenkung, Sichtschutz & moderne Fassadenoptik.",
   },
   {
     title: "Textilscreens",
     href: "/produkte/sonnenschutz/textilscreens",
-    imgAlt: "ROMA Textilscreens",
-    imgSrc: "/placeholder.svg", // später ersetzen: /images/sonnenschutz-textilscreens.jpg
+    imgAlt: "Badezimmer in Dueren mit ROMA Zip Screens – Sicht- und Sonnenschutz",
+    imgSrc: "/produkte/roma/roma-zip-screens-dueren-badezimmer.webp",
     desc: "Effektiver Hitzeschutz mit transparenten Stoffen.",
   },
 ]
@@ -63,25 +63,28 @@ export default function SonnenschutzOverviewPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/kontakt"
-              className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+              className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
             >
               Beratung anfragen
             </Link>
             <Link
               href="/produkte/sonnenschutz/rollladen"
-              className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+              className="inline-flex items-center border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
             >
               Zu Rollladen
             </Link>
           </div>
         </div>
-        <div className="relative h-64 w-full overflow-hidden rounded-2xl border border-zinc-200 bg-brand-light md:h-auto">
+
+        {/* 4:3 Hero-Container ohne abgerundete Ecken */}
+        <div className="relative w-full overflow-hidden border border-zinc-200 bg-brand-light aspect-[4/3]">
           <Image
-            src="/placeholder.svg" // später ersetzen: /images/sonnenschutz-hero.jpg
-            alt="Moderner außenliegender Sonnenschutz an der Fassade"
+            src="/produkte/roma/roma-sonnenschutz-hero-hausfassade-4x3.webp"
+            alt="ROMA Sonnenschutz an moderner Fassade in Dueren – Rollladen, Raffstoren und Textilscreens"
             fill
             className="object-cover"
             priority={false}
+            sizes="(min-width: 1024px) 50vw, 100vw"
           />
         </div>
       </header>
@@ -93,7 +96,7 @@ export default function SonnenschutzOverviewPage() {
             <Link
               key={t.title}
               href={t.href}
-              className="group block overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition hover:shadow-md"
+              className="group block overflow-hidden border border-zinc-200 bg-white shadow-sm transition hover:shadow-md"
             >
               <div className="relative aspect-[16/10] w-full bg-brand-light">
                 <Image
@@ -120,22 +123,22 @@ export default function SonnenschutzOverviewPage() {
       </section>
 
       {/* Kurzinfo/Teaser-Bereich darunter */}
-      <section className="rounded-2xl border border-zinc-200 bg-white p-8">
+      <section className="border border-zinc-200 bg-white p-8">
         <h2 className="text-xl font-semibold text-brand">Warum außenliegender Sonnenschutz?</h2>
         <div className="mt-3 grid gap-4 text-sm text-zinc-700 md:grid-cols-3">
-          <div className="rounded-lg bg-brand-light p-4">
+          <div className="bg-brand-light p-4">
             <div className="font-semibold text-brand">Energieeffizienz</div>
             <p className="mt-1">
               Reduziert Heiz- und Kühlbedarf – messbar bessere Dämmwerte und Raumklima.
             </p>
           </div>
-          <div className="rounded-lg bg-brand-light p-4">
+          <div className="bg-brand-light p-4">
             <div className="font-semibold text-brand">Komfort & Steuerung</div>
             <p className="mt-1">
               Manuell, Funk, App oder Automatik per Sonnen-/Windsensor – jederzeit optimale Bedingungen.
             </p>
           </div>
-          <div className="rounded-lg bg-brand-light p-4">
+          <div className="bg-brand-light p-4">
             <div className="font-semibold text-brand">Design-Integration</div>
             <p className="mt-1">
               Kastenformen, Farben und Lamellenvarianten passend zur Architektur – dezent bis markant.
@@ -146,19 +149,19 @@ export default function SonnenschutzOverviewPage() {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="/produkte/sonnenschutz/rollladen"
-            className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
           >
             Rollladen ansehen
           </Link>
           <Link
             href="/produkte/sonnenschutz/raffstoren"
-            className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+            className="inline-flex items-center border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
           >
             Raffstoren ansehen
           </Link>
           <Link
             href="/produkte/sonnenschutz/textilscreens"
-            className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+            className="inline-flex items-center border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
           >
             Textilscreens ansehen
           </Link>
