@@ -68,17 +68,134 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(href + "/")
 }
 
+/** --- Einfache Inline-Icons (kein zusätzliches Paket notwendig) --- */
+function IconMenu(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="24" height="24" {...props}>
+      <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+function IconChevronRight(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" {...props}>
+      <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+    </svg>
+  )
+}
+function IconChevronLeft(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" {...props}>
+      <path d="M15 6l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+    </svg>
+  )
+}
+function IconX(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="22" height="22" {...props}>
+      <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+/** --- Mobile-Menü: hierarchische Struktur --- */
+type MobileMenuItem = {
+  label: string
+  href?: string
+  children?: MobileMenuItem[]
+}
+
+// Manuell kuratierte Produkt-Hierarchie für mobile Navigation
+const MOBILE_PRODUCTS: MobileMenuItem[] = [
+  {
+    label: "Fenster",
+    href: "/produkte/fenster",
+    children: [
+      { label: "Aluminium", href: "/produkte/fenster/aluminium" },
+      {
+        label: "Kunststoff",
+        href: "/produkte/fenster/kunststoff",
+        children: [
+          { label: "LivIng 82 AS", href: "/produkte/fenster/kunststoff/living-82-as" },
+          { label: "LivIng 82 MD", href: "/produkte/fenster/kunststoff/living-82-md" },
+        ],
+      },
+      { label: "Beschlag & Sicherheit", href: "/produkte/fenster/beschlag-sicherheit" },
+      {
+        label: "Verglasung",
+        href: "/produkte/fenster/verglasung",
+        children: [
+          { label: "Wärmeschutz", href: "/produkte/fenster/verglasung/waermeschutz" },
+          { label: "Schallschutz", href: "/produkte/fenster/verglasung/schallschutz" },
+          { label: "Sicherheitsglas", href: "/produkte/fenster/verglasung/sicherheitsglas" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Sonnenschutz",
+    href: "/produkte/sonnenschutz",
+    children: [
+      {
+        label: "Rollladen",
+        href: "/produkte/sonnenschutz/rollladen",
+        children: [
+          { label: "Aufsatzrollladen", href: "/produkte/sonnenschutz/rollladen/aufsatz" },
+          { label: "Vorbaurollladen", href: "/produkte/sonnenschutz/rollladen/vorbau" },
+        ],
+      },
+      {
+        label: "Raffstoren",
+        href: "/produkte/sonnenschutz/raffstoren",
+        children: [
+          { label: "Lamellen-Details", href: "/produkte/sonnenschutz/raffstoren/lamellen" },
+          { label: "Aufsatzraffstoren", href: "/produkte/sonnenschutz/raffstoren/aufsatz" },
+          { label: "Vorbauraffstoren", href: "/produkte/sonnenschutz/raffstoren/vorbau" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Haustüren",
+    href: "/produkte/haustueren",
+    children: [
+      { label: "InoSmart", href: "/produkte/haustueren/inosmart" },
+      { label: "Griffe", href: "/produkte/haustueren/griffe" },
+      { label: "Sicherheit & Schlösser", href: "/produkte/haustueren/sicherheit-und-schliessung" },
+      { label: "Verglasung", href: "/produkte/haustueren/verglasung" },
+    ],
+  },
+  {
+    label: "Garagentore",
+    href: "/produkte/garagentore/sektionaltore",
+    children: [{ label: "Sektionaltore", href: "/produkte/garagentore/sektionaltore" }],
+  },
+]
+
+// Root-Ebene mobil: nur Hauptseiten wie auf Desktop
+const MOBILE_ROOT: MobileMenuItem[] = [
+  { label: "Produkte", children: MOBILE_PRODUCTS },
+  { label: "Leistungen", href: "/leistungen" },
+  { label: "Einzugsgebiet", href: "/einzugsgebiet" },
+  { label: "Kontakt", href: "/kontakt" },
+]
+
 export function SiteHeader() {
   const pathname = usePathname()
   const [productsOpen, setProductsOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  // Hierarchiepfad für das mobile Menü (Breadcrumb-Stapel)
+  const [mobilePath, setMobilePath] = useState<MobileMenuItem[]>([])
+
   const panelRef = useRef<HTMLDivElement>(null)
   const btnRef = useRef<HTMLButtonElement>(null)
 
-  // Bei Routenwechsel Menüs schließen
+  // Bei Routenwechsel Menüs schließen & mobilen Pfad resetten
   useEffect(() => {
     setProductsOpen(false)
     setMobileOpen(false)
+    setMobilePath([])
   }, [pathname])
 
   // ESC & Outside-Click fürs Mega-Menü
@@ -87,6 +204,7 @@ export function SiteHeader() {
       if (e.key === "Escape") {
         setProductsOpen(false)
         setMobileOpen(false)
+        setMobilePath([])
       }
     }
     function onClick(e: MouseEvent) {
@@ -116,6 +234,31 @@ export function SiteHeader() {
       document.documentElement.style.overflow = original
     }
   }, [mobileOpen])
+
+  // Aktuelle Ebene und Titel für das mobile Menü
+  const currentItems: MobileMenuItem[] =
+    mobilePath.length === 0 ? MOBILE_ROOT : mobilePath[mobilePath.length - 1].children ?? []
+  const currentTitle = mobilePath.length === 0 ? "Menü" : mobilePath[mobilePath.length - 1].label
+
+  function openMobile() {
+    setMobileOpen(true)
+    setMobilePath([]) // immer auf Root starten
+  }
+
+  function closeMobile() {
+    setMobileOpen(false)
+    setMobilePath([])
+  }
+
+  function goDeeper(item: MobileMenuItem) {
+    if (item.children && item.children.length > 0) {
+      setMobilePath((p) => [...p, item])
+    }
+  }
+
+  function goBack() {
+    setMobilePath((p) => p.slice(0, -1))
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-primary text-primary-foreground">
@@ -249,19 +392,20 @@ export function SiteHeader() {
           </a>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle: nur Burger-Icon */}
         <button
           aria-label="Menü öffnen"
           aria-controls="mobile-menu"
           aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen((v) => !v)}
-          className="inline-flex items-center border border-primary-foreground/40 px-3 py-2 text-sm md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          onClick={() => (mobileOpen ? closeMobile() : openMobile())}
+          className="inline-flex items-center border border-primary-foreground/40 p-2 md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          Menü
+          <span className="sr-only">Menü</span>
+          <IconMenu />
         </button>
       </div>
 
-      {/* Mobile-Menü: fixed Overlay, scrollbar */}
+      {/* Mobile-Menü: fixed Overlay, hierarchische Navigation */}
       {mobileOpen && (
         <div
           id="mobile-menu"
@@ -269,90 +413,74 @@ export function SiteHeader() {
           aria-modal="true"
           className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-border bg-background text-foreground md:hidden"
         >
-          <nav className="container py-3" aria-label="Mobile Navigation">
-            {/* Produkte */}
-            <details open className="group">
-              <summary className="cursor-pointer list-none px-2 py-2 text-sm font-semibold text-primary">
-                Produkte
-              </summary>
+          {/* Kopfzeile mit Zurück/Schließen */}
+          <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-background/95 px-2 py-2 backdrop-blur">
+            <div className="flex items-center gap-1">
+              {mobilePath.length > 0 ? (
+                <button
+                  onClick={goBack}
+                  className="inline-flex items-center gap-1 rounded px-2 py-1 text-sm hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                >
+                  <IconChevronLeft />
+                  <span>Zurück</span>
+                </button>
+              ) : (
+                <span className="px-2 py-1 text-sm opacity-0">Zurück</span> // Platzhalter für Zentrierung
+              )}
+            </div>
+            <div className="text-sm font-semibold">{currentTitle}</div>
+            <button
+              onClick={closeMobile}
+              aria-label="Menü schließen"
+              className="inline-flex items-center rounded p-2 hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <IconX />
+            </button>
+          </div>
 
-              <div className="mt-2 space-y-4">
-                {PRODUCTS.map((g) => (
-                  <div key={g.title}>
+          <nav className="container py-2" aria-label="Mobile Navigation">
+            <ul className="divide-y divide-border">
+              {currentItems.map((it) => {
+                const isSubmenu = !!it.children && it.children.length > 0
+                if (isSubmenu) {
+                  return (
+                    <li key={it.label}>
+                      <button
+                        onClick={() => goDeeper(it)}
+                        className="flex w-full items-center justify-between px-2 py-3 text-sm hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        aria-haspopup="true"
+                        aria-label={`${it.label} öffnen`}
+                      >
+                        <span className="font-medium">{it.label}</span>
+                        <IconChevronRight />
+                      </button>
+                    </li>
+                  )
+                }
+                // reiner Link
+                return (
+                  <li key={it.href ?? it.label}>
                     <Link
-                      href={g.overview}
-                      onClick={() => setMobileOpen(false)}
-                      className="block px-2 py-2 text-sm font-semibold hover:text-primary"
+                      href={it.href ?? "#"}
+                      onClick={closeMobile}
+                      className="flex items-center justify-between px-2 py-3 text-sm hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
-                      {g.title}
+                      <span className="font-medium">{it.label}</span>
                     </Link>
-
-                    <ul className="mt-1">
-                      {g.items.map((it) => (
-                        <li key={it.href}>
-                          <Link
-                            href={it.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="block px-2 py-2 text-sm hover:bg-muted hover:text-primary"
-                          >
-                            {it.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </details>
-
-            {/* Weitere Links */}
-            <ul className="mt-4 space-y-1">
-              <li>
-                <Link
-                  href="/leistungen"
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-2 py-2 text-sm font-medium hover:bg-muted hover:text-primary"
-                >
-                  Leistungen
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/einzugsgebiet"
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-2 py-2 text-sm font-medium hover:bg-muted hover:text-primary"
-                >
-                  Einzugsgebiet
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/kontakt"
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-2 py-2 text-sm font-medium hover:bg-muted hover:text-primary"
-                >
-                  Kontakt
-                </Link>
-              </li>
-              <li className="pt-2">
-                <a
-                  href={`tel:${SITE.phone}`}
-                  onClick={() => setMobileOpen(false)}
-                  className="block bg-accent px-3 py-2 text-center text-sm font-semibold text-accent-foreground"
-                >
-                  Anrufen
-                </a>
-              </li>
+                  </li>
+                )
+              })}
             </ul>
 
-            {/* Schließen */}
+            {/* CTA unten */}
             <div className="mt-4">
-              <button
-                onClick={() => setMobileOpen(false)}
-                className="w-full border border-border px-3 py-2 text-sm"
+              <a
+                href={`tel:${SITE.phone}`}
+                onClick={closeMobile}
+                className="block bg-accent px-3 py-2 text-center text-sm font-semibold text-accent-foreground hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
-                Menü schließen
-              </button>
+                Anrufen
+              </a>
             </div>
           </nav>
         </div>
