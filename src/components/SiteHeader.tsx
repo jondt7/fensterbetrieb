@@ -392,13 +392,13 @@ export function SiteHeader() {
           </a>
         </div>
 
-        {/* Mobile Toggle: nur Burger-Icon */}
+        {/* Mobile Toggle: Burger-Icon ohne Umrandung */}
         <button
           aria-label="Menü öffnen"
           aria-controls="mobile-menu"
           aria-expanded={mobileOpen}
           onClick={() => (mobileOpen ? closeMobile() : openMobile())}
-          className="inline-flex items-center border border-primary-foreground/40 p-2 md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="inline-flex items-center p-2 rounded md:hidden hover:bg-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           <span className="sr-only">Menü</span>
           <IconMenu />
@@ -411,7 +411,7 @@ export function SiteHeader() {
           id="mobile-menu"
           role="dialog"
           aria-modal="true"
-          className="fixed inset-x-0 top-16 bottom-0 z-40 overflow-y-auto border-t border-border bg-background text-foreground md:hidden"
+          className="fixed inset-x-0 top-16 bottom-0 z-[60] overflow-y-auto border-t border-border bg-background text-foreground md:hidden"
         >
           {/* Kopfzeile mit Zurück/Schließen */}
           <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-background/95 px-2 py-2 backdrop-blur">
@@ -442,10 +442,38 @@ export function SiteHeader() {
             <ul className="divide-y divide-border">
               {currentItems.map((it) => {
                 const isSubmenu = !!it.children && it.children.length > 0
-                if (isSubmenu) {
+
+                // Fall 1: Hat Untermenü UND eine eigene Seite -> Link (links) + Pfeil-Button (rechts)
+                if (isSubmenu && it.href) {
+                  return (
+                    <li key={it.label}>
+                      <div className="flex items-stretch">
+                        <Link
+                          href={it.href}
+                          onClick={closeMobile}
+                          className="flex-1 px-2 py-3 text-sm hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        >
+                          <span className="font-medium">{it.label}</span>
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => goDeeper(it)}
+                          aria-label={`${it.label} Untermenü öffnen`}
+                          className="px-2 py-3 hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        >
+                          <IconChevronRight />
+                        </button>
+                      </div>
+                    </li>
+                  )
+                }
+
+                // Fall 2: Hat Untermenü, aber keine eigene Seite -> gesamte Zeile ist Button ins Untermenü
+                if (isSubmenu && !it.href) {
                   return (
                     <li key={it.label}>
                       <button
+                        type="button"
                         onClick={() => goDeeper(it)}
                         className="flex w-full items-center justify-between px-2 py-3 text-sm hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                         aria-haspopup="true"
@@ -457,7 +485,8 @@ export function SiteHeader() {
                     </li>
                   )
                 }
-                // reiner Link
+
+                // Fall 3: Reiner Link (kein Untermenü)
                 return (
                   <li key={it.href ?? it.label}>
                     <Link
