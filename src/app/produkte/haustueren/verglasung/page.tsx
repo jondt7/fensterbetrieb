@@ -94,11 +94,11 @@ export default function VerglasungPage() {
       {/* Specs */}
       <section className="space-y-6">
         {specs.map((s) => (
-          <div key={s.title} className="rounded-2xl border border-zinc-200 bg-white p-6">
+          <div key={s.title} className="rounded-[8px] border border-zinc-200 bg-white p-6">
             <h2 className="text-xl font-semibold text-brand">{s.title}</h2>
             <ul className="mt-3 grid gap-2 text-sm text-zinc-700 md:grid-cols-2">
               {s.points.map((p, i) => (
-                <li key={i} className="rounded-lg bg-brand-light px-3 py-2">• {p}</li>
+                <li key={i} className="rounded-[8px] bg-brand-light px-3 py-2">• {p}</li>
               ))}
             </ul>
           </div>
@@ -106,7 +106,7 @@ export default function VerglasungPage() {
       </section>
 
       {/* Hinweise zu Seitenteilen/Oberlicht */}
-      <section className="mt-12 rounded-2xl border border-zinc-200 bg-white p-6">
+      <section className="mt-12 rounded-[8px] border border-zinc-200 bg-white p-6">
         <h2 className="text-xl font-semibold text-brand">Seitenteile & Oberlicht</h2>
         <p className="mt-2 text-sm text-zinc-700">
           Seitenteile und Oberlicht bringen Tageslicht in den Eingangsbereich und betonen die Fassadenarchitektur.
@@ -115,7 +115,7 @@ export default function VerglasungPage() {
       </section>
 
       {/* FAQ */}
-      <section className="mt-12 rounded-2xl border border-zinc-200 bg-white p-6">
+      <section className="mt-12 rounded-[8px] border border-zinc-200 bg-white p-6">
         <h2 className="text-xl font-semibold text-brand">FAQ zur Verglasung</h2>
         <div className="mt-4 divide-y divide-zinc-200">
           {faq.map((f) => (
@@ -130,17 +130,17 @@ export default function VerglasungPage() {
       </section>
 
       {/* CTA */}
-      <section className="mt-12 rounded-2xl border border-brand bg-white p-8 shadow-sm">
+      <section className="mt-12 rounded-[8px] border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Glas-Paket passend zu Ihrer Tür</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir empfehlen das ideale Glas-Paket (Wärme, Sicherheit, Schallschutz, Design) für Ihre Anforderungen.
           Vereinbaren Sie jetzt eine unverbindliche Beratung.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/kontakt" className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">
+          <Link href="/kontakt" className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">
             Beratung anfragen
           </Link>
-          <Link href="/produkte/haustueren/sicherheit-und-schliessung" className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
+          <Link href="/produkte/haustueren/sicherheit-und-schliessung" className="inline-flex items-center rounded-[8px] border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
             Sicherheit & Schlösser
           </Link>
         </div>

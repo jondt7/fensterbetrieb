@@ -46,7 +46,7 @@ export default function WaermeschutzPage() {
         <h2 className="text-2xl font-semibold text-brand">Ihre Vorteile</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {benefits.map((b) => (
-            <div key={b.t} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+            <div key={b.t} className="rounded-sm border border-zinc-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-brand">{b.t}</h3>
               <p className="mt-2 text-sm text-zinc-700">{b.d}</p>
             </div>
@@ -55,7 +55,7 @@ export default function WaermeschutzPage() {
       </section>
 
       {/* Vergleich */}
-      <section className="mb-12 rounded-2xl border border-zinc-200 bg-white p-6">
+      <section className="mb-12 rounded-sm border border-zinc-200 bg-white p-6">
         <h2 className="text-xl font-semibold text-brand">Vergleich: 2-fach vs. 3-fach (mit Warmer Kante)</h2>
         <div className="mt-4 overflow-x-auto">
           <table className="min-w-full border-collapse text-sm">
@@ -93,25 +93,25 @@ export default function WaermeschutzPage() {
       </section>
 
       {/* Hinweise */}
-      <section className="mb-12 rounded-2xl border border-zinc-200 bg-white p-8">
+      <section className="mb-12 rounded-sm border border-zinc-200 bg-white p-8">
         <h2 className="text-xl font-semibold text-brand">Planungshinweise</h2>
         <ul className="mt-3 grid gap-2 text-sm text-zinc-700 md:grid-cols-2">
           {tips.map((t) => (
-            <li key={t} className="rounded-lg bg-brand-light px-3 py-2">• {t}</li>
+            <li key={t} className="rounded-sm bg-brand-light px-3 py-2">• {t}</li>
           ))}
         </ul>
       </section>
 
       {/* CTA */}
-      <section className="rounded-2xl border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-sm border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Ihr Wärmeschutzpaket konfigurieren</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir kombinieren Glas, „Warme Kante“ und Profil optimal für Ihr Gebäude – inkl. Nachweis.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/produkte/fenster/verglasung/schallschutz" className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Schallschutz</Link>
-          <Link href="/produkte/fenster/verglasung/sicherheitsglas" className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Sicherheitsglas</Link>
-          <Link href="/kontakt" className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">Beratung anfragen</Link>
+          <Link href="/produkte/fenster/verglasung/schallschutz" className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Schallschutz</Link>
+          <Link href="/produkte/fenster/verglasung/sicherheitsglas" className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Sicherheitsglas</Link>
+          <Link href="/kontakt" className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">Beratung anfragen</Link>
         </div>
       </section>
     </div>

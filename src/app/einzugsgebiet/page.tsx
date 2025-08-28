@@ -35,10 +35,10 @@ export default function EinzugsgebietOverviewPage() {
           <Link
             key={c.slug}
             href={`/einzugsgebiet/${c.slug}`}
-            className="rounded-2xl border border-zinc-200 bg-white p-5 transition hover:shadow-sm"
+            className="rounded-[8px] border border-zinc-200 bg-white p-5 transition hover:shadow-sm"
           >
             <div className="flex items-center gap-2">
-              {c.isHQ && <span className="rounded bg-brand px-2 py-0.5 text-xs font-semibold text-white">Hauptstandort</span>}
+              {c.isHQ && <span className="rounded-[8px] bg-brand px-2 py-0.5 text-xs font-semibold text-white">Hauptstandort</span>}
               <div className="text-lg font-semibold text-brand">{c.name}</div>
             </div>
             <div className="mt-1 text-sm text-zinc-600">{c.intro}</div>

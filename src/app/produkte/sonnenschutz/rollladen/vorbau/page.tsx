@@ -93,7 +93,7 @@ export default function VorbauRollladenPage() {
         <h2 className="text-2xl font-semibold text-brand">Vorteile auf einen Blick</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {usp.map((item) => (
-            <div key={item.title} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+            <div key={item.title} className="rounded-sm border border-zinc-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-brand">{item.title}</h3>
               <p className="mt-2 text-sm text-zinc-700">{item.text}</p>
             </div>
@@ -106,7 +106,7 @@ export default function VorbauRollladenPage() {
         <h2 className="text-2xl font-semibold text-brand">Kastenformen & Modellfamilien</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {models.map((m) => (
-            <div key={m.code} className="rounded-2xl bg-brand-light p-6">
+            <div key={m.code} className="rounded-sm bg-brand-light p-6">
               <div className="text-xs font-semibold uppercase tracking-wide text-brand-accent">{m.code}</div>
               <h3 className="mt-1 text-xl font-semibold text-brand">{m.name}</h3>
               <p className="text-sm text-zinc-700">{m.shape}</p>
@@ -119,20 +119,20 @@ export default function VorbauRollladenPage() {
       </section>
 
       {/* Technik & Optionen */}
-      <section className="mb-12 rounded-2xl border border-zinc-200 bg-white p-6">
+      <section className="mb-12 rounded-sm border border-zinc-200 bg-white p-6">
         <h2 className="text-xl font-semibold text-brand">Technik & Optionen</h2>
         <ul className="mt-3 grid gap-2 text-sm text-zinc-700 md:grid-cols-2">
-          <li className="rounded-lg bg-brand-light px-3 py-2">Motor-/Funkantrieb, App-Steuerung, Automatik mit Sonnen-/Windsensor</li>
-          <li className="rounded-lg bg-brand-light px-3 py-2">Solar-Antrieb ohne Kabel – ideal zur Nachrüstung</li>
-          <li className="rounded-lg bg-brand-light px-3 py-2">Integrierbarer Insektenschutz möglich</li>
-          <li className="rounded-lg bg-brand-light px-3 py-2">Außenrevision für servicefreundliche Wartung</li>
-          <li className="rounded-lg bg-brand-light px-3 py-2">Viele Farben/Strukturen, farblich abgestimmte Sichtteile</li>
-          <li className="rounded-lg bg-brand-light px-3 py-2">Auf Wunsch erhöhte Einbruchhemmung/ Hochschiebehemmung</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">Motor-/Funkantrieb, App-Steuerung, Automatik mit Sonnen-/Windsensor</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">Solar-Antrieb ohne Kabel – ideal zur Nachrüstung</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">Integrierbarer Insektenschutz möglich</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">Außenrevision für servicefreundliche Wartung</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">Viele Farben/Strukturen, farblich abgestimmte Sichtteile</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">Auf Wunsch erhöhte Einbruchhemmung/ Hochschiebehemmung</li>
         </ul>
       </section>
 
       {/* CTA */}
-      <section className="rounded-2xl border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-sm border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Nächster Schritt: Aufsatz oder direkt Beratung</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Unsicher, welche Lösung passt? Wir zeigen Muster, Farben und Antriebe – vor Ort oder im Showroom.
@@ -140,13 +140,13 @@ export default function VorbauRollladenPage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/produkte/sonnenschutz/rollladen/aufsatz"
-            className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+            className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
           >
             Aufsatzrollladen ansehen
           </Link>
           <Link
             href="/kontakt"
-            className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
           >
             Beratung anfragen
           </Link>

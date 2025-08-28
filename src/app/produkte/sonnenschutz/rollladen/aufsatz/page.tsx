@@ -49,7 +49,7 @@ export default function AufsatzRollladenPage() {
             mit Fenstertausch.
           </p>
         </div>
-        <div className="relative h-64 w-full overflow-hidden rounded-2xl border border-zinc-200 bg-brand-light">
+        <div className="relative h-64 w-full overflow-hidden rounded-[8px] border border-zinc-200 bg-brand-light">
           <Image
             src="/placeholder.svg"        // <- hier später echtes Bild eintragen, z. B. /images/aufsatz-querschnitt.jpg
             alt="Aufsatzrollladen – Querschnitt"
@@ -65,7 +65,7 @@ export default function AufsatzRollladenPage() {
         <h2 className="text-2xl font-semibold text-brand">Vorteile auf einen Blick</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {benefits.map((b) => (
-            <div key={b.title} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+            <div key={b.title} className="rounded-[8px] border border-zinc-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-brand">{b.title}</h3>
               <p className="mt-2 text-sm text-zinc-700">{b.text}</p>
             </div>
@@ -78,7 +78,7 @@ export default function AufsatzRollladenPage() {
         <h2 className="text-2xl font-semibold text-brand">Modellübersicht</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {models.map((m) => (
-            <div key={m.code} className="rounded-2xl bg-brand-light p-6">
+            <div key={m.code} className="rounded-[8px] bg-brand-light p-6">
               <div className="text-sm font-semibold text-brand-accent">{m.code}</div>
               <p className="mt-1 text-sm text-zinc-700">{m.desc}</p>
             </div>
@@ -87,16 +87,16 @@ export default function AufsatzRollladenPage() {
       </section>
 
       {/* CTA */}
-      <section className="rounded-2xl border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-[8px] border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Nächstes: Modelle vergleichen oder Beratung</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir helfen bei der Systemwahl (Revision innen/außen, Dämmung, Insektenschutz, Smart-Home, Solar).
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/produkte/sonnenschutz/rollladen/vorbau" className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
+          <Link href="/produkte/sonnenschutz/rollladen/vorbau" className="inline-flex items-center rounded-[8px] border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
             Vorbaurollladen ansehen
           </Link>
-          <Link href="/kontakt" className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">
+          <Link href="/kontakt" className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">
             Beratung anfragen
           </Link>
         </div>

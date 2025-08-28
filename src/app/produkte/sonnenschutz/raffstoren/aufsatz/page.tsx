@@ -54,7 +54,7 @@ export default function AufsatzRaffstorenPage() {
         <h2 className="text-2xl font-semibold text-brand">Ihre Vorteile</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {usp.map((item) => (
-            <div key={item.title} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+            <div key={item.title} className="rounded-sm border border-zinc-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-brand">{item.title}</h3>
               <p className="mt-2 text-sm text-zinc-700">{item.text}</p>
             </div>
@@ -67,7 +67,7 @@ export default function AufsatzRaffstorenPage() {
         <h2 className="text-2xl font-semibold text-brand">Systeme & Modelllinien</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {modelle.map((m) => (
-            <div key={m.code} className="rounded-2xl bg-brand-light p-6">
+            <div key={m.code} className="rounded-sm bg-brand-light p-6">
               <div className="text-sm font-semibold text-brand-accent">{m.code}</div>
               <p className="mt-2 text-sm text-zinc-700">{m.desc}</p>
             </div>
@@ -76,20 +76,20 @@ export default function AufsatzRaffstorenPage() {
       </section>
 
       {/* Technik */}
-      <section className="mb-14 rounded-2xl border border-zinc-200 bg-white p-8">
+      <section className="mb-14 rounded-sm border border-zinc-200 bg-white p-8">
         <h2 className="text-xl font-semibold text-brand">Technische Merkmale</h2>
         <ul className="mt-4 grid gap-2 text-sm text-zinc-700 md:grid-cols-2">
-          <li className="rounded-lg bg-brand-light px-3 py-2">Revision außen – schnelle Wartung ohne Innenarbeiten</li>
-          <li className="rounded-lg bg-brand-light px-3 py-2">Sehr gute Dämmung durch Aufsatzbauweise</li>
-          <li className="rounded-lg bg-brand-light px-3 py-2">Kompatibel mit Insektenschutz</li>
-          <li className="rounded-lg bg-brand-light px-3 py-2">Motor, Funk, App; Automatik mit Sonnen-/Windsensor</li>
-          <li className="rounded-lg bg-brand-light px-3 py-2">CDL als Premium-Lamelle für hohe Blickdichtheit & Windstabilität</li>
-          <li className="rounded-lg bg-brand-light px-3 py-2">Viele Farben & Strukturen der sichtbaren Teile</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">Revision außen – schnelle Wartung ohne Innenarbeiten</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">Sehr gute Dämmung durch Aufsatzbauweise</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">Kompatibel mit Insektenschutz</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">Motor, Funk, App; Automatik mit Sonnen-/Windsensor</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">CDL als Premium-Lamelle für hohe Blickdichtheit & Windstabilität</li>
+          <li className="rounded-sm bg-brand-light px-3 py-2">Viele Farben & Strukturen der sichtbaren Teile</li>
         </ul>
       </section>
 
       {/* CTA */}
-      <section className="rounded-2xl border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-sm border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Vorbau vergleichen oder direkt beraten lassen</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir zeigen Unterschiede zwischen Aufsatz- und Vorbauraffstoren, Lamellen (CDL, C, Z) und Steuerungen –
@@ -98,13 +98,13 @@ export default function AufsatzRaffstorenPage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/produkte/sonnenschutz/raffstoren/vorbau"
-            className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+            className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
           >
             Vorbauraffstoren ansehen
           </Link>
           <Link
             href="/kontakt"
-            className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
           >
             Beratung anfragen
           </Link>

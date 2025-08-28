@@ -19,7 +19,7 @@ function ProductTile({ title, subtitle, href, imgSrc, imgAlt }: TileProps) {
     <li>
       <Link
         href={href}
-        className="group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
       >
         <div className="relative aspect-[16/9] w-full bg-muted">
           <Image
@@ -123,7 +123,7 @@ export default function HomePage() {
           </div>
 
           <div className="relative">
-            <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted">
+            <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted rounded-[8px]">
               <Image
                 src="/hero/fenster-haustuer.webp"
                 alt="Modernes Fenster & Haustür – Referenzprojekt"
@@ -211,19 +211,19 @@ export default function HomePage() {
       {/* WARUM WIR */}
       <section className="border-y border-border bg-background">
         <div className="container grid grid-cols-1 gap-6 py-12 md:grid-cols-3 md:py-16">
-          <div className="bg-muted p-6">
+          <div className="bg-muted p-6 rounded-[8px]">
             <h3 className="text-lg font-semibold">Fachpartner</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Herstellerkompetenz: Schüco, Inotherm & ROMA  – Beratung auf Augenhöhe.
             </p>
           </div>
-          <div className="bg-muted p-6">
+          <div className="bg-muted p-6 rounded-[8px]">
             <h3 className="text-lg font-semibold">Montage nach Stand der Technik</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Sorgfältiger Bauanschluss (z. B. RAL-Richtlinien), Dichtigkeit, Funktionssicherheit.
             </p>
           </div>
-          <div className="bg-muted p-6">
+          <div className="bg-muted p-6 rounded-[8px]">
             <h3 className="text-lg font-semibold">Energie & Sicherheit</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Wärmedämmung, Schallschutz, RC-Sicherheitsoptionen & Smart-Home-Nachrüstung.
@@ -235,7 +235,7 @@ export default function HomePage() {
       {/* CTA-BANNER */}
       <section className="bg-background">
         <div className="container py-12 md:py-16">
-          <div className="flex flex-col items-start justify-between gap-6 border border-border bg-background p-6 md:flex-row md:items-center md:p-8">
+          <div className="flex flex-col items-start justify-between gap-6 border border-border bg-background p-6 md:flex-row md:items-center md:p-8 rounded-[8px]">
             <div>
               <h3 className="text-xl font-semibold">Starten wir Ihr Projekt</h3>
               <p className="mt-1 text-sm text-muted-foreground">

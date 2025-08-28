@@ -62,7 +62,7 @@ export default function SchallschutzPage() {
         <h2 className="text-2xl font-semibold text-brand">Ihre Vorteile</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {benefits.map((b) => (
-            <div key={b.t} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+            <div key={b.t} className="rounded-sm border border-zinc-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-brand">{b.t}</h3>
               <p className="mt-2 text-sm text-zinc-700">{b.d}</p>
             </div>
@@ -71,7 +71,7 @@ export default function SchallschutzPage() {
       </section>
 
       {/* Vorgehen */}
-      <section className="mb-12 rounded-2xl border border-zinc-200 bg-white p-8">
+      <section className="mb-12 rounded-sm border border-zinc-200 bg-white p-8">
         <h2 className="text-xl font-semibold text-brand">So planen wir Ihren Schallschutz</h2>
         <ol className="mt-3 list-inside list-decimal text-sm text-zinc-700">
           {steps.map((s) => (<li key={s} className="mb-2">{s}</li>))}
@@ -79,11 +79,11 @@ export default function SchallschutzPage() {
       </section>
 
       {/* FAQ */}
-      <section className="mb-12 rounded-2xl border border-zinc-200 bg-white p-8">
+      <section className="mb-12 rounded-sm border border-zinc-200 bg-white p-8">
         <h2 className="text-2xl font-semibold text-brand">FAQ</h2>
         <div className="mt-4 space-y-4">
           {faq.map((f) => (
-            <details key={f.q} className="group rounded-lg border border-zinc-200 p-4">
+            <details key={f.q} className="group rounded-sm border border-zinc-200 p-4">
               <summary className="cursor-pointer font-semibold text-brand">{f.q}</summary>
               <p className="mt-2 text-sm text-zinc-700">{f.a}</p>
             </details>
@@ -92,15 +92,15 @@ export default function SchallschutzPage() {
       </section>
 
       {/* CTA */}
-      <section className="rounded-2xl border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-sm border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Schallschutz passend zu Ihrer Lärmsituation</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir empfehlen den geeigneten Glasaufbau – inklusive Abstimmung mit Rahmen, Dichtungen und Montage.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/produkte/fenster/verglasung/waermeschutz" className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Wärmeschutz</Link>
-          <Link href="/produkte/fenster/verglasung/sicherheitsglas" className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Sicherheitsglas</Link>
-          <Link href="/kontakt" className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">Beratung anfragen</Link>
+          <Link href="/produkte/fenster/verglasung/waermeschutz" className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Wärmeschutz</Link>
+          <Link href="/produkte/fenster/verglasung/sicherheitsglas" className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Sicherheitsglas</Link>
+          <Link href="/kontakt" className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">Beratung anfragen</Link>
         </div>
       </section>
     </div>

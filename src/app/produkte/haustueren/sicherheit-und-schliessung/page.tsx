@@ -42,7 +42,7 @@ export default function SicherheitPage() {
       <section className="mb-12">
         <h2 className="text-2xl font-semibold text-brand">Sicherheitsstufen</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <div className="rounded-xl bg-brand-light p-6">
+          <div className="rounded-sm bg-brand-light p-6">
             <h3 className="text-lg font-semibold text-brand">RC2</h3>
             <p className="mt-2 text-sm text-zinc-700">
               Hoher Basisschutz, geprüft gegen Gelegenheitstäter mit einfachem
@@ -55,7 +55,7 @@ export default function SicherheitPage() {
               <li>Einbruchhemmende Verglasung (P4A)</li>
             </ul>
           </div>
-          <div className="rounded-xl bg-brand-light p-6">
+          <div className="rounded-sm bg-brand-light p-6">
             <h3 className="text-lg font-semibold text-brand">RC3</h3>
             <p className="mt-2 text-sm text-zinc-700">
               Erhöhte Sicherheit, auch gegen erfahrene Täter mit schwerem
@@ -112,7 +112,7 @@ export default function SicherheitPage() {
       </section>
 
       {/* CTA */}
-      <section className="rounded-2xl border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-sm border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Mehr Sicherheit für Ihr Zuhause</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir beraten Sie zu den passenden Sicherheitsstufen, Verriegelungen und
@@ -122,13 +122,13 @@ export default function SicherheitPage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/kontakt"
-            className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
           >
             Beratung anfragen
           </Link>
-          <Link
+         <Link
             href="/produkte/haustueren/inosmart"
-            className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+            className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
           >
             Mehr zu InoSmart
           </Link>

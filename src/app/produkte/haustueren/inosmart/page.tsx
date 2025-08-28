@@ -39,19 +39,19 @@ export default function InoSmartPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/kontakt"
-              className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark"
+              className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark"
             >
               Beratung anfragen
             </Link>
             <a
               href="tel:+490000000000"
-              className="inline-flex items-center rounded-xl border border-brand-dark bg-white px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+              className="inline-flex items-center rounded-sm border border-brand-dark bg-white px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
             >
               Telefon +49 000 0000000
             </a>
           </div>
         </div>
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-zinc-200 bg-brand-light shadow-sm">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-zinc-200 bg-brand-light shadow-sm">
           <Image
             src="/placeholder.svg"
             alt="InoSmart Haustürsystem"
@@ -65,31 +65,31 @@ export default function InoSmartPage() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-brand">Hauptfunktionen</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
-          <div className="rounded-2xl bg-brand-light p-6">
+          <div className="rounded-sm bg-brand-light p-6">
             <h3 className="text-lg font-semibold text-brand">Fingerabdruck</h3>
             <p className="mt-2 text-sm text-zinc-700">
               Präziser 3D-Sensor, bis zu 100 Nutzer, manipulationssicher.
             </p>
           </div>
-          <div className="rounded-2xl bg-brand-light p-6">
+          <div className="rounded-sm bg-brand-light p-6">
             <h3 className="text-lg font-semibold text-brand">Zahlencode</h3>
             <p className="mt-2 text-sm text-zinc-700">
               Individuelle PINs, zeitlich beschränkte Zugänge möglich.
             </p>
           </div>
-          <div className="rounded-2xl bg-brand-light p-6">
+          <div className="rounded-sm bg-brand-light p-6">
             <h3 className="text-lg font-semibold text-brand">Smartphone</h3>
             <p className="mt-2 text-sm text-zinc-700">
               Steuerung via Bluetooth & App, inkl. Ereignisprotokoll.
             </p>
           </div>
-          <div className="rounded-2xl bg-brand-light p-6">
+          <div className="rounded-sm bg-brand-light p-6">
             <h3 className="text-lg font-semibold text-brand">Automatische Verriegelung</h3>
             <p className="mt-2 text-sm text-zinc-700">
               5-fach-Verriegelung aktiviert sich nach jedem Schließen automatisch.
             </p>
           </div>
-          <div className="rounded-2xl bg-brand-light p-6">
+          <div className="rounded-sm bg-brand-light p-6">
             <h3 className="text-lg font-semibold text-brand">App-Verwaltung</h3>
             <p className="mt-2 text-sm text-zinc-700">
               Nutzerverwaltung, Zeitpläne, Berechtigungen – alles per App steuerbar.
@@ -118,7 +118,7 @@ export default function InoSmartPage() {
       </section>
 
       {/* CTA */}
-      <section className="rounded-2xl border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-sm border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-xl font-semibold text-brand">Jetzt InoSmart erleben</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Vereinbaren Sie einen Termin zur Live-Demo oder lassen Sie sich ein
@@ -127,13 +127,13 @@ export default function InoSmartPage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/kontakt"
-            className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark"
+            className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark"
           >
             Termin anfragen
           </Link>
           <a
             href="tel:+490000000000"
-            className="inline-flex items-center rounded-xl border border-brand-dark bg-white px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+            className="inline-flex items-center rounded-sm border border-brand-dark bg-white px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
           >
             Telefon +49 000 0000000
           </a>

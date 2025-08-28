@@ -49,7 +49,7 @@ export default function Living82ASPage() {
         <h2 className="text-2xl font-semibold text-brand">Systemvorteile</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {usp.map((b) => (
-            <div key={b.t} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+            <div key={b.t} className="rounded-sm border border-zinc-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-brand">{b.t}</h3>
               <p className="mt-2 text-sm text-zinc-700">{b.d}</p>
             </div>
@@ -58,32 +58,32 @@ export default function Living82ASPage() {
       </section>
 
       {/* Highlights */}
-      <section className="mb-12 rounded-2xl border border-zinc-200 bg-white p-8">
+      <section className="mb-12 rounded-sm border border-zinc-200 bg-white p-8">
         <h2 className="text-xl font-semibold text-brand">Highlights</h2>
         <ul className="mt-3 grid gap-2 text-sm text-zinc-700 md:grid-cols-2">
           {highlights.map((h) => (
-            <li key={h} className="rounded-lg bg-brand-light px-3 py-2">• {h}</li>
+            <li key={h} className="rounded-sm bg-brand-light px-3 py-2">• {h}</li>
           ))}
         </ul>
       </section>
 
       {/* Nächste Schritte */}
-      <section className="rounded-2xl border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-sm border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Nächste Schritte</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir planen Glas, Beschlag/Sicherheit, Farben und Maße exakt für Ihr Projekt.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/produkte/fenster/kunststoff/living-82-md" className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
+          <Link href="/produkte/fenster/kunststoff/living-82-md" className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
             Zu LivIng 82 MD (Mitteldichtung)
           </Link>
-          <Link href="/produkte/fenster/verglasung" className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
+          <Link href="/produkte/fenster/verglasung" className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
             Verglasung
           </Link>
-          <Link href="/produkte/fenster/beschlag-sicherheit" className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
+          <Link href="/produkte/fenster/beschlag-sicherheit" className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
             Beschlag & Sicherheit
           </Link>
-          <Link href="/kontakt" className="inline-flex items-center rounded-xl bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">
+          <Link href="/kontakt" className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">
             Beratung anfragen
           </Link>
         </div>
