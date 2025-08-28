@@ -32,20 +32,20 @@ export default function KunststoffFensterPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/kontakt"
-              className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
             >
               Angebot anfordern
             </Link>
             <a
               href={`tel:${SITE.phone}`}
-              className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
             >
               Jetzt anrufen
             </a>
           </div>
         </div>
 
-        <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted shadow-sm">
+        <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted shadow-sm rounded-[8px]">
           <Image
             src="/produkte/fenster-kunststoff.webp"
             alt="Schüco Kunststoff-Fenster"
@@ -57,19 +57,19 @@ export default function KunststoffFensterPage() {
 
       {/* Merkmale */}
       <section className="mb-12 grid gap-6 md:grid-cols-3">
-        <div className="bg-muted p-6">
+        <div className="bg-muted p-6 rounded-[8px]">
           <h3 className="text-lg font-semibold">Energieeffizienz</h3>
           <p className="mt-2 text-sm text-muted-foreground">
             7-Kammer-Profile mit 82 mm Bautiefe erreichen U<sub>f</sub>-Werte bis 0,79 W/(m²K) und erfüllen höchste Anforderungen an Wärmedämmung.
           </p>
         </div>
-        <div className="bg-muted p-6">
+        <div className="bg-muted p-6 rounded-[8px]">
           <h3 className="text-lg font-semibold">Komfort</h3>
           <p className="mt-2 text-sm text-muted-foreground">
             Optionaler Schallschutz bis 47 dB, langlebige EPDM-Dichtungen, pflegeleicht und wartungsarm.
           </p>
         </div>
-        <div className="bg-muted p-6">
+        <div className="bg-muted p-6 rounded-[8px]">
           <h3 className="text-lg font-semibold">Design</h3>
           <p className="mt-2 text-sm text-muted-foreground">
             Große Farb- und Oberflächenvielfalt, optional mit Aluminium-Deckschalen.
@@ -81,7 +81,7 @@ export default function KunststoffFensterPage() {
       <section className="mb-12">
         <h2 className="text-2xl font-bold">Produktvarianten</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          <div className="border border-border bg-background p-6">
+          <div className="border border-border bg-background p-6 rounded-[8px]">
             <div className="flex gap-4">
               <div className="flex-1">
                 <h3 className="text-lg font-semibold">LivIng 82 AS</h3>
@@ -90,7 +90,7 @@ export default function KunststoffFensterPage() {
                   und hervorragendes Preis-Leistungs-Verhältnis.
                 </p>
               </div>
-              <div className="relative aspect-square w-28 border border-border bg-muted">
+              <div className="relative aspect-square w-28 border border-border bg-muted rounded-[8px] overflow-hidden">
                 <Image
                   src="/produkte/living-82-as.webp"
                   alt="Schüco LivIng 82 AS Kunststoff-Fenster"
@@ -101,7 +101,7 @@ export default function KunststoffFensterPage() {
             </div>
           </div>
 
-          <div className="border border-border bg-background p-6">
+          <div className="border border-border bg-background p-6 rounded-[8px]">
             <div className="flex gap-4">
               <div className="flex-1">
                 <h3 className="text-lg font-semibold">LivIng 82 MD</h3>
@@ -110,7 +110,7 @@ export default function KunststoffFensterPage() {
                   optimale Wärmedämmung, Schallschutz und Luftdichtheit.
                 </p>
               </div>
-              <div className="relative aspect-square w-28 border border-border bg-muted">
+              <div className="relative aspect-square w-28 border border-border bg-muted rounded-[8px] overflow-hidden">
                 <Image
                   src="/produkte/living-82-md.webp"
                   alt="Schüco LivIng 82 MD Kunststoff-Fenster"
@@ -125,7 +125,7 @@ export default function KunststoffFensterPage() {
 
       {/* Beschlag */}
       <section className="mb-12">
-        <details className="border border-border bg-background p-6">
+        <details className="border border-border bg-background p-6 rounded-[8px]">
           <summary className="cursor-pointer text-lg font-semibold">
             Beschlag & Sicherheit
           </summary>
@@ -144,7 +144,7 @@ export default function KunststoffFensterPage() {
 
       {/* Verglasung */}
       <section className="mb-12">
-        <details className="border border-border bg-background p-6">
+        <details className="border border-border bg-background p-6 rounded-[8px]">
           <summary className="cursor-pointer text-lg font-semibold">
             Verglasung
           </summary>
@@ -161,7 +161,7 @@ export default function KunststoffFensterPage() {
       </section>
 
       {/* CTA */}
-      <section className="border border-border bg-background p-8">
+      <section className="border border-border bg-background p-8 rounded-[8px]">
         <h2 className="text-xl font-semibold">
           Starten wir Ihr Fensterprojekt
         </h2>
@@ -172,13 +172,13 @@ export default function KunststoffFensterPage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/kontakt"
-            className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark"
+            className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark rounded-[8px]"
           >
             Termin anfragen
           </Link>
           <a
             href={`tel:${SITE.phone}`}
-            className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground"
+            className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground rounded-[8px]"
           >
             Telefon {SITE.phone}
           </a>

@@ -111,7 +111,7 @@ export default function BeschlagSicherheitPage() {
         <h2 className="text-2xl font-semibold text-brand">Sicherheitspakete</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {packages.map((p) => (
-            <div key={p.title} className="rounded-sm border border-zinc-200 bg-white p-6 shadow-sm">
+            <div key={p.title} className="rounded-[8px] border border-zinc-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-brand">{p.title}</h3>
               <ul className="mt-3 list-inside list-disc text-sm text-zinc-700">
                 {p.points.map((pt, i) => <li key={i}>{pt}</li>)}
@@ -130,7 +130,7 @@ export default function BeschlagSicherheitPage() {
         <h2 className="text-2xl font-semibold text-brand">Sichtbarer vs. verdeckter Beschlag</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {hingeSides.map((c) => (
-            <div key={c.title} className="rounded-sm bg-brand-light p-6">
+            <div key={c.title} className="rounded-[8px] bg-brand-light p-6">
               <h3 className="text-lg font-semibold text-brand">{c.title}</h3>
               <ul className="mt-3 list-inside list-disc text-sm text-zinc-700">
                 {c.points.map((pt, i) => <li key={i}>{pt}</li>)}
@@ -141,11 +141,11 @@ export default function BeschlagSicherheitPage() {
       </section>
 
       {/* Add-ons */}
-      <section className="mb-12 rounded-sm border border-zinc-200 bg-white p-8">
+      <section className="mb-12 rounded-[8px] border border-zinc-200 bg-white p-8">
         <h2 className="text-xl font-semibold text-brand">Komfort & Sicherheit – Optionen</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           {addons.map((a) => (
-            <div key={a.title} className="rounded-sm bg-brand-light p-5">
+            <div key={a.title} className="rounded-[8px] bg-brand-light p-5">
               <div className="text-sm font-semibold text-brand">{a.title}</div>
               <ul className="mt-2 list-inside list-disc text-sm text-zinc-700">
                 {a.points.map((pt, i) => <li key={i}>{pt}</li>)}
@@ -156,16 +156,16 @@ export default function BeschlagSicherheitPage() {
       </section>
 
       {/* CTA */}
-      <section className="rounded-sm border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-[8px] border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Individuelles Sicherheitspaket konfigurieren</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir stimmen Beschlag, Griff, Glas und Montage exakt auf Ihr Objekt ab – inkl. Nachweis der RC-Stufe.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/produkte/fenster/verglasung" className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">
+          <Link href="/produkte/fenster/verglasung" className="inline-flex items-center rounded-[8px] border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">
             Verglasung (Sicherheitsglas)
           </Link>
-          <Link href="/kontakt" className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">
+          <Link href="/kontakt" className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">
             Beratung anfragen
           </Link>
         </div>

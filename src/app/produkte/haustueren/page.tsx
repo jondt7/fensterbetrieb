@@ -14,7 +14,7 @@ type TileProps = {
 
 function Tile({ title, subtitle, href, imgAlt, imgSrc, external }: TileProps) {
   const className =
-    "group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+    "group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
 
   const media = (
     <div className="relative aspect-[16/9] w-full bg-muted">
@@ -99,13 +99,13 @@ export default function HaustuerenOverviewPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/kontakt"
-              className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
             >
               Angebot anfordern
             </Link>
             <a
               href={`tel:${SITE.phone}`}
-              className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
             >
               Jetzt anrufen
             </a>
@@ -113,7 +113,7 @@ export default function HaustuerenOverviewPage() {
         </div>
 
         {/* Hero-Bild */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted">
+        <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted rounded-[8px]">
           <Image
             src="/produkte/haustueren-hero.webp"
             alt="Inotherm Aluminium-Haustür – Referenzprojekt in Düren"
@@ -191,7 +191,7 @@ export default function HaustuerenOverviewPage() {
 
       {/* Info-Blöcke */}
       <section className="mt-12 grid gap-6 md:grid-cols-3">
-        <div className="border border-border bg-background p-6">
+        <div className="border border-border bg-background p-6 rounded-[8px]">
           <h2 className="text-lg font-semibold">Bauarten & Elemente</h2>
           <ul className="mt-3 list-inside list-disc text-sm text-muted-foreground">
             <li>Ein- und zweiflügelige Haustüren</li>
@@ -199,7 +199,7 @@ export default function HaustuerenOverviewPage() {
             <li>Barrierearme Schwellenlösungen</li>
           </ul>
         </div>
-        <div className="border border-border bg-background p-6">
+        <div className="border border-border bg-background p-6 rounded-[8px]">
           <h2 className="text-lg font-semibold">Design & Oberflächen</h2>
           <ul className="mt-3 list-inside list-disc text-sm text-muted-foreground">
             <li>RAL, Feinstruktur, Holzdekore</li>
@@ -207,7 +207,7 @@ export default function HaustuerenOverviewPage() {
             <li>Verglasungen: klar, satiniert, Ornament</li>
           </ul>
         </div>
-        <div className="border border-border bg-background p-6">
+        <div className="border border-border bg-background p-6 rounded-[8px]">
           <h2 className="text-lg font-semibold">Dämmung & Sicherheit</h2>
           <ul className="mt-3 list-inside list-disc text-sm text-muted-foreground">
             <li>Starke Türblätter & Dämmfüllungen</li>
@@ -218,7 +218,7 @@ export default function HaustuerenOverviewPage() {
       </section>
 
       {/* Abschluss-CTA */}
-      <section className="mt-12 border border-border bg-background p-8">
+      <section className="mt-12 border border-border bg-background p-8 rounded-[8px]">
         <h2 className="text-xl font-semibold">Ihre Inotherm Haustür in {SITE.address.city}</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           Wir beraten zu Modellwahl, Sicherheit, Smart-Funktionen und Montage – inkl. Aufmaß und Angebot für Düren & Umgebung.
@@ -226,13 +226,13 @@ export default function HaustuerenOverviewPage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/kontakt"
-            className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark"
+            className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark rounded-[8px]"
           >
             Termin anfragen
           </Link>
           <a
             href={`tel:${SITE.phone}`}
-            className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground"
+            className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground rounded-[8px]"
           >
             Telefon {SITE.phone}
           </a>

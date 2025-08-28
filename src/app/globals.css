@@ -8,7 +8,7 @@
 /* 
   Tailwind v4 Design Tokens
   - Brand-Farben + Mapping auf Primary/Secondary/Accent.
-  - Globale Abrundung: minimal (zweikleinste Stufe ≈ rounded-sm).
+  - Globale Abrundung: sichtbar (8px) für einheitliche Kanten.
 */
 @theme inline {
   /* === Brand-Utilities (direkt nutzbar als bg-brand, text-brand-dark, …) === */
@@ -58,14 +58,14 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
 
-  /* === Einheitliche, minimale Abrundung für alle Größen === */
-  --radius: 0.125rem;     /* Basis für `rounded` */
-  --radius-sm: 0.125rem;  /* zweitkleinste Stufe */
-  --radius-md: 0.125rem;
-  --radius-lg: 0.125rem;
-  --radius-xl: 0.125rem;
-  --radius-2xl: 0.125rem;
-  --radius-3xl: 0.125rem;
+  /* === Einheitliche, sichtbare Abrundung (8px) für alle Größen === */
+  --radius: 0.5rem;      /* 8px Basis für `rounded` */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.5rem;
+  --radius-2xl: 0.5rem;
+  --radius-3xl: 0.5rem;
 }
 
 /* 
@@ -76,8 +76,8 @@
 :root {
   color-scheme: light;
 
-  /* Baseline: minimal abgerundet */
-  --radius: 0.125rem;
+  /* Baseline: sichtbar abgerundet (8px) */
+  --radius: 0.5rem;
 
   /* === Brandwerte === */
   --brand: #132830;        /* Primär (dunkles Blaugrün) */

@@ -112,10 +112,10 @@ export default function KontaktPage() {
             Ob Beratung zu Fenstern, Haustüren, Rollläden/Raffstoren (ROMA) oder Service – wählen Sie Ihr Anliegen, wir melden uns zeitnah.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <a href={`tel:${SITE.phone}`} className="inline-flex items-center border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">
+            <a href={`tel:${SITE.phone}`} className="inline-flex items-center border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light rounded-[8px]">
               Telefon: {SITE.phone}
             </a>
-            <a href={`mailto:${SITE.email}`} className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">
+            <a href={`mailto:${SITE.email}`} className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark rounded-[8px]">
               E-Mail: {SITE.email}
             </a>
           </div>
@@ -129,7 +129,7 @@ export default function KontaktPage() {
                   key={t}
                   type="button"
                   onClick={() => setTopic(t)}
-                  className={`px-3 py-1 text-sm border ${topic === t ? "border-brand-dark text-brand-dark" : "border-zinc-300 text-zinc-700"} hover:bg-brand-light`}
+                  className={`px-3 py-1 text-sm border rounded-[8px] ${topic === t ? "border-brand-dark text-brand-dark" : "border-zinc-300 text-zinc-700"} hover:bg-brand-light`}
                 >
                   {t}
                 </button>
@@ -139,7 +139,7 @@ export default function KontaktPage() {
         </div>
 
         {/* 4:3 Hero-Bild (kantig) */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden border border-zinc-200 bg-brand-light">
+        <div className="relative aspect-[4/3] w-full overflow-hidden border border-zinc-200 bg-brand-light rounded-[8px]">
           <Image
             src="/images/kontakt/kontakt-hero-4x3.webp"
             alt="Beratung und Kontakt – Ansprechpartner am Telefon und per E-Mail"
@@ -155,7 +155,7 @@ export default function KontaktPage() {
         {/* Formular */}
         <section aria-labelledby="kontaktformular">
           {submitted ? (
-            <div className="border border-zinc-200 bg-brand-light p-8 text-center" role="status" aria-live="polite">
+            <div className="border border-zinc-200 bg-brand-light p-8 text-center rounded-[8px]" role="status" aria-live="polite">
               <h2 id="kontaktformular" className="text-2xl font-bold text-brand">Vielen Dank!</h2>
               <p className="mt-3 text-zinc-700">Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns zeitnah.</p>
             </div>
@@ -163,7 +163,7 @@ export default function KontaktPage() {
             <form
               onSubmit={handleSubmit}
               noValidate
-              className="border border-zinc-200 bg-white p-8 shadow-sm"
+              className="border border-zinc-200 bg-white p-8 shadow-sm rounded-[8px]"
               aria-labelledby="kontaktformular"
               aria-describedby={error ? "form-error" : undefined}
             >
@@ -172,7 +172,7 @@ export default function KontaktPage() {
 
               {/* Fehlermeldung */}
               {error && (
-                <p id="form-error" className="mt-4 bg-red-50 p-3 text-sm text-red-700" role="alert" aria-live="assertive">
+                <p id="form-error" className="mt-4 bg-red-50 p-3 text-sm text-red-700 rounded-[8px]" role="alert" aria-live="assertive">
                   {error}
                 </p>
               )}
@@ -272,7 +272,7 @@ export default function KontaktPage() {
                   <label
                     onDragOver={(e) => e.preventDefault()}
                     onDrop={onDropFile}
-                    className="mt-1 flex cursor-pointer items-center justify-between border border-dashed border-zinc-300 px-3 py-3 text-sm text-zinc-700"
+                    className="mt-1 flex cursor-pointer items-center justify-between border border-dashed border-zinc-300 px-3 py-3 text-sm text-zinc-700 rounded-[8px]"
                   >
                     <span>{fileName ? `Ausgewählt: ${fileName}` : "Datei hierher ziehen oder klicken"}</span>
                     <input name="file" type="file" className="hidden" onChange={(e) => setFileName(e.target.files?.[0]?.name ?? null)} />
@@ -308,7 +308,7 @@ export default function KontaktPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark disabled:opacity-60"
+                  className="w-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark disabled:opacity-60 rounded-[8px]"
                   aria-busy={loading}
                 >
                   {loading ? "Wird gesendet …" : "Anfrage absenden"}
@@ -320,7 +320,7 @@ export default function KontaktPage() {
 
         {/* Leitfaden-Spalte */}
         <aside className="space-y-6">
-          <div className="border border-zinc-200 bg-white p-6">
+          <div className="border border-zinc-200 bg-white p-6 rounded-[8px]">
             <h2 className="text-lg font-semibold text-brand">Schnell zum Angebot – so geht’s</h2>
             <p className="mt-2 text-sm text-zinc-700">
               Je genauer Ihre Unterlagen, desto schneller erhalten Sie ein qualifiziertes Angebot. Diese Angaben helfen uns besonders:
@@ -331,19 +331,19 @@ export default function KontaktPage() {
               <h3 className="text-sm font-semibold text-zinc-900">Neubau</h3>
               <ul className="mt-2 space-y-2 text-sm text-zinc-700">
                 <li className="flex items-start gap-2">
-                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300">✓</span>
+                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300 rounded-[4px]">✓</span>
                   <span><strong>Pläne des Hauses:</strong> Grundrisse <em>jeder Etage</em></span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300">✓</span>
+                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300 rounded-[4px]">✓</span>
                   <span><strong>Schnittzeichnung:</strong> Deckenhöhen und Fußbodenaufbau erkennbar</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300">✓</span>
+                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300 rounded-[4px]">✓</span>
                   <span><strong>Wunschfarbe:</strong> z. B. RAL (optional)</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300">ℹ</span>
+                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300 rounded-[4px]">ℹ</span>
                   <span>Am liebsten: Pläne senden – den Rest klären wir <strong>telefonisch oder persönlich</strong>.</span>
                 </li>
               </ul>
@@ -354,15 +354,15 @@ export default function KontaktPage() {
               <h3 className="text-sm font-semibold text-zinc-900">Altbau</h3>
               <ul className="mt-2 space-y-2 text-sm text-zinc-700">
                 <li className="flex items-start gap-2">
-                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300">✓</span>
+                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300 rounded-[4px]">✓</span>
                   <span><strong>Laibungsmaße je Fenster:</strong> Öffnungsbreite sowie Höhe <em>vom Boden/Fensterbank bis zum Rollladenkastendeckel</em></span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300">✓</span>
+                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300 rounded-[4px]">✓</span>
                   <span><strong>Fotos:</strong> je 2–3 Bilder <em>von innen und außen</em></span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300">ℹ</span>
+                  <span className="mt-0.5 inline-flex h-4 w-4 items-center justify-center border border-zinc-300 rounded-[4px]">ℹ</span>
                   <span>Details besprechen wir bevorzugt <strong>telefonisch oder persönlich</strong>.</span>
                 </li>
               </ul>
@@ -374,7 +374,7 @@ export default function KontaktPage() {
           </div>
 
           {/* Optionaler Hinweis */}
-          <div className="border border-zinc-200 bg-white p-6">
+          <div className="border border-zinc-200 bg-white p-6 rounded-[8px]">
             <h3 className="text-sm font-semibold text-zinc-900">Tipp</h3>
             <p className="mt-2 text-sm text-zinc-700">
               Benennen Sie Dateien aussagekräftig, z. B. <code>EG-grundriss.pdf</code>, <code>schnitt_hoehen.pdf</code>, <code>fenster_wohnzimmer_aussen.jpg</code>.

@@ -55,13 +55,13 @@ export default function FensterOverviewPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/kontakt"
-              className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
             >
               Beratung anfragen
             </Link>
             <Link
               href="/produkte/fenster/aluminium"
-              className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
             >
               Zu Aluminium
             </Link>
@@ -71,7 +71,7 @@ export default function FensterOverviewPage() {
           </p>
         </div>
 
-        <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted">
+        <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted rounded-[8px]">
           <Image
             src="/produkte/fenster-aluminium.webp"
             alt="Schüco Aluminium-Fenster – Referenzansicht"
@@ -90,7 +90,7 @@ export default function FensterOverviewPage() {
             <li key={t.title}>
               <Link
                 href={t.href}
-                className="group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
               >
                 <div className="relative aspect-[16/9] w-full bg-muted">
                   <Image
@@ -118,18 +118,18 @@ export default function FensterOverviewPage() {
       </section>
 
       {/* Teaser auf Detailthemen */}
-      <section className="border border-border bg-background p-8">
+      <section className="border border-border bg-background p-8 rounded-[8px]">
         <h2 className="text-xl font-semibold">Worauf es ankommt</h2>
         <div className="mt-3 grid gap-4 text-sm text-muted-foreground md:grid-cols-3">
-          <div className="border border-border bg-muted p-4">
+          <div className="border border-border bg-muted p-4 rounded-[8px]">
             <div className="font-semibold text-foreground">Wärmedämmung &amp; Glas</div>
             <p className="mt-1">2- oder 3-fach-Verglasung, Warme Kante, g- und Ug-Werte passend zum Objekt.</p>
           </div>
-          <div className="border border-border bg-muted p-4">
+          <div className="border border-border bg-muted p-4 rounded-[8px]">
             <div className="font-semibold text-foreground">Sicherheit &amp; Beschlag</div>
             <p className="mt-1">RC-Optionen, Pilzkopfzapfen, abschließbare Griffe, Anbohrschutz – sinnvoll kombiniert.</p>
           </div>
-          <div className="border border-border bg-muted p-4">
+          <div className="border border-border bg-muted p-4 rounded-[8px]">
             <div className="font-semibold text-foreground">Design &amp; Komfort</div>
             <p className="mt-1">Schmale Ansichten, große Flügel, Oberflächen/Farben, Lüftung &amp; Automation.</p>
           </div>

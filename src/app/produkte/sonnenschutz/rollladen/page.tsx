@@ -273,7 +273,7 @@ export default function RollladenPage() {
             elegant integriert in die Fassade.
           </p>
         </div>
-        <div className="relative w-full overflow-hidden border border-zinc-200 bg-brand-light aspect-[4/3]">
+        <div className="relative w-full overflow-hidden border border-zinc-200 bg-brand-light aspect-[4/3] rounded-[8px]">
           <Image
             src="/produkte/roma/roma-rollladen-hero-4x3.webp"
             alt="ROMA Rollladen an moderner Fassade – Wärmeschutz, Sicherheit und Verdunkelung im 4:3-Format"
@@ -290,7 +290,7 @@ export default function RollladenPage() {
         <h2 className="text-2xl font-semibold text-brand">Ihre Vorteile</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {benefits.map((b) => (
-            <div key={b.title} className="border border-zinc-200 bg-white p-6 shadow-sm">
+            <div key={b.title} className="border border-zinc-200 bg-white p-6 shadow-sm rounded-[8px]">
               <h3 className="text-lg font-semibold text-brand">{b.title}</h3>
               <p className="mt-2 text-sm text-zinc-700">{b.text}</p>
             </div>
@@ -299,7 +299,7 @@ export default function RollladenPage() {
       </section>
 
       {/* Rollladenprofile – quadratische Detailbilder */}
-      <section className="mb-14 border border-zinc-200 bg-white p-6">
+      <section className="mb-14 border border-zinc-200 bg-white p-6 rounded-[8px]">
         <h2 className="text-2xl font-semibold text-brand">Rollladenprofile</h2>
         <p className="mt-2 text-sm text-zinc-700">
           Wählen Sie den passenden Behang: <strong>ALUMINO</strong> (doppelwandiges Aluminium),
@@ -308,10 +308,10 @@ export default function RollladenPage() {
 
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {profile.map((p) => (
-            <div key={p.code} className="border border-zinc-200 bg-white p-5">
+            <div key={p.code} className="border border-zinc-200 bg-white p-5 rounded-[8px]">
               <div className="flex items-start gap-4">
                 {/* Rahmen explizit quadratisch */}
-                <div className="relative h-20 w-20 aspect-square border border-zinc-200 bg-white">
+                <div className="relative h-20 w-20 aspect-square border border-zinc-200 bg-white rounded-[8px] overflow-hidden">
                   <Image
                     src={p.imgSrc}
                     alt={p.imgAlt}
@@ -443,10 +443,10 @@ export default function RollladenPage() {
       </section>
 
       {/* FAQ – erweitert & recherchiert */}
-      <section className="mb-14 border border-zinc-200 bg-white p-8">
+      <section className="mb-14 border border-zinc-200 bg-white p-8 rounded-[8px]">
         <h2 className="text-2xl font-semibold text-brand">Häufige Fragen</h2>
         <div className="mt-4 space-y-4">
-          <details className="group border border-zinc-200 p-4">
+          <details className="group border border-zinc-200 p-4 rounded-[8px]">
             <summary className="cursor-pointer font-semibold text-brand">
               Vorbau oder Aufsatz – was passt besser?
             </summary>
@@ -457,7 +457,7 @@ export default function RollladenPage() {
             </p>
           </details>
 
-          <details className="group border border-zinc-200 p-4">
+          <details className="group border border-zinc-200 p-4 rounded-[8px]">
             <summary className="cursor-pointer font-semibold text-brand">
               Innen- vs. Außenrevision bei PURO – was bedeutet das?
             </summary>
@@ -467,7 +467,7 @@ export default function RollladenPage() {
             </p>
           </details>
 
-          <details className="group border border-zinc-200 p-4">
+          <details className="group border border-zinc-200 p-4 rounded-[8px]">
             <summary className="cursor-pointer font-semibold text-brand">
               Können Rollladen nachgerüstet werden – auch ohne Stromanschluss?
             </summary>
@@ -477,7 +477,7 @@ export default function RollladenPage() {
             </p>
           </details>
 
-          <details className="group border border-zinc-200 p-4">
+          <details className="group border border-zinc-200 p-4 rounded-[8px]">
             <summary className="cursor-pointer font-semibold text-brand">
               Welche Kunststoff-Aufsatzsysteme gibt es?
             </summary>
@@ -487,7 +487,7 @@ export default function RollladenPage() {
             </p>
           </details>
 
-          <details className="group border border-zinc-200 p-4">
+          <details className="group border border-zinc-200 p-4 rounded-[8px]">
             <summary className="cursor-pointer font-semibold text-brand">
               Gibt es integrierten Insektenschutz?
             </summary>
@@ -496,7 +496,7 @@ export default function RollladenPage() {
             </p>
           </details>
 
-          <details className="group border border-zinc-200 p-4">
+          <details className="group border border-zinc-200 p-4 rounded-[8px]">
             <summary className="cursor-pointer font-semibold text-brand">
               Welche Kastenformen gibt es bei Vorbaurollladen?
             </summary>
@@ -527,7 +527,7 @@ export default function RollladenPage() {
       </section>
 
       {/* CTA */}
-      <section className="border border-brand bg-white p-8 shadow-sm">
+      <section className="border border-brand bg-white p-8 shadow-sm rounded-[8px]">
         <h2 className="text-lg font-semibold text-brand">Beratung &amp; Muster ansehen</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir zeigen Ihnen Kastenformen, Profile (ALUMINO, ALUMINO protect, Kunststoff), Farben und Antriebe –
@@ -536,7 +536,7 @@ export default function RollladenPage() {
         <div className="mt-5">
           <Link
             href="/kontakt"
-            className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark rounded-[8px]"
           >
             Beratung anfragen
           </Link>

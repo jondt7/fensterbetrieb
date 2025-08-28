@@ -133,7 +133,7 @@ export default function VerglasungPage() {
         </div>
 
         {/* Hero-Bild 4:3 (1600x1200) */}
-        <figure className="relative hidden w-full border border-zinc-200 md:block">
+        <figure className="relative hidden w-full border border-zinc-200 md:block rounded-[8px] overflow-hidden">
           <Image
             src="/produkte/fenster-verglasung-semcoglas-schueco-dueren-hero.webp"
             alt="SEMCO Verglasung für Schüco Fenster in Düren – Wärmeschutz, Schallschutz, Sicherheitsglas und Warme Kante"
@@ -153,7 +153,7 @@ export default function VerglasungPage() {
           {sections.map((s) => (
             <article
               key={s.title}
-              className="flex flex-col justify-between border border-zinc-200 bg-white p-6 shadow-sm md:flex-row"
+              className="flex flex-col justify-between border border-zinc-200 bg-white p-6 shadow-sm md:flex-row rounded-[8px]"
             >
               <div className="md:w-2/3">
                 <h3 className="text-lg font-semibold text-brand">{s.title}</h3>
@@ -161,7 +161,7 @@ export default function VerglasungPage() {
                   {s.points.map((p, i) => <li key={i}>{p}</li>)}
                 </ul>
               </div>
-              <figure className="relative mt-4 h-40 w-full md:mt-0 md:ml-6 md:w-1/3">
+              <figure className="relative mt-4 h-40 w-full md:mt-0 md:ml-6 md:w-1/3 rounded-[8px] overflow-hidden">
                 <Image
                   src={s.img.src}
                   alt={s.img.alt}
@@ -177,7 +177,7 @@ export default function VerglasungPage() {
       </section>
 
       {/* Praxis-Hinweise */}
-      <section className="mb-12 border border-zinc-200 bg-white p-8">
+      <section className="mb-12 border border-zinc-200 bg-white p-8 rounded-[8px]">
         <h2 className="text-xl font-semibold text-brand">Wichtige Planungsdetails</h2>
         <ul className="mt-3 grid gap-2 text-sm text-zinc-700 md:grid-cols-2">
           <li className="bg-brand-light px-3 py-2">Uw-Werte hängen vom Zusammenspiel aus Rahmenprofil, Glas (Ug), Randverbund (Psi) und Elementgröße ab.</li>
@@ -188,7 +188,7 @@ export default function VerglasungPage() {
       </section>
 
       {/* FAQ */}
-      <section className="mb-12 border border-zinc-200 bg-white p-8">
+      <section className="mb-12 border border-zinc-200 bg-white p-8 rounded-[8px]">
         <h2 className="text-2xl font-semibold text-brand">FAQ Verglasung</h2>
         <div className="mt-4 space-y-4">
           {faq.map((f) => (
@@ -201,7 +201,7 @@ export default function VerglasungPage() {
       </section>
 
       {/* CTA */}
-      <section className="border border-brand bg-white p-8 shadow-sm">
+      <section className="border border-brand bg-white p-8 shadow-sm rounded-[8px]">
         <h2 className="text-lg font-semibold text-brand">Ihr Glas-Paket konfigurieren</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir empfehlen die optimale Kombination aus Wärmeschutz, Schallschutz, Sicherheit und Sonnenschutz – inklusive „Warmer Kante“.
@@ -209,7 +209,7 @@ export default function VerglasungPage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/kontakt"
-            className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark rounded-[8px]"
           >
             Beratung anfragen
           </Link>

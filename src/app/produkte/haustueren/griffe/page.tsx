@@ -146,11 +146,11 @@ export default function GriffePage() {
       {/* Gruppen */}
       <section className="space-y-8">
         {gripGroups.map((group) => (
-          <div key={group.title} className="rounded-sm border border-zinc-200 bg-white p-6">
+          <div key={group.title} className="rounded-[8px] border border-zinc-200 bg-white p-6">
             <h2 className="text-xl font-semibold text-brand">{group.title}</h2>
             <div className="mt-5 grid gap-5 md:grid-cols-3">
               {group.items.map((g) => (
-                <div key={g.name} className="rounded-sm bg-brand-light p-5">
+                <div key={g.name} className="rounded-[8px] bg-brand-light p-5">
                   <h3 className="text-lg font-semibold text-brand">{g.name}</h3>
                   <p className="mt-2 text-sm text-zinc-700">{g.desc}</p>
                   <ul className="mt-3 list-inside list-disc text-sm text-zinc-700">
@@ -166,7 +166,7 @@ export default function GriffePage() {
       </section>
 
       {/* Sicherheit & Montagehinweise */}
-      <section className="mt-12 rounded-sm border border-zinc-200 bg-white p-6">
+      <section className="mt-12 rounded-[8px] border border-zinc-200 bg-white p-6">
         <h2 className="text-xl font-semibold text-brand">Sicherheit & Montage</h2>
         <p className="mt-2 text-sm text-zinc-700">
           Griffe werden hochbelastbar am Türblatt befestigt. In Kombination mit
@@ -175,28 +175,28 @@ export default function GriffePage() {
         </p>
         <ul className="mt-3 grid gap-2 text-sm text-zinc-700 md:grid-cols-2">
           {safetyNotes.map((n, i) => (
-            <li key={i} className="rounded-sm bg-brand-light px-3 py-2">• {n}</li>
+            <li key={i} className="rounded-[8px] bg-brand-light px-3 py-2">• {n}</li>
           ))}
         </ul>
       </section>
 
       {/* Vergleich / Auswahlhilfe */}
-      <section className="mt-12 rounded-sm border border-zinc-200 bg-white p-6">
+      <section className="mt-12 rounded-[8px] border border-zinc-200 bg-white p-6">
         <h2 className="text-xl font-semibold text-brand">Auswahlhilfe</h2>
         <div className="mt-4 grid gap-4 md:grid-cols-3">
-          <div className="rounded-sm border border-zinc-200 p-4">
+          <div className="rounded-[8px] border border-zinc-200 p-4">
             <div className="text-sm font-semibold text-brand">Minimalistisch</div>
             <p className="mt-2 text-sm text-zinc-700">
               Flächenbündig/integr. Griff + Innendrücker. Passt zu glatten Türblättern.
             </p>
           </div>
-          <div className="rounded-sm border border-zinc-200 p-4">
+          <div className="rounded-[8px] border border-zinc-200 p-4">
             <div className="text-sm font-semibold text-brand">Klassisch</div>
             <p className="mt-2 text-sm text-zinc-700">
               Runder Stangengriff (außen) + Innendrücker (innen). Zeitlos & ergonomisch.
             </p>
           </div>
-          <div className="rounded-sm border border-zinc-200 p-4">
+          <div className="rounded-[8px] border border-zinc-200 p-4">
             <div className="text-sm font-semibold text-brand">Statement</div>
             <p className="mt-2 text-sm text-zinc-700">
               Quadratische Griffstange, Schwarz matt, optional LED – starke Akzente.
@@ -206,7 +206,7 @@ export default function GriffePage() {
       </section>
 
       {/* CTA */}
-      <section className="mt-12 rounded-sm border border-brand bg-white p-8 shadow-sm">
+      <section className="mt-12 rounded-[8px] border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Griff-Design live erleben</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir zeigen Varianten, Oberflächen und Beleuchtung an Mustern und beraten
@@ -215,13 +215,13 @@ export default function GriffePage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/kontakt"
-            className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
           >
             Termin anfragen
           </Link>
           <Link
             href="/produkte/haustueren/inosmart"
-            className="inline-flex items-center rounded-xl border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+            className="inline-flex items-center rounded-[8px] border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
           >
             Mehr zu InoSmart
           </Link>

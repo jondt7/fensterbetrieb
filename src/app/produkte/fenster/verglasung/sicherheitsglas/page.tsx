@@ -67,7 +67,7 @@ export default function SicherheitsglasPage() {
         <h2 className="text-2xl font-semibold text-brand">Glasarten & Funktionen</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {tiles.map((t) => (
-            <div key={t.title} className="rounded-sm border border-zinc-200 bg-white p-6 shadow-sm">
+            <div key={t.title} className="rounded-[8px] border border-zinc-200 bg-white p-6 shadow-sm">
               <h3 className="text-lg font-semibold text-brand">{t.title}</h3>
               <ul className="mt-3 list-inside list-disc text-sm text-zinc-700">
                 {t.points.map((p, i) => <li key={i}>{p}</li>)}
@@ -78,25 +78,25 @@ export default function SicherheitsglasPage() {
       </section>
 
       {/* Hinweise */}
-      <section className="mb-12 rounded-sm border border-zinc-200 bg-white p-8">
+      <section className="mb-12 rounded-[8px] border border-zinc-200 bg-white p-8">
         <h2 className="text-xl font-semibold text-brand">Wichtige Hinweise</h2>
         <ul className="mt-3 grid gap-2 text-sm text-zinc-700 md:grid-cols-2">
           {notes.map((n) => (
-            <li key={n} className="rounded-sm bg-brand-light px-3 py-2">• {n}</li>
+            <li key={n} className="rounded-[8px] bg-brand-light px-3 py-2">• {n}</li>
           ))}
         </ul>
       </section>
 
       {/* CTA */}
-      <section className="rounded-sm border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-[8px] border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Sicherheitskonzept festlegen</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir stimmen Glas, Beschlag & Profil auf die gewünschte RC-Stufe ab – inklusive Nachweis und Montagekonzept.
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <Link href="/produkte/fenster/beschlag-sicherheit" className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Beschlag &amp; Sicherheit</Link>
-          <Link href="/produkte/fenster/verglasung/schallschutz" className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Schallschutz</Link>
-          <Link href="/kontakt" className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">Beratung anfragen</Link>
+          <Link href="/produkte/fenster/beschlag-sicherheit" className="inline-flex items-center rounded-[8px] border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Beschlag &amp; Sicherheit</Link>
+          <Link href="/produkte/fenster/verglasung/schallschutz" className="inline-flex items-center rounded-[8px] border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">Schallschutz</Link>
+          <Link href="/kontakt" className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">Beratung anfragen</Link>
         </div>
       </section>
     </div>

@@ -70,7 +70,7 @@ export default function LamellenPage() {
       <section className="mb-14">
         <h2 className="text-2xl font-semibold text-brand">Vergleich der Lamellenarten</h2>
         <div className="mt-6 overflow-x-auto">
-          <table className="min-w-full border-collapse rounded-lg border border-zinc-200 bg-white text-sm">
+          <table className="min-w-full border-collapse rounded-[8px] border border-zinc-200 bg-white text-sm">
             <thead className="bg-brand-light text-left">
               <tr>
                 <th className="px-4 py-3 font-semibold">Eigenschaft</th>
@@ -118,7 +118,7 @@ export default function LamellenPage() {
       {/* Detail-Abschnitte */}
       <section className="mb-14">
         {lamellen.map((l) => (
-          <div key={l.code} className="mb-10 rounded-sm border border-zinc-200 bg-white p-6 shadow-sm">
+          <div key={l.code} className="mb-10 rounded-[8px] border border-zinc-200 bg-white p-6 shadow-sm">
             <h3 className="text-xl font-semibold text-brand">{l.code}</h3>
             <ul className="mt-3 list-inside list-disc text-sm text-zinc-700">
               {l.features.map((f, i) => (<li key={i}>{f}</li>))}
@@ -129,7 +129,7 @@ export default function LamellenPage() {
       </section>
 
       {/* CTA */}
-      <section className="rounded-sm border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-[8px] border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Jetzt Muster vergleichen</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Erleben Sie C-, Z- und CDL-Lamellen live. Wir zeigen Ihnen die Unterschiede
@@ -138,7 +138,7 @@ export default function LamellenPage() {
         <div className="mt-5">
           <Link
             href="/kontakt"
-            className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
           >
             Beratung anfragen
           </Link>

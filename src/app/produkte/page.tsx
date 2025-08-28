@@ -15,7 +15,7 @@ function ProductTile({ title, subtitle, href, imgAlt, imgSrc }: TileProps) {
     <li>
       <Link
         href={href}
-        className="group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        className="group block overflow-hidden border border-border bg-background transition hover:shadow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
       >
         <div className="relative aspect-[16/9] w-full bg-muted">
           <Image

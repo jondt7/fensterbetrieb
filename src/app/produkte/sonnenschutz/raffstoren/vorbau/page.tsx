@@ -66,7 +66,7 @@ export default function VorbauRaffstorenPage() {
           {usp.map((item) => (
             <div
               key={item.title}
-              className="rounded-sm border border-zinc-200 bg-white p-6 shadow-sm"
+              className="rounded-[8px] border border-zinc-200 bg-white p-6 shadow-sm"
             >
               <h3 className="text-lg font-semibold text-brand">{item.title}</h3>
               <p className="mt-2 text-sm text-zinc-700">{item.text}</p>
@@ -80,7 +80,7 @@ export default function VorbauRaffstorenPage() {
         <h2 className="text-2xl font-semibold text-brand">Kastenformen & Modelle</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {modelle.map((m) => (
-            <div key={m.code} className="rounded-sm bg-brand-light p-6">
+            <div key={m.code} className="rounded-[8px] bg-brand-light p-6">
               <div className="text-sm font-semibold text-brand-accent">{m.code}</div>
               <p className="mt-2 text-sm text-zinc-700">{m.desc}</p>
             </div>
@@ -89,20 +89,20 @@ export default function VorbauRaffstorenPage() {
       </section>
 
       {/* Technik */}
-      <section className="mb-14 rounded-sm border border-zinc-200 bg-white p-8">
+      <section className="mb-14 rounded-[8px] border border-zinc-200 bg-white p-8">
         <h2 className="text-xl font-semibold text-brand">Technische Merkmale</h2>
         <ul className="mt-4 grid gap-2 text-sm text-zinc-700 md:grid-cols-2">
-          <li className="rounded-sm bg-brand-light px-3 py-2">Außenrevision – servicefreundlich</li>
-          <li className="rounded-sm bg-brand-light px-3 py-2">Kombinierbar mit Insektenschutz</li>
-          <li className="rounded-sm bg-brand-light px-3 py-2">Motor-/Funkantriebe + Smart-Home möglich</li>
-          <li className="rounded-sm bg-brand-light px-3 py-2">Viele Farben & Strukturen – auch Sonderfarben</li>
-          <li className="rounded-sm bg-brand-light px-3 py-2">Wahlweise C-, Z- oder CDL-Lamellen</li>
-          <li className="rounded-sm bg-brand-light px-3 py-2">Sehr gute Wärmedämmwerte durch außenliegende Montage</li>
+          <li className="rounded-[8px] bg-brand-light px-3 py-2">Außenrevision – servicefreundlich</li>
+          <li className="rounded-[8px] bg-brand-light px-3 py-2">Kombinierbar mit Insektenschutz</li>
+          <li className="rounded-[8px] bg-brand-light px-3 py-2">Motor-/Funkantriebe + Smart-Home möglich</li>
+          <li className="rounded-[8px] bg-brand-light px-3 py-2">Viele Farben & Strukturen – auch Sonderfarben</li>
+          <li className="rounded-[8px] bg-brand-light px-3 py-2">Wahlweise C-, Z- oder CDL-Lamellen</li>
+          <li className="rounded-[8px] bg-brand-light px-3 py-2">Sehr gute Wärmedämmwerte durch außenliegende Montage</li>
         </ul>
       </section>
 
       {/* CTA */}
-      <section className="rounded-sm border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-[8px] border border-brand bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Jetzt das passende System wählen</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Ob runder, eckiger oder integrierter Kasten – wir zeigen Ihnen Muster,
@@ -111,13 +111,13 @@ export default function VorbauRaffstorenPage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/produkte/sonnenschutz/raffstoren/aufsatz"
-            className="inline-flex items-center rounded-sm border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+            className="inline-flex items-center rounded-[8px] border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
           >
             Aufsatzraffstoren ansehen
           </Link>
           <Link
             href="/kontakt"
-            className="inline-flex items-center rounded-sm bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
           >
             Beratung anfragen
           </Link>

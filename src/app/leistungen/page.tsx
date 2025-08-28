@@ -92,20 +92,20 @@ export default function LeistungenPage() {
             <div className="mt-6 flex gap-3">
               <Link
                 href="#kontakt"
-                className="inline-flex items-center px-5 py-3 bg-neutral-900 text-white hover:bg-black"
+                className="inline-flex items-center px-5 py-3 bg-neutral-900 text-white hover:bg-black rounded-[8px]"
               >
                 Termin anfragen
               </Link>
               <Link
                 href="/produkte"
-                className="inline-flex items-center px-5 py-3 border border-neutral-300 text-neutral-900 hover:bg-neutral-50"
+                className="inline-flex items-center px-5 py-3 border border-neutral-300 text-neutral-900 hover:bg-neutral-50 rounded-[8px]"
               >
                 Zu den Produkten
               </Link>
             </div>
           </div>
           <div className="mt-8 md:mt-0">
-            <figure className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 border">
+            <figure className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 border rounded-[8px]">
               <img
                 src="/images/leistungen/hero.webp"
                 alt="Symbolbild: Fenster- und Rollladen-Projekt"
@@ -124,7 +124,7 @@ export default function LeistungenPage() {
         <div className="mx-auto max-w-7xl px-4 py-14">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <article key={s.slug} className="border border-neutral-200 bg-white p-6">
+              <article key={s.slug} className="border border-neutral-200 bg-white p-6 rounded-[8px]">
                 <figure className="relative mb-4 aspect-[16/9] overflow-hidden bg-neutral-100 border">
                   <img
                     src={`/images/leistungen/${s.slug}.webp`}
@@ -162,7 +162,7 @@ export default function LeistungenPage() {
       {/* CTA */}
       <section className="bg-neutral-50 border-t">
         <div className="mx-auto max-w-7xl px-4 py-14">
-          <div className="grid items-center gap-8 border border-neutral-200 bg-white p-8 sm:grid-cols-2">
+          <div className="grid items-center gap-8 border border-neutral-200 bg-white p-8 sm:grid-cols-2 rounded-[8px]">
             <div>
               <h3 className="text-2xl font-semibold text-neutral-900">
                 Projekt starten – kostenfreie Erstberatung sichern
@@ -172,12 +172,12 @@ export default function LeistungenPage() {
                 Ablauf bis zur Montage. Unverbindlich und transparent.
               </p>
               <div className="mt-4">
-                <a href="#kontakt" className="px-5 py-3 bg-neutral-900 text-white hover:bg-black">
+                <a href="#kontakt" className="px-5 py-3 bg-neutral-900 text-white hover:bg-black rounded-[8px]">
                   Erstgespräch anfragen
                 </a>
               </div>
             </div>
-            <figure className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 border">
+            <figure className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 border rounded-[8px]">
               <img
                 src="/images/leistungen/cta.webp"
                 alt="Symbolbild: Montage- bzw. Serviceeinsatz"
@@ -200,14 +200,14 @@ export default function LeistungenPage() {
               Schreiben Sie uns mit Ihrem Anliegen – wir melden uns zeitnah.
             </p>
           </div>
-          <form action="/api/kontakt" method="post" className="mt-6 grid gap-4 sm:max-w-2xl">
+          <form action="/api/kontakt" method="post" className="mt-6 grid gap-4 sm:max-w-2xl rounded-[8px]">
             <div className="grid gap-4 sm:grid-cols-2">
               <input name="name" required placeholder="Ihr Name" className="border border-neutral-300 px-4 py-3 outline-none focus:border-neutral-900" />
               <input name="email" type="email" required placeholder="E-Mail" className="border border-neutral-300 px-4 py-3 outline-none focus:border-neutral-900" />
             </div>
             <input name="telefon" placeholder="Telefon (optional)" className="border border-neutral-300 px-4 py-3 outline-none focus:border-neutral-900" />
             <textarea name="nachricht" required placeholder="Ihr Anliegen" rows={5} className="border border-neutral-300 px-4 py-3 outline-none focus:border-neutral-900" />
-            <button type="submit" className="inline-flex justify-center px-5 py-3 bg-neutral-900 text-white hover:bg-black">
+            <button type="submit" className="inline-flex justify-center px-5 py-3 bg-neutral-900 text-white hover:bg-black rounded-[8px]">
               Nachricht senden
             </button>
             <p className="text-xs text-neutral-500">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer Datenschutzerklärung zu.</p>

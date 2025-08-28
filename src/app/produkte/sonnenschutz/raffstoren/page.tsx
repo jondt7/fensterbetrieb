@@ -168,7 +168,7 @@ export default function RaffstorenPage() {
             entsteht ein hochwertiges, modernes Fassadenbild – mit Komfort auf Knopfdruck.
           </p>
         </div>
-        <div className="relative w-full overflow-hidden border border-zinc-200 bg-brand-light aspect-[4/3]">
+        <div className="relative w-full overflow-hidden border border-zinc-200 bg-brand-light aspect-[4/3] rounded-[8px]">
           <Image
             src="/produkte/roma/roma-raffstoren-hero-4x3.webp"
             alt="ROMA Raffstoren an moderner Fassade – Tageslichtlenkung und Sonnenschutz im 4:3-Format"
@@ -185,7 +185,7 @@ export default function RaffstorenPage() {
         <h2 className="text-2xl font-semibold text-brand">Ihre Vorteile</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {benefits.map((b) => (
-            <div key={b.title} className="border border-zinc-200 bg-white p-6 shadow-sm">
+            <div key={b.title} className="border border-zinc-200 bg-white p-6 shadow-sm rounded-[8px]">
               <h3 className="text-lg font-semibold text-brand">{b.title}</h3>
               <p className="mt-2 text-sm text-zinc-700">{b.text}</p>
             </div>
@@ -194,7 +194,7 @@ export default function RaffstorenPage() {
       </section>
 
       {/* Lamellenarten inkl. quadratische Detailbilder */}
-      <section className="mb-14 border border-zinc-200 bg-white p-6">
+      <section className="mb-14 border border-zinc-200 bg-white p-6 rounded-[8px]">
         <h2 className="text-2xl font-semibold text-brand">Lamellenarten</h2>
         <p className="mt-2 text-sm text-zinc-700">
           Wählen Sie die passende Lamellenform für Anwendung und Architektur. Die Premium-Lösung ist die
@@ -203,10 +203,10 @@ export default function RaffstorenPage() {
 
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {lamellen.map((l) => (
-            <div key={l.code} className="border border-zinc-200 bg-white p-5">
+            <div key={l.code} className="border border-zinc-200 bg-white p-5 rounded-[8px]">
               <div className="flex items-start gap-4">
                 {/* Rahmen explizit quadratisch */}
-                <div className="relative h-20 w-20 aspect-square border border-zinc-200 bg-white">
+                <div className="relative h-20 w-20 aspect-square border border-zinc-200 bg-white rounded-[8px] overflow-hidden">
                   <Image
                     src={l.imgSrc}
                     alt={l.imgAlt}
@@ -227,7 +227,7 @@ export default function RaffstorenPage() {
         <div className="mt-5">
           <Link
             href="/produkte/sonnenschutz/raffstoren/lamellen"
-            className="inline-flex items-center border border-brand-dark px-4 py-2 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+            className="inline-flex items-center border border-brand-dark px-4 py-2 text-sm font-semibold text-brand-dark transition hover:bg-brand-light rounded-[8px]"
           >
             Lamellen im Detail (optional)
           </Link>
@@ -239,8 +239,8 @@ export default function RaffstorenPage() {
         <h2 className="text-2xl font-semibold text-brand">Systeme &amp; Einbauarten</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {/* Vorbau */}
-          <div className="border border-zinc-200 bg-white p-6">
-            <div className="relative mb-4 aspect-square w-full border border-zinc-200 bg-brand-light">
+          <div className="border border-zinc-200 bg-white p-6 rounded-[8px]">
+            <div className="relative mb-4 aspect-square w-full border border-zinc-200 bg-brand-light rounded-[8px] overflow-hidden">
               <Image
                 src="/produkte/roma/roma-vorbauraffstoren-kasten-eckig-1x1.webp"
                 alt="ROMA Vorbauraffstoren – eckiger Kasten an moderner Fassade"
@@ -263,8 +263,8 @@ export default function RaffstorenPage() {
           </div>
 
           {/* Aufsatz */}
-          <div className="border border-zinc-200 bg-white p-6">
-            <div className="relative mb-4 aspect-square w-full border border-zinc-200 bg-brand-light">
+          <div className="border border-zinc-200 bg-white p-6 rounded-[8px]">
+            <div className="relative mb-4 aspect-square w-full border border-zinc-200 bg-brand-light rounded-[8px] overflow-hidden">
               <Image
                 src="/produkte/roma/roma-aufsatzraffstoren-integriert-1x1.webp"
                 alt="ROMA Aufsatzraffstoren – integrierte Lösung mit sehr dezenter Ansicht"
@@ -287,8 +287,8 @@ export default function RaffstorenPage() {
           </div>
 
           {/* Modulraffstoren */}
-          <div className="border border-zinc-200 bg-white p-6">
-            <div className="relative mb-4 aspect-square w-full border border-zinc-200 bg-brand-light">
+          <div className="border border-zinc-200 bg-white p-6 rounded-[8px]">
+            <div className="relative mb-4 aspect-square w-full border border-zinc-200 bg-brand-light rounded-[8px] overflow-hidden">
               <Image
                 src="/produkte/roma/roma-modulraffstoren-1x1.webp"
                 alt="ROMA Modulraffstoren – vorkonfektionierte Module für Fassaden- und Fensterbänder"
@@ -333,24 +333,24 @@ export default function RaffstorenPage() {
       </section>
 
       {/* FAQ */}
-      <section className="mb-14 border border-zinc-200 bg-white p-8">
+      <section className="mb-14 border border-zinc-200 bg-white p-8 rounded-[8px]">
         <h2 className="text-2xl font-semibold text-brand">Häufige Fragen</h2>
         <div className="mt-4 space-y-4">
-          <details className="group border border-zinc-200 p-4">
+          <details className="group border border-zinc-200 p-4 rounded-[8px]">
             <summary className="cursor-pointer font-semibold text-brand">CDL oder klassische Lamellen?</summary>
             <p className="mt-2 text-sm text-zinc-700">
               CDL bietet die beste Blickdichtheit und Windstabilität – ideal für Straßenlagen und große Öffnungen.
               GL-/Z-Lamellen sind flexibler und preislich günstiger.
             </p>
           </details>
-          <details className="group border border-zinc-200 p-4">
+          <details className="group border border-zinc-200 p-4 rounded-[8px]">
             <summary className="cursor-pointer font-semibold text-brand">Vorbau vs. Aufsatz?</summary>
             <p className="mt-2 text-sm text-zinc-700">
               Vorbau ist flexibel (Sanierung/Neubau) und vermeidet Wärmebrücken. Aufsatz sitzt auf dem Fenster,
               integriert sich sehr dezent in die Fassade und erzielt sehr gute Dämmwerte.
             </p>
           </details>
-          <details className="group border border-zinc-200 p-4">
+          <details className="group border border-zinc-200 p-4 rounded-[8px]">
             <summary className="cursor-pointer font-semibold text-brand">Automatik &amp; Smart-Home?</summary>
             <p className="mt-2 text-sm text-zinc-700">
               Steuerung per Taster/Funk/App. Mit Sonnen-/Windsensoren regelt das System je nach Wetter automatisch.
@@ -360,7 +360,7 @@ export default function RaffstorenPage() {
       </section>
 
       {/* CTA */}
-      <section className="border border-brand bg-white p-8 shadow-sm">
+      <section className="border border-brand bg-white p-8 shadow-sm rounded-[8px]">
         <h2 className="text-lg font-semibold text-brand">Beratung &amp; Muster ansehen</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir zeigen Ihnen Lamellen (CDL, GL, Z), Farben und Kastenlösungen live – und empfehlen das passende System
@@ -369,7 +369,7 @@ export default function RaffstorenPage() {
         <div className="mt-5">
           <Link
             href="/kontakt"
-            className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark rounded-[8px]"
           >
             Beratung anfragen
           </Link>

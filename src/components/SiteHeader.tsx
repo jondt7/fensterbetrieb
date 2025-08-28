@@ -349,13 +349,13 @@ export function SiteHeader() {
                     <div className="mt-3 flex flex-col gap-2">
                       <Link
                         href="/produkte"
-                        className="border border-primary px-3 py-2 text-sm font-semibold text-primary hover:bg-primary-light hover:text-primary-foreground"
+                        className="border border-primary px-3 py-2 text-sm font-semibold text-primary hover:bg-primary-light hover:text-primary-foreground rounded-[8px]"
                       >
                         Produkte – Übersicht
                       </Link>
                       <Link
                         href="/kontakt"
-                        className="bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary-dark"
+                        className="bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground hover:bg-primary-dark rounded-[8px]"
                       >
                         Kontakt / Angebot
                       </Link>
@@ -386,7 +386,7 @@ export function SiteHeader() {
         <div className="hidden md:block">
           <a
             href={`tel:${SITE.phone}`}
-            className="bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            className="bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
           >
             Anrufen
           </a>
@@ -506,7 +506,7 @@ export function SiteHeader() {
               <a
                 href={`tel:${SITE.phone}`}
                 onClick={closeMobile}
-                className="block bg-accent px-3 py-2 text-center text-sm font-semibold text-accent-foreground hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="block bg-accent px-3 py-2 text-center text-sm font-semibold text-accent-foreground hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
               >
                 Anrufen
               </a>

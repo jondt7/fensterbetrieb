@@ -36,20 +36,20 @@ export default function AluminiumFensterPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/kontakt"
-              className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
             >
               Angebot anfordern
             </Link>
             <a
               href={`tel:${SITE.phone}`}
-              className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]"
             >
               Jetzt anrufen
             </a>
           </div>
         </div>
 
-        <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted">
+        <div className="relative aspect-[4/3] w-full overflow-hidden border border-border bg-muted rounded-[8px]">
           <Image
             src="/produkte/fenster-aluminium-1.webp"
             alt="Schüco Aluminium-Fenster – Referenzprojekt mit schlanken Profilansichten"
@@ -63,21 +63,21 @@ export default function AluminiumFensterPage() {
 
       {/* Warum Aluminium? */}
       <section className="mb-12 grid gap-6 md:grid-cols-3">
-        <div className="border border-border bg-background p-6">
+        <div className="border border-border bg-background p-6 rounded-[8px]">
           <h3 className="text-lg font-semibold">Große Formate & Stabilität</h3>
           <p className="mt-2 text-sm text-muted-foreground">
             Hohe Eigensteifigkeit ermöglicht <strong>große Festfelder und Flügel</strong> bei gleichzeitig
             <strong>schmalen Profilansichten</strong> – perfekt für moderne Architektur.
           </p>
         </div>
-        <div className="border border-border bg-background p-6">
+        <div className="border border-border bg-background p-6 rounded-[8px]">
           <h3 className="text-lg font-semibold">Dämmung & Sicherheit</h3>
           <p className="mt-2 text-sm text-muted-foreground">
             Hochwärmegedämmte Systeme mit geprüfter <strong>Einbruchhemmung</strong> (je nach Ausführung); optional
             Smart-Home-fähige Beschläge.
           </p>
         </div>
-        <div className="border border-border bg-background p-6">
+        <div className="border border-border bg-background p-6 rounded-[8px]">
           <h3 className="text-lg font-semibold">Design, Farbe, Langlebigkeit</h3>
           <p className="mt-2 text-sm text-muted-foreground">
             <strong>Große Farb- &amp; Oberflächenvielfalt</strong> (z.&nbsp;B. Feinstruktur, Eloxal),
@@ -92,8 +92,8 @@ export default function AluminiumFensterPage() {
 
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           {/* AWS 75.SI+ */}
-          <Link href="/produkte/fenster/aluminium/aws-75-si-plus" className="group grid grid-cols-[110px_1fr] gap-4 border border-border bg-background p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-            <div className="relative h-[110px] w-[110px] border border-border bg-muted">
+          <Link href="/produkte/fenster/aluminium/aws-75-si-plus" className="group grid grid-cols-[110px_1fr] gap-4 border border-border bg-background p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]">
+            <div className="relative h-[110px] w-[110px] border border-border bg-muted rounded-[8px] overflow-hidden">
               <Image
                 src="/produkte/aws-75-si-plus.webp"
                 alt="Schüco AWS 75.SI+ – 75 mm Bauteiltiefe, hochwärmegedämmt"
@@ -113,8 +113,8 @@ export default function AluminiumFensterPage() {
           </Link>
 
           {/* AWS 90.SI+ */}
-          <Link href="/produkte/fenster/aluminium/aws-90-si-plus" className="group grid grid-cols-[110px_1fr] gap-4 border border-border bg-background p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-            <div className="relative h-[110px] w-[110px] border border-border bg-muted">
+          <Link href="/produkte/fenster/aluminium/aws-90-si-plus" className="group grid grid-cols-[110px_1fr] gap-4 border border-border bg-background p-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-[8px]">
+            <div className="relative h-[110px] w-[110px] border border-border bg-muted rounded-[8px] overflow-hidden">
               <Image
                 src="/produkte/aws-90-si-plus.webp"
                 alt="Schüco AWS 90.SI+ – 90 mm Bauteiltiefe, höchste Dämmung"
@@ -147,7 +147,7 @@ export default function AluminiumFensterPage() {
       </section>
 
       {/* Einsatzbereiche / Für welche Projekte eignet sich Aluminium? */}
-      <section className="mb-12 border border-border bg-background p-6">
+      <section className="mb-12 border border-border bg-background p-6 rounded-[8px]">
         <h2 className="text-xl font-semibold">Für welche Projekte ist Aluminium ideal?</h2>
         <ul className="mt-3 grid gap-2 text-sm text-muted-foreground md:grid-cols-2">
           <li>• Neubau &amp; hochwertige Sanierung mit <strong>großen Fensterformaten</strong></li>
@@ -159,7 +159,7 @@ export default function AluminiumFensterPage() {
       </section>
 
       {/* CTA */}
-      <section className="border border-border bg-background p-8">
+      <section className="border border-border bg-background p-8 rounded-[8px]">
         <h2 className="text-xl font-semibold">Starten wir Ihr Aluminium-Fensterprojekt</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           Beratung, Aufmaß und individuelles Angebot – {SITE.address.city} &amp; Umgebung.
@@ -167,13 +167,13 @@ export default function AluminiumFensterPage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/kontakt"
-            className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark"
+            className="inline-flex items-center bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-primary-dark rounded-[8px]"
           >
             Termin anfragen
           </Link>
           <a
             href={`tel:${SITE.phone}`}
-            className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground"
+            className="inline-flex items-center border border-primary px-5 py-3 text-sm font-semibold text-primary transition hover:bg-primary-light hover:text-primary-foreground rounded-[8px]"
           >
             Telefon {SITE.phone}
           </a>
