@@ -60,10 +60,10 @@ export default function SektionaltorePage() {
             passgenau zu Haus und Nutzung.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/kontakt" className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">
+            <Link href="/kontakt" className="inline-flex items-center rounded-[8px] bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-90">
               Beratung anfragen
             </Link>
-            <Link href="/produkte" className="inline-flex items-center rounded-[8px] border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
+            <Link href="/produkte" className="inline-flex items-center rounded-[8px] border border-accent px-5 py-3 text-sm font-semibold text-accent transition hover:bg-accent hover:text-accent-foreground">
               Weitere Produkte
             </Link>
           </div>
@@ -138,13 +138,13 @@ export default function SektionaltorePage() {
       </section>
 
       {/* CTA */}
-      <section className="rounded-[8px] border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-[8px] border border-accent bg-white p-8 shadow-sm">
         <h2 className="text-lg font-semibold text-brand">Jetzt anfragen</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir empfehlen die passende Modelllinie und konfigurieren Dämmung, Antrieb, Sicherheit und Design für Ihre Garage.
         </p>
         <div className="mt-5">
-          <Link href="/kontakt" className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">
+          <Link href="/kontakt" className="inline-flex items-center rounded-[8px] bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-90">
             Beratung anfragen
           </Link>
         </div>

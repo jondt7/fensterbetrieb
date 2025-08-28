@@ -138,7 +138,7 @@ export default function LamellenPage() {
         <div className="mt-5">
           <Link
             href="/kontakt"
-            className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+            className="inline-flex items-center rounded-[8px] bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-90"
           >
             Beratung anfragen
           </Link>

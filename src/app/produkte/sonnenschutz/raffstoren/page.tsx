@@ -256,7 +256,7 @@ export default function RaffstorenPage() {
             </p>
             <Link
               href="/produkte/sonnenschutz/raffstoren/vorbau"
-              className="mt-4 inline-block bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+              className="mt-4 inline-block bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:opacity-90 rounded-[8px]"
             >
               Mehr zu Vorbauraffstoren
             </Link>
@@ -280,7 +280,7 @@ export default function RaffstorenPage() {
             </p>
             <Link
               href="/produkte/sonnenschutz/raffstoren/aufsatz"
-              className="mt-4 inline-block bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+              className="mt-4 inline-block bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:opacity-90 rounded-[8px]"
             >
               Mehr zu Aufsatzraffstoren
             </Link>
@@ -303,7 +303,7 @@ export default function RaffstorenPage() {
             </p>
             <Link
               href="/produkte/sonnenschutz/raffstoren/modul"
-              className="mt-4 inline-block bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+              className="mt-4 inline-block bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:opacity-90 rounded-[8px]"
             >
               Mehr zu Modulraffstoren
             </Link>
@@ -360,7 +360,7 @@ export default function RaffstorenPage() {
       </section>
 
       {/* CTA */}
-      <section className="border border-brand bg-white p-8 shadow-sm rounded-[8px]">
+      <section className="border border-accent bg-white p-8 shadow-sm rounded-[8px]">
         <h2 className="text-lg font-semibold text-brand">Beratung &amp; Muster ansehen</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Wir zeigen Ihnen Lamellen (CDL, GL, Z), Farben und Kastenlösungen live – und empfehlen das passende System
@@ -369,7 +369,7 @@ export default function RaffstorenPage() {
         <div className="mt-5">
           <Link
             href="/kontakt"
-            className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark rounded-[8px]"
+            className="inline-flex items-center bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-90 rounded-[8px]"
           >
             Beratung anfragen
           </Link>

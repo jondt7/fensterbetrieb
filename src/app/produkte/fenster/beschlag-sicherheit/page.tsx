@@ -165,7 +165,7 @@ export default function BeschlagSicherheitPage() {
           <Link href="/produkte/fenster/verglasung" className="inline-flex items-center rounded-[8px] border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light">
             Verglasung (Sicherheitsglas)
           </Link>
-          <Link href="/kontakt" className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark">
+          <Link href="/kontakt" className="inline-flex items-center rounded-[8px] bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90">
             Beratung anfragen
           </Link>
         </div>

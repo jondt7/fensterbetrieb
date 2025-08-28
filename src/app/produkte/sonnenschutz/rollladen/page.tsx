@@ -362,7 +362,7 @@ export default function RollladenPage() {
             </p>
             <Link
               href="/produkte/sonnenschutz/rollladen/vorbau"
-              className="mt-4 inline-block bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+              className="mt-4 inline-block bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:opacity-90 rounded-[8px]"
             >
               Mehr zu Vorbaurollladen
             </Link>
@@ -386,7 +386,7 @@ export default function RollladenPage() {
             </p>
             <Link
               href="/produkte/sonnenschutz/rollladen/aufsatz"
-              className="mt-4 inline-block bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+              className="mt-4 inline-block bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:opacity-90 rounded-[8px]"
             >
               Mehr zu Aufsatzrollladen
             </Link>
@@ -410,7 +410,7 @@ export default function RollladenPage() {
             </p>
             <Link
               href="/produkte/sonnenschutz/rollladen/aufsatz"
-              className="mt-4 inline-block bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+              className="mt-4 inline-block bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:opacity-90 rounded-[8px]"
             >
               Mehr zu Aufsatzrollladen
             </Link>

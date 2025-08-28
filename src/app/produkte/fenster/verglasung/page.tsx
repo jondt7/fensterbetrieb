@@ -123,12 +123,12 @@ export default function VerglasungPage() {
             Alle Pakete konfigurieren wir objektbezogen – inklusive „Warmer Kante“ im Randverbund.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/kontakt" className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark">
-              Beratung anfragen
-            </Link>
-            <Link href="/produkte/fenster/beschlag-sicherheit" className="inline-flex items-center border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light">
-              Beschlag &amp; Sicherheit
-            </Link>
+          <Link href="/kontakt" className="inline-flex items-center bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-90">
+            Beratung anfragen
+          </Link>
+          <Link href="/produkte/fenster/beschlag-sicherheit" className="inline-flex items-center border border-accent px-5 py-3 text-sm font-semibold text-accent transition hover:bg-accent hover:text-accent-foreground">
+            Beschlag &amp; Sicherheit
+          </Link>
           </div>
         </div>
 
@@ -209,7 +209,7 @@ export default function VerglasungPage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/kontakt"
-            className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark rounded-[8px]"
+            className="inline-flex items-center bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-90 rounded-[8px]"
           >
             Beratung anfragen
           </Link>

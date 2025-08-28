@@ -57,13 +57,13 @@ export default function CityPage({ params }: Params) {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/kontakt"
-            className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
+            className="inline-flex items-center rounded-[8px] bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
           >
             Beratung anfragen
           </Link>
           <a
             href={`tel:${SITE.phone}`}
-            className="inline-flex items-center rounded-[8px] border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light"
+            className="inline-flex items-center rounded-[8px] border border-accent px-5 py-3 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground"
           >
             Telefon {SITE.phone}
           </a>
@@ -135,7 +135,7 @@ export default function CityPage({ params }: Params) {
           </Link>
           <Link
             href="/produkte"
-            className="inline-flex items-center rounded-[8px] border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light"
+            className="inline-flex items-center rounded-[8px] border border-accent px-5 py-3 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground"
           >
             Produkte ansehen
           </Link>

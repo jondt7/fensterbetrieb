@@ -459,7 +459,7 @@ export function SiteHeader() {
                           type="button"
                           onClick={() => goDeeper(it)}
                           aria-label={`${it.label} Untermenü öffnen`}
-                          className="px-2 py-3 hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                          className="px-2 py-3 hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring text-accent"
                         >
                           <IconChevronRight />
                         </button>
@@ -475,7 +475,7 @@ export function SiteHeader() {
                       <button
                         type="button"
                         onClick={() => goDeeper(it)}
-                        className="flex w-full items-center justify-between px-2 py-3 text-sm hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                        className="flex w-full items-center justify-between px-2 py-3 text-sm hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring text-accent"
                         aria-haspopup="true"
                         aria-label={`${it.label} öffnen`}
                       >

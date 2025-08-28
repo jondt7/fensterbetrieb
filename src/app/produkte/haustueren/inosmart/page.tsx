@@ -39,13 +39,13 @@ export default function InoSmartPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/kontakt"
-              className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark"
+              className="inline-flex items-center rounded-[8px] bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground shadow-sm transition hover:opacity-90"
             >
               Beratung anfragen
             </Link>
             <a
               href="tel:+490000000000"
-              className="inline-flex items-center rounded-[8px] border border-brand-dark bg-white px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+              className="inline-flex items-center rounded-[8px] border border-accent bg-white px-5 py-3 text-sm font-semibold text-accent transition hover:bg-accent hover:text-accent-foreground"
             >
               Telefon +49 000 0000000
             </a>
@@ -118,7 +118,7 @@ export default function InoSmartPage() {
       </section>
 
       {/* CTA */}
-      <section className="rounded-[8px] border border-brand bg-white p-8 shadow-sm">
+      <section className="rounded-[8px] border border-accent bg-white p-8 shadow-sm">
         <h2 className="text-xl font-semibold text-brand">Jetzt InoSmart erleben</h2>
         <p className="mt-2 text-sm text-zinc-600">
           Vereinbaren Sie einen Termin zur Live-Demo oder lassen Sie sich ein
@@ -127,13 +127,13 @@ export default function InoSmartPage() {
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
             href="/kontakt"
-            className="inline-flex items-center rounded-[8px] bg-brand px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark"
+            className="inline-flex items-center rounded-[8px] bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground shadow-sm transition hover:opacity-90"
           >
             Termin anfragen
           </Link>
           <a
             href="tel:+490000000000"
-            className="inline-flex items-center rounded-[8px] border border-brand-dark bg-white px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light"
+            className="inline-flex items-center rounded-[8px] border border-accent bg-white px-5 py-3 text-sm font-semibold text-accent transition hover:bg-accent hover:text-accent-foreground"
           >
             Telefon +49 000 0000000
           </a>

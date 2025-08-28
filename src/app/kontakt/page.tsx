@@ -112,10 +112,10 @@ export default function KontaktPage() {
             Ob Beratung zu Fenstern, Haustüren, Rollläden/Raffstoren (ROMA) oder Service – wählen Sie Ihr Anliegen, wir melden uns zeitnah.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <a href={`tel:${SITE.phone}`} className="inline-flex items-center border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark hover:bg-brand-light rounded-[8px]">
+            <a href={`tel:${SITE.phone}`} className="inline-flex items-center border border-accent px-5 py-3 text-sm font-semibold text-accent hover:bg-accent hover:text-accent-foreground rounded-[8px]">
               Telefon: {SITE.phone}
             </a>
-            <a href={`mailto:${SITE.email}`} className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark rounded-[8px]">
+            <a href={`mailto:${SITE.email}`} className="inline-flex items-center bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90 rounded-[8px]">
               E-Mail: {SITE.email}
             </a>
           </div>
@@ -308,7 +308,7 @@ export default function KontaktPage() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark disabled:opacity-60 rounded-[8px]"
+                  className="w-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-90 disabled:opacity-60 rounded-[8px]"
                   aria-busy={loading}
                 >
                   {loading ? "Wird gesendet …" : "Anfrage absenden"}

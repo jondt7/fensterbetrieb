@@ -63,16 +63,16 @@ export default function SonnenschutzOverviewPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/kontakt"
-              className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark rounded-[8px]"
+              className="inline-flex items-center bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-90 rounded-[8px]"
             >
               Beratung anfragen
             </Link>
-            <Link
-              href="/produkte/sonnenschutz/rollladen"
-              className="inline-flex items-center border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light rounded-[8px]"
-            >
-              Zu Rollladen
-            </Link>
+          <Link
+            href="/produkte/sonnenschutz/rollladen"
+            className="inline-flex items-center border border-accent px-5 py-3 text-sm font-semibold text-accent transition hover:bg-accent hover:text-accent-foreground rounded-[8px]"
+          >
+            Zu Rollladen
+          </Link>
           </div>
         </div>
 
@@ -149,19 +149,19 @@ export default function SonnenschutzOverviewPage() {
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
             href="/produkte/sonnenschutz/rollladen"
-            className="inline-flex items-center bg-brand px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark rounded-[8px]"
+            className="inline-flex items-center bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground transition hover:opacity-90 rounded-[8px]"
           >
             Rollladen ansehen
           </Link>
           <Link
             href="/produkte/sonnenschutz/raffstoren"
-            className="inline-flex items-center border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light rounded-[8px]"
+            className="inline-flex items-center border border-accent px-5 py-3 text-sm font-semibold text-accent transition hover:bg-accent hover:text-accent-foreground rounded-[8px]"
           >
             Raffstoren ansehen
           </Link>
           <Link
             href="/produkte/sonnenschutz/textilscreens"
-            className="inline-flex items-center border border-brand-dark px-5 py-3 text-sm font-semibold text-brand-dark transition hover:bg-brand-light rounded-[8px]"
+            className="inline-flex items-center border border-accent px-5 py-3 text-sm font-semibold text-accent transition hover:bg-accent hover:text-accent-foreground rounded-[8px]"
           >
             Textilscreens ansehen
           </Link>
